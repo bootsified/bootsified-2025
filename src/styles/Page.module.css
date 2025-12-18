@@ -1,0 +1,45 @@
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width-md);
+  padding-bottom: 4rem;
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+  padding-top: 2rem;
+
+  @media screen and (min-width: 740px) {
+    padding-top: 4rem;
+  }
+}
+
+.narrow {
+	max-width: var(--container-width-sm);
+}
+
+.divider {
+  margin-bottom: 3rem;
+  margin-top: 4rem;
+}
+
+.section {
+	border-top: 1px solid var(--border-color);
+	padding-top: 2em;
+	margin-top: 2em;
+}
+
+.tableWrapper {
+	overflow-x: auto;
+}
+
+.table {
+	border-collapse: collapse;
+	font-size: 0.875rem;
+	margin-top: 1rem;
+	width: 100%;
+
+	th, td {
+		border: 1px solid var(--border-color);
+		padding: 0.5rem;
+		text-align: left;
+	}
+}
+

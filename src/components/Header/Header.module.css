@@ -1,0 +1,37 @@
+.wrapper {
+	padding-bottom: 2em;
+	padding-top: 2em;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: var(--container-width-sm);
+	margin: 0 auto;
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+	
+	&::before {
+		content: ' ';
+		display: block;
+		flex: 0 1 33.3%;
+	}
+}
+
+.branding {
+	display: block;
+	flex: 0 1 33.3%;
+	max-width: 10em;
+	
+	svg {
+		display: block;
+	}
+}
+
+.hamburgerWrapper {
+	flex: 0 1 33.3%;
+	display: flex;
+	justify-content: flex-end;
+}

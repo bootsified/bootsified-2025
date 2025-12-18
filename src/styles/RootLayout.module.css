@@ -1,0 +1,28 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: block;
+  position: relative;
+  z-index: 4;
+}
+
+.nav {
+  /* position: relative; */
+  z-index: 3;
+}
+
+.main {
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}

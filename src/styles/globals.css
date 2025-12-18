@@ -1,0 +1,236 @@
+@import url("./reset.css");
+@import url("./viewports.css");
+@import url("./variables.css");
+
+::selection {
+  background-color: var(--color-pri);
+  color: #fff;
+}
+
+html,
+body {
+  min-height: 100vh;
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0ms !important;
+    }
+  }
+}
+
+html {
+  height: auto;
+  scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--header-height) + 1rem);
+
+	&.nav-open {
+		overflow-y: scroll !important;
+    position: fixed !important;
+    width: 100% !important;
+	}
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-base);
+  font-size: 16px;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-oct);
+  font-family: var(--font-heading);
+  font-weight: 300;
+	line-height: 1.3;
+  margin: 0 0 1em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--color-sec);
+  transition: all var(--hover-duration) ease;
+
+  &:has(span) {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+	@nest [data-whatintent="mouse"] &:hover {
+		text-decoration: none;
+	}
+}
+
+a:focus,
+button:focus {
+  outline: none;
+
+  @nest [data-whatintent="keyboard"] & {
+    outline: 2px dotted;
+    outline-offset: 2px;
+  }
+}
+
+button:focus {
+  @nest [data-whatintent="keyboard"] & {
+    outline-color: var(--gray-10);
+  }
+}
+
+code {
+  /* background-color: #fff; */
+  border: 1px solid var(--border-color);
+  border-radius: 0.3em;
+  color: var(--color-pri);
+  font-size: 0.875em;
+  padding: 0.1em 0.2em;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  height: 0;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+svg {
+	overflow: visible;
+}
+
+.srOnly {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &:focus {
+    clip: auto;
+    height: auto;
+    left: 0.5rem;
+    overflow: visible;
+    position: fixed;
+    top: 0.5rem;
+    width: auto;
+    z-index: 9999;
+    background-color: var(--color-pri);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.toolTip {
+  border-bottom: 2px dotted var(--color-pri);
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.3;
+  position: relative;
+
+  &::after {
+    background-color: var(--gray-10);
+    border-radius: 4px;
+    bottom: 100%;
+    box-shadow: 2px 2px 8px #0006;
+    color: var(--text-reverse);
+    content: attr(data-tooltip);
+    font-size: 0.75em;
+    left: 50%;
+    line-height: 1.2;
+    min-width: 8em;
+    opacity: 0;
+    padding: 0.5em 0.75em;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, 10%);
+    transition: all var(--hover-duration) ease;
+  }
+
+  @nest [data-whatintent="mouse"] &:hover, &:focus {
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @nest [data-whatintent="keyboard"] &:focus {
+    outline: 2px dotted;
+    outline-offset: 2px;
+  }
+}
+
+main {
+	transition-property: opacity, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+	
+	@nest .transition & {
+		opacity: 0;
+		filter: blur(2px);
+	}
+}
+
+.hamburger-box {
+	margin-top: 10px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+	background-color: #000 !important;
+	height: 4px !important;
+}
+
+.vignette {
+	box-shadow: inset 0 0 35vw 0px #0009; 
+	height: 125vh;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.gradient {
+	background-image: linear-gradient(#f83600, #facc22);
+	height: 100vh;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}

@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width-md);
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+
+	h2[data-type="pageTitle"] {
+		font-size: clamp(1.375em, 4vw, 2em);
+	}
+}
+
+.narrow {
+	max-width: var(--container-width-sm);
+}

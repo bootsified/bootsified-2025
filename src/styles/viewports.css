@@ -1,0 +1,21 @@
+/* viewports */
+@custom-media --viewport-2xs (min-width: 375px);
+@custom-media --viewport-xs (min-width: 400px);
+@custom-media --viewport-sm (min-width: 640px);
+@custom-media --viewport-md (min-width: 768px);
+@custom-media --viewport-md-max (max-width: 768px);
+@custom-media --viewport-lg (min-width: 1024px);
+@custom-media --viewport-xl (min-width: 1440px);
+@custom-media --viewport-2xl (min-width: 1536px);
+@custom-media --viewport-3xl (min-width: 1880px);
+
+@custom-media --main-nav-breakpoint (min-width: 840px);
+@custom-media --main-nav-breakpoint-max (max-width: 839px);
+
+@custom-media --cart-breakpoint (min-width: 640px);
+
+@custom-media --collection-breakpoint (min-width: 768px);
+@custom-media --collection-breakpoint-max (max-width: 767px);
+
+@custom-media --pdp-breakpoint (min-width: 768px);
+@custom-media --pdp-breakpoint-max (max-width: 767px);

@@ -1,0 +1,82 @@
+.wrapper {
+
+	display: block;
+	height: calc(100vh - var(--header-height));
+	left: 0;
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+
+	@nest [aria-expanded="true"] + & {
+		pointer-events: auto;
+	}
+
+	@nest [aria-expanded="true"] + & > ul {
+		transform: translateX(0);
+		transition: transform 500ms var(--ease-out-circ);
+	}
+  @media screen and (min-width: 740px) {
+    font-size: 1.25rem;
+  }
+}
+
+.list {
+
+	background-color: var(--color-pri);
+	bottom: 0;
+	display: block;
+	font-size: 2em;
+	left: 0;
+	padding-top: 1em;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: transform 200ms var(--ease-in-circ);
+	transform: translateX(100%);
+}
+
+.item {
+  list-style: none;
+
+  & a {
+		color: #FFF;
+		display: block;
+    font-weight: 100;
+		letter-spacing: 0.05em;
+		padding: 0.3em 0.5em 0.2em 0.5em;
+    text-decoration: none;
+		transition: all 200ms ease;
+		text-transform: uppercase;
+		
+		@media screen and ( max-width: 659px ) {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		@nest [data-whatintent="mouse"] &:hover {
+			/* background-color: var(--color-pri); */
+			color: var(--color-ter);
+		}
+
+    @nest [data-whatintent="keyboard"] &:focus {
+      outline-offset: -4px;
+    }
+  }
+}
+
+.isActive {
+	pointer-events: none;
+
+	&::after {
+		color: var(--color-sen);
+		content: '\002A';
+		display: inline-block;
+		font-family: var(--font-heading);
+		font-size: 1.4em;
+		line-height: 0.5;
+		margin-left: 0.2em;
+		vertical-align: text-bottom;
+	}
+}

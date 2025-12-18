@@ -1,0 +1,46 @@
+.richText {
+  @media screen and (min-width: 760px) {
+    font-size: 1.125em;
+  }
+
+  & > *:not(div):not(a):not(br),
+	> div *:not(div):not(a):not(br) {
+    margin-bottom: 0;
+  }
+
+  & > * + *:not(div):not(a):not(br),
+	> div * + *:not(div):not(a):not(br) {
+    margin-top: 1.25em;
+  }
+
+	& h1 {
+		font-weight: 500;
+	}
+
+  & h2 {
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  & a:not(:has(span)) {
+    outline: 2px solid transparent;
+
+    @nest [data-whatintent="mouse"] &:hover {
+      background-color: var(--color-sec);
+      color: #fff;
+      /* outline-color: var(--color-pri); */
+    }
+  }
+
+  & em {
+    font-style: oblique;
+  }
+
+  & ul {
+    padding-left: 1.5em;
+
+    & li {
+      margin-bottom: 0.5em;
+    }
+  }
+}
