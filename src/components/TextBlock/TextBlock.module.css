@@ -24,6 +24,31 @@
 	label {
 		transition: color 1000ms ease;
 	}
+
+	a {
+		background-color: var(--text);
+		color: var(--text-reverse);
+		padding-left: 0.3em;
+		padding-right: 0.3em;
+
+		&:has(span) {
+			display: inline-block;
+			text-decoration: none;
+		}
+
+		@nest [data-whatintent="mouse"] &:hover {
+			text-decoration: none;
+		}
+	}
+
+	a:focus {
+		outline: none;
+
+		@nest [data-whatintent="keyboard"] & {
+			outline-offset: 1px;
+  		outline: 3px dotted var(--text);
+		}
+	}
 }
 
 .narrow {

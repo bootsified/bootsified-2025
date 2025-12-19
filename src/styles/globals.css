@@ -59,18 +59,7 @@ p {
 }
 
 a {
-	background-color: var(--text);
-  color: var(--text-reverse);
-  /* transition: all var(--hover-duration) ease; */
-
-  &:has(span) {
-    display: inline-block;
-    text-decoration: none;
-  }
-
-	@nest [data-whatintent="mouse"] &:hover {
-		text-decoration: none;
-	}
+	
 }
 
 a:focus,
