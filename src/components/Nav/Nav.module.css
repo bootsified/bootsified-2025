@@ -8,17 +8,26 @@
 	top: 0;
 	width: 100vw;
 
-	@nest [aria-expanded="true"] + & {
+	@nest [class="nav-open"] & {
 		pointer-events: auto;
 	}
 
-	@nest [aria-expanded="true"] + & > ul {
+	@nest [class="nav-open"] & > ul {
 		transform: translateX(0);
 		transition: transform 500ms var(--ease-out-circ);
 	}
   @media screen and (min-width: 740px) {
     font-size: 1.25rem;
   }
+}
+
+.navOpen {
+	pointer-events: auto;
+
+	& > ul {
+		transform: translateX(0);
+		transition: transform 500ms var(--ease-out-circ);
+	}
 }
 
 .list {
