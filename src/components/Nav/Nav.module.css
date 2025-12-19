@@ -1,13 +1,12 @@
 .wrapper {
-
 	display: block;
-	height: calc(100vh - var(--header-height));
+	height: 100vh;
 	left: 0;
 	overflow: hidden;
 	pointer-events: none;
 	position: absolute;
-	top: 100%;
-	width: 100%;
+	top: 0;
+	width: 100vw;
 
 	@nest [aria-expanded="true"] + & {
 		pointer-events: auto;

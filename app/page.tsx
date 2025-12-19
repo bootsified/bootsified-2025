@@ -1,4 +1,3 @@
-import HomeBuckets from '@/components/HomeBuckets'
 import TextBlock from '@/components/TextBlock'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION } from '@/utils/constants'
 import Schema from '@/components/Schema'
@@ -59,11 +58,6 @@ const HomePage = () => {
 			<p>I work with teens, adults, and seniors who look &ldquo;high-functioning&rdquo; but feel secretly overwhelmed. The over-functioners. The people everyone leans on. The ones who are starting to realize their brain works differently, or that the faith, family, or life they built doesn&rsquo;t fit anymore.</p>
 				<p>Therapy here isn&rsquo;t about &ldquo;fixing&rdquo; you. It&rsquo;s about making sense of your story, quieting the noise, and finally feeling more at home in yourself.</p>
 			</TextBlock>
-			<Divider />
-			<TextBlock padBottom='2em' padTop='1em'>
-				<h2>What I specialize in</h2>
-      </TextBlock>
-			{/* <HomeBuckets /> */}
 		</>
   )
 }

@@ -5,7 +5,6 @@ import Hamburger from '../Hamburger'
 // import { CONTACT_PHONE, CONTACT_PHONE_URL, CONTACT_EMAIL } from '@/utils/constants'
 
 import styles from './Header.module.css'
-import Nav from '@components/Nav'
 
 type HeaderProps = {
   className?: string
@@ -24,7 +23,6 @@ const Header = ({ className = '' }: HeaderProps) => {
 				<div className={styles.hamburgerWrapper}>
 					<Hamburger />
 				</div>
-				<Nav className={styles.nav} />
       </div>
     </header>
   )

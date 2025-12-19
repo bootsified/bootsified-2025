@@ -6,10 +6,10 @@ import * as constants from '@/utils/constants'
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { UIProvider } from '@/context/UIContext'
-import CTA from "@/components/CTA";
 import Schema from '@/components/Schema'
 import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
 import { Source_Sans_3, Quattrocento } from 'next/font/google'
+import Nav from '@components/Nav'
 
 export const sourceSans3 = Source_Sans_3({
 	weight: ['400', '700'],
@@ -192,6 +192,7 @@ export default async function RootLayout({
 					<div className="gradient"></div>
 					<div className="vignette"></div>
           <Header />
+					<Nav className={styles.nav} />
           <main id="main-content" className={styles.main}>{children}</main>
           <Footer className={styles.footer} />
           <KonamiEasterEggWrapper />
