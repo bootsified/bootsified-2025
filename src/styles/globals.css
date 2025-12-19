@@ -25,7 +25,7 @@ body {
 html {
   height: auto;
   scroll-behavior: smooth;
-	scroll-padding-top: calc(var(--header-height) + 1rem);
+	/* scroll-padding-top: calc(var(--header-height) + 1rem); */
 
 	&.nav-open {
 		overflow-y: scroll !important;
@@ -35,15 +35,11 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: #000;
   color: var(--text);
   font-family: var(--font-base);
   font-size: 16px;
   height: 100%;
-
-	* {
-		transition: color 1000ms ease, fill 1000ms ease;
-	}
 }
 
 h1,
@@ -232,7 +228,7 @@ main {
 
 body[data-current-page="home"] {
   --text: #000;
-	--text-reverse: #fff;
+	--text-reverse: #facc22;
 	--text-footer: #facc22;
 }
 

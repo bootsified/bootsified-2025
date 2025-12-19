@@ -1,6 +1,8 @@
 import TextBlock from '@/components/TextBlock'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION } from '@/utils/constants'
 import Schema from '@/components/Schema'
+import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
+import Link from 'next/link'
 
 export const metadata = {
   title: SEO_DEFAULT_TITLE,
@@ -49,7 +51,12 @@ const HomePage = () => {
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<TextBlock padBottom='1em' narrow>
         <h2 data-type="pageTitle">Hello!</h2>
-				<p>My name is John Highland, but most people know me as “Boots” — long story. I currently live in the Seattle area, with my very loving and understanding wife and two whacky sons. For 25 years, I’ve been developing websites, but my first passion was playing bass guitar (2023 marks 40 years). Welcome to my home. Take a look around... make yourself comfy. Let me know if you need anything.</p>
+				<p>My name is John Highland, but most people know me as{' '}
+            <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle
+            area, with my very loving and understanding wife and two whacky sons. For {spanWeb()}{' '}
+            years, I’ve been developing websites, but my first passion was playing bass guitar (
+            {thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make
+            yourself comfy. <Link href="/contact">Let me know</Link> if you need anything.</p>
 			</TextBlock>
 		</>
   )

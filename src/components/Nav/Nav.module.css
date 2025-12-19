@@ -1,72 +1,86 @@
 .wrapper {
 	display: block;
-	height: 100vh;
+	height: 0vh;
 	left: 0;
 	overflow: hidden;
 	pointer-events: none;
 	position: absolute;
 	top: 0;
+	transition: height 500ms var(--ease-out-circ);
 	width: 100vw;
 
-	@nest [class="nav-open"] & {
-		pointer-events: auto;
-	}
-
-	@nest [class="nav-open"] & > ul {
-		transform: translateX(0);
-		transition: transform 500ms var(--ease-out-circ);
-	}
   @media screen and (min-width: 740px) {
     font-size: 1.25rem;
   }
 }
 
 .navOpen {
+	height: 100vh;
 	pointer-events: auto;
+}
 
-	& > ul {
-		transform: translateX(0);
-		transition: transform 500ms var(--ease-out-circ);
-	}
+.toggleButton {
+	background: none;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 10vmin;
+	line-height: 1;
+	padding: 0.5em 1em;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
 }
 
 .list {
-
 	background-color: #000;
+	background-image: url('/images/menu-bg.png');
+	background-position: 1vw 1vh;
+	background-repeat: no-repeat;
+	background-size: auto 50vh;
 	bottom: 0;
 	display: block;
-	font-size: 2em;
+	font-size: 9vmin;
 	left: 0;
 	padding-top: 1em;
 	position: absolute;
 	right: 0;
 	top: 0;
-	transition: transform 200ms var(--ease-in-circ);
-	transform: translateX(100%);
+	/* transition: transform 200ms var(--ease-in-circ);
+	transform: translateX(100%); */
+
+	@media screen and (orientation: portrait) {
+		background-position: center calc(100vh - 24rem);
+		background-size: 24rem auto;
+	}
 }
 
 .item {
   list-style: none;
+	width: max-content;
+	margin: 0 auto;
 
   & a {
 		background: none !important;
 		color: #FFF;
 		display: block;
-    font-weight: 100;
+		font-family: var(--font-heading);
+    font-weight: 700;
 		letter-spacing: 0.05em;
 		padding: 0.3em 0.5em 0.2em 0.5em;
     text-decoration: none;
 		transition: all 200ms ease;
 		text-transform: uppercase;
 		
-		@media screen and ( max-width: 659px ) {
+		/* @media screen and ( max-width: 659px ) {
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-		}
+		} */
 
 		@nest [data-whatintent="mouse"] &:hover {
 			/* background-color: var(--color-pri); */
-			color: var(--color-ter);
+			color: var(--color-pri);
 		}
 
     @nest [data-whatintent="keyboard"] &:focus {
@@ -78,14 +92,15 @@
 .isActive {
 	pointer-events: none;
 
-	&::after {
+	&::after,
+	&::before {
 		color: var(--color-sen);
 		content: '\002A';
 		display: inline-block;
 		font-family: var(--font-heading);
 		font-size: 1.4em;
+		font-weight: 400;
 		line-height: 0.5;
-		margin-left: 0.2em;
 		vertical-align: text-bottom;
 	}
 }

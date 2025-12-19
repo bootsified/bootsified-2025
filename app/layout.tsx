@@ -8,17 +8,17 @@ import Header from "@/components/Header";
 import { UIProvider } from '@/context/UIContext'
 import Schema from '@/components/Schema'
 import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
-import { Source_Sans_3, Quattrocento } from 'next/font/google'
+import { PT_Serif, Amatic_SC } from 'next/font/google'
 import Nav from '@components/Nav'
 import Gradient from "@/components/Gradient";
 
-export const sourceSans3 = Source_Sans_3({
+export const ptSerif = PT_Serif({
 	weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
 })
  
-export const quattrocento = Quattrocento({
+export const amaticSC = Amatic_SC({
 	weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
@@ -82,7 +82,7 @@ export default async function RootLayout({
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
   
   return (
-    <html lang="en" className={sourceSans3.className}>
+    <html lang="en" className={ptSerif.className}>
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)" />
@@ -107,10 +107,10 @@ export default async function RootLayout({
 				<style>
 					{`
 						:root {
-							--font-source-sans-3: ${sourceSans3.style.fontFamily};
-							--font-quattrocento: ${quattrocento.style.fontFamily};
-							--font-base: var(--font-source-sans-3);
-							--font-heading: var(--font-quattrocento);
+							--font-pt-serif: ${ptSerif.style.fontFamily};
+							--font-amatic-sc: ${amaticSC.style.fontFamily};
+							--font-base: var(--font-pt-serif);
+							--font-heading: var(--font-amatic-sc);
 						}
 					`}
 				</style>

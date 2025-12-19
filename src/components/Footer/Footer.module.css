@@ -32,9 +32,10 @@
 
 	svg {
 		display: block;
-		fill: currentColor;
+		fill: var(--text-footer);
 		height: auto;
 		overflow: visible;
+		transition: fill 1000ms ease;
 		width: 8em;
 	}
 }
@@ -44,6 +45,10 @@
 	font-size: 0.875em;
 	line-height: 1;
 	margin: 0;
+}
+
+.made {
+	transition: color 1000ms ease;
 }
 
 .heart {

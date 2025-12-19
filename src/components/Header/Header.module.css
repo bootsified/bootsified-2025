@@ -31,7 +31,8 @@
 	
 	svg {
 		display: block;
-		fill: currentColor;
+		fill: var(--text);
+		transition: fill 1000ms ease;
 	}
 }
 
