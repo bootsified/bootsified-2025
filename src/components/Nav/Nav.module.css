@@ -6,7 +6,7 @@
 	pointer-events: none;
 	position: absolute;
 	top: 0;
-	transition: height 500ms var(--ease-out-circ);
+	transition: height 500ms var(--ease-in-out-circ);
 	width: 100vw;
 
   @media screen and (min-width: 740px) {
@@ -80,7 +80,7 @@
 
 		@nest [data-whatintent="mouse"] &:hover {
 			/* background-color: var(--color-pri); */
-			color: var(--color-pri);
+			color: var(--color-ter);
 		}
 
     @nest [data-whatintent="keyboard"] &:focus {
@@ -94,7 +94,7 @@
 
 	&::after,
 	&::before {
-		color: var(--color-sen);
+		color: var(--color-ter);
 		content: '\002A';
 		display: inline-block;
 		font-family: var(--font-heading);
