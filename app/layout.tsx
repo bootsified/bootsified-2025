@@ -10,6 +10,7 @@ import Schema from '@/components/Schema'
 import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
 import { Source_Sans_3, Quattrocento } from 'next/font/google'
 import Nav from '@components/Nav'
+import Gradient from "@/components/Gradient";
 
 export const sourceSans3 = Source_Sans_3({
 	weight: ['400', '700'],
@@ -189,7 +190,7 @@ export default async function RootLayout({
               }
             ]}
           /> */}
-					<div className="gradient"></div>
+					<Gradient />
 					<div className="vignette"></div>
           <Header />
 					<Nav className={styles.nav} />

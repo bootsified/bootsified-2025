@@ -23,7 +23,7 @@
 
 .list {
 
-	background-color: var(--color-pri);
+	background-color: #000;
 	bottom: 0;
 	display: block;
 	font-size: 2em;

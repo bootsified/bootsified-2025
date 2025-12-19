@@ -16,7 +16,7 @@
 
 .bottom {
 	background-color: #000;
-	color: #facc22;
+	color: var(--text-footer);
 	padding-bottom: 1em;
 	position: relative;
 }

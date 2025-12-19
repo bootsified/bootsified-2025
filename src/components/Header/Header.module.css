@@ -24,9 +24,14 @@
 	display: block;
 	flex: 0 1 33.3%;
 	max-width: 10em;
+
+	a {
+		color: inherit;
+	}
 	
 	svg {
 		display: block;
+		fill: currentColor;
 	}
 }
 

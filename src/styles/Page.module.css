@@ -21,7 +21,7 @@
 }
 
 .section {
-	border-top: 1px solid var(--border-color);
+	border-top: 1px solid var(--text);
 	padding-top: 2em;
 	margin-top: 2em;
 }
@@ -37,7 +37,7 @@
 	width: 100%;
 
 	th, td {
-		border: 1px solid var(--border-color);
+		border: 1px solid var(--text);
 		padding: 0.5rem;
 		text-align: left;
 	}
