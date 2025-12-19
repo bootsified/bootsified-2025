@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useContext, useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useKonamiCode } from '@/hooks/useKonamiCode'
 
 type UIContextInterface = {
@@ -9,6 +10,7 @@ type UIContextInterface = {
   navOpen: boolean
   setNavOpen: (open: boolean) => void
   toggleNav: () => void
+  pageHandle: string
   konamiCode: {
     isActivated: boolean
     progress: number
@@ -24,9 +26,21 @@ type UIProviderProps = {
 
 export const UIContext = React.createContext<UIContextInterface | null>(null)
 
+const formatPageHandle = (pathname: string | null): string => {
+  if (!pathname || pathname === '/') return 'home'
+
+  return pathname
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\//g, '-')
+    .replace(/[^a-z0-9-_]/gi, '')
+    .toLowerCase() || 'home'
+}
+
 export const UIProvider = ({ children }: UIProviderProps) => {
   const [isNavigating, setIsNavigating] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
+  const pathname = usePathname()
+  const pageHandle = formatPageHandle(pathname)
   const konamiCode = useKonamiCode()
 
   const toggleNav = () => setNavOpen((v) => !v)
@@ -45,6 +59,18 @@ export const UIProvider = ({ children }: UIProviderProps) => {
     }
   }, [navOpen])
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+
+    const body = document.body
+
+    body.dataset.currentPage = pageHandle
+
+    return () => {
+      delete body.dataset.currentPage
+    }
+  }, [pageHandle])
+
   return (
     <UIContext.Provider
       value={{
@@ -53,6 +79,7 @@ export const UIProvider = ({ children }: UIProviderProps) => {
         navOpen,
         setNavOpen,
         toggleNav,
+        pageHandle,
         konamiCode,
       }}
     >

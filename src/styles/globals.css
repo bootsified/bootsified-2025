@@ -40,6 +40,10 @@ body {
   font-family: var(--font-base);
   font-size: 16px;
   height: 100%;
+
+	* {
+		transition: color 1000ms ease, fill 1000ms ease;
+	}
 }
 
 h1,
@@ -59,7 +63,8 @@ p {
 }
 
 a {
-  color: var(--color-sec);
+	background-color: var(--text);
+  color: var(--text-reverse);
   transition: all var(--hover-duration) ease;
 
   &:has(span) {
@@ -223,4 +228,28 @@ main {
 	top: 0;
 	width: 100%;
 	z-index: -1;
+}
+
+body[data-current-page="home"] {
+  --text: #000;
+	--text-reverse: #fff;
+	--text-footer: #facc22;
+}
+
+body[data-current-page="about"] {
+  --text: #FFF;
+	--text-reverse: #000;
+	--text-footer: #FFF;
+}
+
+body[data-current-page="work"] {
+  --text: #000;
+	--text-reverse: #FFF;
+	--text-footer: #FFF;
+}
+
+body[data-current-page="contact"] {
+  --text: #FFF;
+	--text-reverse: #000;
+	--text-footer: #FFF;
 }

@@ -49,6 +49,7 @@
   list-style: none;
 
   & a {
+		background: none !important;
 		color: #FFF;
 		display: block;
     font-weight: 100;

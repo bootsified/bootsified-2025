@@ -3,7 +3,6 @@
   /* text colors */
   --text: #000;
 	--text-reverse: #fff;
-	--text-footer: #666666;
 
 	/* color palette */
 	--color-pri: #0070f3;
@@ -16,6 +15,8 @@
 
 	/* footer text color */
 	--text-footer: #facc22;
+
+	--hover-duration: 200ms;
 
   /* container */
   --container-side-padding: 1rem;
