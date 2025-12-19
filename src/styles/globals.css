@@ -65,7 +65,7 @@ p {
 a {
 	background-color: var(--text);
   color: var(--text-reverse);
-  transition: all var(--hover-duration) ease;
+  /* transition: all var(--hover-duration) ease; */
 
   &:has(span) {
     display: inline-block;
