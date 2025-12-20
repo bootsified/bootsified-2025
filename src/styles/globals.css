@@ -232,7 +232,7 @@ main {
 
 body[data-current-page="home"] {
   --text: #000;
-	--text-reverse: #facc22;
+	--text-reverse: #FA8C29;
 	--text-footer: #facc22;
 }
 

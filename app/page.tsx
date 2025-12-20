@@ -4,6 +4,7 @@ import Schema from '@/components/Schema'
 import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Link from 'next/link'
 import Definition from '@/components/Definition'
+import Intro from '@/components/Intro'
 
 export const metadata = {
   title: SEO_DEFAULT_TITLE,
@@ -51,15 +52,7 @@ const HomePage = () => {
 			/> */}
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<Definition />
-			<TextBlock padBottom='1em' padTop='3em' narrow>
-        <h2>Hello!</h2>
-				<p>My name is John Highland, but most people know me as{' '}
-            <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle
-            area, with my very loving and understanding wife and two whacky sons. For {spanWeb()}{' '}
-            years, I’ve been developing websites, but my first passion was playing bass guitar (
-            {thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make
-            yourself comfy. <Link href="/contact">Let me know</Link> if you need anything.</p>
-			</TextBlock>
+			<Intro />
 		</>
   )
 }
