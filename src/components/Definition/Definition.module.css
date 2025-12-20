@@ -1,8 +1,14 @@
 .wrapper {
-	font-size: 1.5em;
+	font-size: clamp(1.25em, 2vw, 1.5em);
 	margin: 0 auto;
 	max-width: var(--container-width-sm);
 	padding: 0 var(--container-side-padding);
+
+	h2,
+	p,
+	li {
+		transition: color 1000ms ease;
+	}
 
 	h2 {
 		font-family: var(--font-base);
