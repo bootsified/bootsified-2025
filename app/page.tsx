@@ -3,6 +3,7 @@ import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION } from '@/u
 import Schema from '@/components/Schema'
 import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Link from 'next/link'
+import Definition from '@/components/Definition'
 
 export const metadata = {
   title: SEO_DEFAULT_TITLE,
@@ -49,8 +50,9 @@ const HomePage = () => {
 				]}
 			/> */}
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
-			<TextBlock padBottom='1em' narrow>
-        <h2 data-type="pageTitle">Hello!</h2>
+			<Definition />
+			<TextBlock padBottom='1em' padTop='3em' narrow>
+        <h2>Hello!</h2>
 				<p>My name is John Highland, but most people know me as{' '}
             <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle
             area, with my very loving and understanding wife and two whacky sons. For {spanWeb()}{' '}

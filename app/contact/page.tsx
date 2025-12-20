@@ -55,7 +55,7 @@ const ContactPage = () => {
 				}}
 			/> */}
 			<h1 className='srOnly'>Contact Me</h1>
-			<TextBlock padBottom='1em' narrow>
+			<TextBlock padBottom='1em' padTop='0em' narrow>
 				<h1>Let me hear from you...</h1>
 				<p>
           My name is <strong>John Highland</strong>, but most people call me{' '}

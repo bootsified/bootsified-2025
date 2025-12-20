@@ -56,7 +56,7 @@ const AboutPage = () => {
 				}}
 			/> */}
 			<h1 className='srOnly'>About Me</h1>
-			<TextBlock padBottom='1em' narrow>
+			<TextBlock padBottom='1em' padTop='0em' narrow>
 				<h1>A little about me...</h1>
 				<p>
           My name is <strong>John Highland</strong>, but most people call me{' '}

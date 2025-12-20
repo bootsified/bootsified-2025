@@ -103,7 +103,7 @@ export default async function RootLayout({
           </>
         )}
       </head>
-      <body className={styles.body}>
+      <body className={styles.body} data-current-page="home">
 				<style>
 					{`
 						:root {

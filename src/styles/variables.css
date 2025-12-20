@@ -16,7 +16,13 @@
 	/* footer text color */
 	--text-footer: #facc22;
 
+	/* transition durations */
 	--hover-duration: 200ms;
+
+	/* font sizes */
+	--font-size-h1: 4.5em;
+	--font-size-h2: 3.5em;
+	--font-size-h3: 2.5em;
 
   /* container */
   --container-side-padding: 1rem;

@@ -28,7 +28,8 @@ html {
 	/* scroll-padding-top: calc(var(--header-height) + 1rem); */
 
 	&.nav-open {
-		overflow-y: scroll !important;
+		height: 100vh !important;
+		overflow-y: hidden !important;
     position: fixed !important;
     width: 100% !important;
 	}
@@ -49,9 +50,23 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  font-weight: 300;
 	line-height: 1.3;
   margin: 0 0 1em;
+}
+
+h1,
+.h1 {
+	font-size: var(--font-size-h1);
+}
+
+h2,
+.h2 {
+	font-size: var(--font-size-h2);
+}
+
+h3,
+.h3 {
+	font-size: var(--font-size-h3);
 }
 
 p {

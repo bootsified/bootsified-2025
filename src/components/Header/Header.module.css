@@ -23,7 +23,12 @@
 .branding {
 	display: block;
 	flex: 0 1 33.3%;
-	max-width: 10em;
+	font-size: 4vh;
+	transition: font-size 500ms var(--ease-in-out-cubic);
+
+	@nest body:not([data-current-page="home"]) & {
+		font-size: 0.875em;
+	}
 
 	a {
 		color: inherit;
@@ -32,7 +37,10 @@
 	svg {
 		display: block;
 		fill: var(--text);
+		margin: 0 auto;
+		max-width: none;
 		transition: fill 1000ms ease;
+		width: 10em;
 	}
 }
 

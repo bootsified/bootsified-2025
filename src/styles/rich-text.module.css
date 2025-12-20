@@ -13,15 +13,6 @@
     margin-top: 1.25em;
   }
 
-	& h1 {
-		font-weight: 500;
-	}
-
-  & h2 {
-    font-size: clamp(1.5rem, 5vw, 1.75rem);
-    line-height: 1.2;
-  }
-
   & a:not(:has(span)) {
     outline: 2px solid transparent;
 
