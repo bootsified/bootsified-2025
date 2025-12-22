@@ -57,3 +57,10 @@
 .heart {
 	appearance: none;
 }
+
+.signature {
+
+	@media screen and ( max-width: 767px ) {
+		font-size: 0.625em;
+	}
+}
