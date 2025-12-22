@@ -12,9 +12,13 @@
 
 .inner {
 	font-size: clamp(1em, 2.75vw, 1.5em);
-	margin: 0 auto 10vh;
+	margin: 0 auto 5vh;
 	max-width: var(--container-width-sm);
 	padding: 0 var(--container-side-padding);
+
+	@media screen and ( min-width: 768px ) {
+		margin-bottom: 10vh;
+	}
 	
 	h2,
 	p,
