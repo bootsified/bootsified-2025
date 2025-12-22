@@ -1,18 +1,39 @@
 .wrapper {
-	font-size: clamp(1.25em, 2vw, 1.5em);
-	margin: 0 auto;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - (var(--header-height) + var(--footer-height)));
+	padding-bottom: 10vh;
+
+	@media screen and ( min-width: 768px ) {
+		padding-bottom: 18vh;
+	}
+}
+
+.inner {
+	font-size: clamp(1em, 2.75vw, 1.5em);
+	margin: 0 auto 10vh;
 	max-width: var(--container-width-sm);
 	padding: 0 var(--container-side-padding);
-
+	
 	h2,
 	p,
 	li {
 		transition: color 1000ms ease;
 	}
-
+	
 	h2 {
 		font-family: var(--font-base);
+		font-size: 3em;
 		line-height: 1;
 		margin-bottom: 0;
+	}
+
+	li:first-child {
+		opacity: 0.5;
+	}
+
+	li:last-child {
+		font-weight: 700;
 	}
 }

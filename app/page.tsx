@@ -5,7 +5,6 @@ import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Link from 'next/link'
 import Definition from '@/components/Definition'
 import Intro from '@/components/Intro'
-import ScrollDown from '@/components/ScrollDown'
 
 export const metadata = {
   title: SEO_DEFAULT_TITLE,
@@ -53,7 +52,6 @@ const HomePage = () => {
 			/> */}
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<Definition />
-			<ScrollDown />
 			<Intro />
 		</>
   )

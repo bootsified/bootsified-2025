@@ -23,15 +23,11 @@
 .branding {
 	display: block;
 	flex: 0 1 33.3%;
-	font-size: 4vmin;
+	font-size: 0.875em;
 	transition: font-size 500ms var(--ease-in-out-cubic);
 
-	@media screen and ( orientation: portrait ) {
-		font-size: 6.5vmin;
-	}
-
 	@nest body:not([data-current-page="home"]) & {
-		font-size: 0.875em;
+		font-size: 0.625em;
 	}
 
 	a {

@@ -7,7 +7,7 @@
 	gap: 4em;
 	padding: 3em var(--container-side-padding) 4em;
 	max-width: var(--container-width-md);
-	margin: 6em auto 0;
+	margin: 0 auto;
 
 	@media (min-width: 768px) {
 		flex-direction: row;

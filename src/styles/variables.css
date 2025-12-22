@@ -24,6 +24,14 @@
 	--font-size-h2: 3.5em;
 	--font-size-h3: 2.5em;
 
+	/* header/footer height */
+	--header-height: 12.25em;
+	--footer-height: 4em;
+
+	body:not([data-current-page="home"]) & {
+		--header-height: 9.875em;
+	}
+
   /* container */
   --container-side-padding: 1rem;
 
