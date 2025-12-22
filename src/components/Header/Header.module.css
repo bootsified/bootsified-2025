@@ -39,7 +39,7 @@
 		fill: var(--text);
 		margin: 0 auto;
 		max-width: none;
-		transition: fill 1000ms ease;
+		transition: fill var(--page-transition-duration) ease;
 		width: 10em;
 
 		@media screen and ( max-width: 559px ) {

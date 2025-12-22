@@ -22,7 +22,7 @@
 	a,
 	button,
 	label {
-		transition: color 1000ms ease;
+		transition: color var(--page-transition-duration) ease;
 	}
 
 	a {

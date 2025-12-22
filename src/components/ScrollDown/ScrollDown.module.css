@@ -22,6 +22,7 @@
 		position: absolute;
 		top: 0;
 		transform: translateX(-50%) rotate(45deg);
+		transition: border-color var(--page-transition-duration) ease;
 		width: 2em;
 	}
 
