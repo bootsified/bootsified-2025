@@ -1,0 +1,15 @@
+{
+	"status": "ready",
+	"originalFilePath": "videos/me-kid-waving.mp4",
+	"provider": "vercel-blob",
+	"providerMetadata": {
+		"vercel-blob": {
+			"key": "videos/me-kid-waving.mp4",
+			"url": "https://mjnlegv8gnebzmyg.public.blob.vercel-storage.com/videos/me-kid-waving-4ijqyWDAmFp8T8rFOoLwo9HBmcYfP3.mp4",
+			"contentType": "video/mp4"
+		}
+	},
+	"createdAt": 1766365790636,
+	"updatedAt": 1766366587723,
+	"size": 6440537
+}

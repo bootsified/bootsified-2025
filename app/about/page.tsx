@@ -3,6 +3,10 @@ import Schema from '@/components/Schema'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
 import Link from 'next/link'
 import { spanBass, spanWeb } from '@/utils/helpers'
+import Image from 'next/image';
+import Video from 'next-video';
+import kidVideo from 'videos/me-kid-waving.mp4';
+import kidPoster from '@public/images/me-kid-waving-poster.jpg';
 
 const pageTitle = 'About The Highland Practice | Neurodivergent & Trauma-Informed Therapist'
 const pageDescription = 'Neurodivergent therapist helping late-diagnosed ADHD/autistic adults heal trauma, religious wounds, perfectionism and burnout with insight + compassion.'
@@ -55,7 +59,6 @@ const AboutPage = () => {
 					}
 				}}
 			/> */}
-			<h1 className='srOnly'>About Me</h1>
 			<TextBlock padBottom='1em' padTop='0em' narrow>
 				<h1>A little about me...</h1>
 				<p>
@@ -67,6 +70,15 @@ const AboutPage = () => {
           couple sons. In 2023, we finally said goodbye to the brutal Texas Summers, and said hello
           to the Pacific Northwest. The new chapter begins...
         </p>
+
+				<Video src={kidVideo} loop muted autoPlay playsInline controls={false}>
+					<Image
+						slot="poster"
+						src={kidPoster}
+						placeholder="blur"
+						alt="Me as a kid, sitting in my pretend airplane (made from a cardboard box), waving at the camera."
+					/>
+				</Video>
 
         <h2>As a web developer...</h2>
 

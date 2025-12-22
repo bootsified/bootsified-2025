@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -7,10 +8,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const nextConfig = {
-	webpack(config) {
-		// No-op webpack modifications; Turbopack will handle SVGR via `turbopack.rules`.
-		return config
-	},
 	turbopack: {
 		root: path.join(__dirname, './'),
 		rules: {
@@ -22,4 +19,6 @@ const nextConfig = {
 	},
 };
 
-export default nextConfig;
+export default withNextVideo(nextConfig, {
+	provider: 'vercel-blob',
+});

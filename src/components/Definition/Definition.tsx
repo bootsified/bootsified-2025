@@ -6,7 +6,7 @@ import styles from './Definition.module.css'
 const Definition = () => {
 
   return (
-    <div className={styles.wrapper}>
+    <section className={styles.wrapper}>
 			<h2>Boots</h2>
 			<p><em>noun</em> \ˈbüṯs\</p>
 			<ol>
@@ -14,7 +14,7 @@ const Definition = () => {
 				<li>(singular) A Seattle-area web developer and musician, known for his friendly demeanor and love of bass guitar.<br />
 				<em>See also &ldquo;John Highland&rdquo;</em></li>
 			</ol>
-		</div>
+		</section>
   )
 }
 
