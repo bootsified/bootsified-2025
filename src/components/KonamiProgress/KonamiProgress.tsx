@@ -4,7 +4,7 @@ import React from 'react'
 import { useUIContext } from '@/context/UIContext'
 import styles from './KonamiProgress.module.css'
 
-const KonamiProgress: React.FC = () => {
+const KonamiProgress = () => {
   const { konamiCode } = useUIContext()
   
   // Only show progress when user has made some progress but hasn't completed it

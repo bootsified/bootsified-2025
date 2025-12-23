@@ -4,7 +4,7 @@ import styles from './TextBlock.module.css'
 import clsx from 'clsx'
 import richTextStyles from '@styles/rich-text.module.css'
 
-type TextBlockProps = {
+interface TextBlockProps {
 	children: React.ReactNode,
 	className?: string,
 	narrow?: boolean,
@@ -12,7 +12,7 @@ type TextBlockProps = {
 	padBottom?: string,
 }
 
-const TextBlock: React.FC<TextBlockProps> = ({
+const TextBlock = ({
 	children, 
 	className = '',
 	narrow = false,

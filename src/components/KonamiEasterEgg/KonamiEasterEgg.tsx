@@ -8,7 +8,7 @@ interface KonamiEasterEggProps {
   onClose: () => void
 }
 
-const KonamiEasterEgg: React.FC<KonamiEasterEggProps> = ({ isActive, onClose }) => {
+const KonamiEasterEgg = ({ isActive, onClose }:KonamiEasterEggProps) => {
   const [showMessage, setShowMessage] = useState(false)
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const KonamiEasterEgg: React.FC<KonamiEasterEggProps> = ({ isActive, onClose }) 
       const timer = setTimeout(() => setShowMessage(true), 100)
       return () => clearTimeout(timer)
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowMessage(false)
     }
   }, [isActive])
@@ -45,7 +46,7 @@ const KonamiEasterEgg: React.FC<KonamiEasterEggProps> = ({ isActive, onClose }) 
             <h2 className={styles.title}>Invincibility Activated! <span className={styles.subtitle}>(not really, but one can dream, amirite?!?)</span></h2>
             <p className={styles.message}>
               Well done! As a mental health practice, 
-              we believe in celebrating the small victories and having a little fun along the way. Life can be challenging, but there's always room for moments of joy and discovery! ❤️
+              we believe in celebrating the small victories and having a little fun along the way. Life can be challenging, but there&rsquo;s always room for moments of joy and discovery! ❤️
             </p>
             <button 
               className={styles.closeButton}

@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Logo from '@/assets/images/boots-signature.svg'
 import styles from './Footer.module.css'
 
-type FooterProps = {
+interface FooterProps {
   className?: string
 }
 

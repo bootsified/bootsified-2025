@@ -13,7 +13,7 @@ import 'what-input'
 
 import styles from './Nav.module.css'
 
-type NavProps = {
+interface NavProps {
   className: string
 }
 

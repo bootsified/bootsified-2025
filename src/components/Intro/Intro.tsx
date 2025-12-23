@@ -5,11 +5,11 @@ import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Image from 'next/image'
 import Link from 'next/link'
 
-type IntroProps = {
+interface IntroProps {
 	className?: string
 }
 
-const Intro: React.FC<IntroProps> = ({
+const Intro = ({
 	className = ''
 }: IntroProps) => {
 	return (

@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import styles from './Hamburger.module.css'
 import { useUIContext } from '../../context/UIContext'
 
-const Hamburger: React.FC = () => {
+const Hamburger = () => {
 	const { navOpen, toggleNav } = useUIContext()
 
 	return (

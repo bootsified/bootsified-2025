@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 import styles from './ScrollDown.module.css'
 
-type ScrollDownProps = {
+interface ScrollDownProps {
 	className?: string
 }
 

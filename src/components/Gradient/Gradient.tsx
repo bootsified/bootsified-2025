@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { useUIContext } from '@/context/UIContext'
 import styles from './Gradient.module.css'
 
-export default function Gradient() {
+const Gradient = () => {
 	const { pageHandle } = useUIContext()
 
   return (
@@ -18,3 +18,5 @@ export default function Gradient() {
 		</>
   )
 }
+
+export default Gradient

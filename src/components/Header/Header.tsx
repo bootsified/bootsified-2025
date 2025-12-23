@@ -6,7 +6,7 @@ import Hamburger from '../Hamburger'
 
 import styles from './Header.module.css'
 
-type HeaderProps = {
+interface HeaderProps {
   className?: string
 }
 

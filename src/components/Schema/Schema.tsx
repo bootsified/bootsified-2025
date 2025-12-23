@@ -1,7 +1,7 @@
 import React from 'react'
 
-type SchemaProps = {
-  data: any | any[]
+interface SchemaProps {
+  data: unknown | unknown[]
 }
 
 // Renders JSON-LD schema safely. Accepts a single object or an array.
