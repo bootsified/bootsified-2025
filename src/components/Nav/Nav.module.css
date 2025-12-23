@@ -41,7 +41,7 @@
 	background-size: auto 50vh;
 	bottom: 0;
 	display: block;
-	font-size: 9vmin;
+	font-size: 14vmin;
 	left: 0;
 	padding-top: 1em;
 	position: absolute;
@@ -50,9 +50,13 @@
 	/* transition: transform 200ms var(--ease-in-circ);
 	transform: translateX(100%); */
 
+	@media screen and ( min-width: 560px ) {
+		font-size: 9vmin;
+	}
+
 	@media screen and (orientation: portrait) {
-		background-position: center calc(100vh - 24rem);
-		background-size: 24rem auto;
+		background-position: calc(42vw * -1) calc(100vh - 80vw);
+		background-size: 111vw auto;
 	}
 }
 
