@@ -56,7 +56,7 @@ const WorkPage = () => {
 			/> */}
 			<h1 className='srOnly'>My Work</h1>
 			<TextBlock padBottom='1em' padTop='0em' narrow>
-				<h1>What I&rsquo;ve been up to...</h1>
+				<h1>What I&rsquo;ve been up to&hellip;</h1>
 				<p>
           My name is <strong>John Highland</strong>, but most people call me{' '}
           <strong>“Boots”</strong> - long story. I’m a web developer, musician, husband, and father

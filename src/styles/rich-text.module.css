@@ -13,6 +13,11 @@
     margin-top: 1.25em;
   }
 
+	& h1,
+	& .h1 {
+		margin-bottom: 0.55em !important;
+	}
+
   & a:not(:has(span)) {
     outline: 2px solid transparent;
 

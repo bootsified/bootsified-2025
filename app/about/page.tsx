@@ -60,7 +60,7 @@ const AboutPage = () => {
 				}}
 			/> */}
 			<TextBlock padBottom='1em' padTop='0em' narrow>
-				<h1>A little about me...</h1>
+				<h1>A little about me&hellip;</h1>
 				<p>
           My name is <strong>John Highland</strong>, but most people call me{' '}
           <strong>“Boots”</strong> - long story. I’m a web developer, musician, husband, and father
