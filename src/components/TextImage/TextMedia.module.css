@@ -1,12 +1,17 @@
 .wrapper {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2.5em;
+	flex-direction: column;
+  gap: 1.5em;
   margin: 0 auto;
-  max-width: var(--container-width-md);
+  max-width: var(--container-width-sm);
   padding-left: var(--container-side-padding);
   padding-right: var(--container-side-padding);
+
+	@media screen and ( min-width: 680px ) {
+		flex-direction: row;
+		gap: 2.5em;
+	}
 }
 
 .reverse {
@@ -14,24 +19,22 @@
 }
 
 .text {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
+  flex: 1 1 auto;
 
-.body {
-  max-width: 58ch;
+	@media screen and ( min-width: 680px ) {
+		font-size: 1.125em;
+	}
+
+	@media screen and ( min-width: 760px ) {
+		font-size: 1.25em;
+	}
+
+	& p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .image {
-  flex: 1 1 260px;
-  max-width: 480px;
-  width: 100%;
-}
-
-.image :global(img) {
-  display: block;
-  height: auto;
-  width: 100%;
+  flex: 1 0 max-content;
+	padding-top: 0.5em;
 }

@@ -49,6 +49,10 @@
   		outline: 3px dotted var(--text);
 		}
 	}
+
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
 }
 
 .narrow {
