@@ -1,1 +1,1 @@
-export { default } from './TextImage'
+export { default } from './TextMedia'
