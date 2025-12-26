@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { spanBass, spanWeb } from '@/utils/helpers'
 import Image from 'next/image';
 import TextMedia from '@/components/TextImage'
-import kidVideo from 'videos/me-kid-waving.mp4';
+import kidVideo from 'videos/me-kid-waving-edit-web.mp4';
 import kidPoster from '@public/images/me-kid-waving-poster.jpg';
 import meSelfie from '@public/images/me-comic-selfie3.png';
 import FullWidthImage from '@/components/FullWidthImage'
