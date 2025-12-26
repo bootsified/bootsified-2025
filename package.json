@@ -19,7 +19,8 @@
 		"next-video": "^2.6.0",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
-		"resend": "^6.4.2"
+		"resend": "^6.4.2",
+		"uuid": "^13.0.0"
 	},
 	"devDependencies": {
 		"@svgr/webpack": "^8.1.0",
