@@ -8,6 +8,7 @@ import TextMedia from '@/components/TextImage'
 import kidVideo from 'videos/me-kid-waving.mp4';
 import kidPoster from '@public/images/me-kid-waving-poster.jpg';
 import meSelfie from '@public/images/me-comic-selfie3.png';
+import FullWidthImage from '@/components/FullWidthImage'
 
 const pageTitle = 'About The Highland Practice | Neurodivergent & Trauma-Informed Therapist'
 const pageDescription = 'Neurodivergent therapist helping late-diagnosed ADHD/autistic adults heal trauma, religious wounds, perfectionism and burnout with insight + compassion.'
@@ -72,7 +73,7 @@ const AboutPage = () => {
 				<p>My name is <strong>John Highland</strong>, but most people call me <strong>“Boots”</strong> - long story. I’m a web developer, musician, husband, and father of two awesome boys, currently living in the Seattle area. I was born in Cincinnati, OH, but my family moved to Dallas, TX, when I was two. In Dallas, I grew up, went to school, played in multiple bands, started a web developer career, found a wife, and birthed a couple sons. In 2023, we finally said goodbye to the brutal Texas Summers, and said hello to the Pacific Northwest. The new chapter begins...</p>
 			</TextMedia>
 
-			<TextBlock padBottom='4em' padTop='3em' narrow>
+			<TextBlock padBottom='3em' padTop='3em' narrow>
         <h2>As a web developer...</h2>
 
         <p>
@@ -153,9 +154,7 @@ const AboutPage = () => {
         </p>
 			</TextBlock>
 
-			<TextBlock padBottom='0em' padTop='0em' narrow>
-				<Image src={meSelfie} alt="A recent photo of me, John Highland, wearing glasses and a blue shirt, smiling at the camera." style={{border: '1em solid #FFF'}} />
-			</TextBlock>
+			<FullWidthImage src={meSelfie} alt="An illustration of a recent photo of Boots on his deck, wearing glasses and a dark t-shirt, smiling at the camera." />
 		</>
   )
 }

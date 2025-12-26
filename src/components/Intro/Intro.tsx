@@ -14,16 +14,18 @@ const Intro = ({
 }: IntroProps) => {
 	return (
 		<section className={clsx(styles.wrapper, className)}>
-			<div className={styles.text}>
-				<h2>Hello!</h2>
-				<p>My name is John Highland, but most people know me as <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle area, with my very loving and understanding wife and two whacky sons. For {spanWeb()} years, I’ve been developing websites, but my first passion was playing bass guitar ({thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make yourself comfortable.</p>
-				<div className={styles.buttons}>
-					<Link href='/work' className={styles.button}>View my work</Link>
-					<Link href='/contact' className={styles.buttonPrimary}>Contact Me</Link>
+			<div className={styles.inner}>
+				<div className={styles.text}>
+					<h2>Hello!</h2>
+					<p>My name is John Highland, but most people know me as <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle area, with my very loving and understanding wife and two whacky sons. For {spanWeb()} years, I’ve been developing websites, but my first passion was playing bass guitar ({thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make yourself comfortable.</p>
+					<div className={styles.buttons}>
+						<Link href='/work' className={styles.button}>View my work</Link>
+						<Link href='/contact' className={styles.buttonPrimary}>Contact Me</Link>
+					</div>
 				</div>
-			</div>
-			<div className={styles.image}>
-				<Image src='/images/me-comic.png' alt='A comic-style illustration of John "Boots" Highland' width={400} height={400} />
+				<div className={styles.image}>
+					<Image src='/images/me-comic.png' alt='A comic-style illustration of John "Boots" Highland' width={400} height={400} />
+				</div>
 			</div>
 		</section>
 	)

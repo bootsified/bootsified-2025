@@ -1,11 +1,17 @@
 .wrapper {
-	align-items: center;
 	background-color: var(--text);
+	padding-bottom: 4em;
+	padding-top: 3em;
+}
+
+.inner {
+	align-items: center;
 	color: var(--text-reverse);
 	display: flex;
 	flex-direction: column;
 	gap: 4em;
-	padding: 3em var(--container-side-padding) 4em;
+	padding-left: var(--container-side-padding);
+	padding-right: var(--container-side-padding);
 	max-width: var(--container-width-md);
 	margin: 0 auto;
 
@@ -27,7 +33,7 @@
 
 .image {
 	background-color: var(--text-reverse);
-	flex: 1 1 35%
+	flex: 1 1 35%;
 }
 
 .buttons {

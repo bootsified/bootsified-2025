@@ -1,0 +1,22 @@
+.wrapper {
+  margin: 0 auto;
+	max-width: var(--container-width-md);
+	padding-left: var(--container-side-padding);
+	padding-right: var(--container-side-padding);
+}
+
+.image {
+	background-color: #fff;
+	padding: 0.75em;
+
+	& img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		object-fit: cover;
+
+		@media screen and ( max-width: 639px ) {
+			aspect-ratio: 4 / 3;
+		}
+	}
+}
