@@ -1,0 +1,53 @@
+.container {
+  display: grid;
+  grid-gap: 3rem;
+  margin: 0 auto;
+  max-width: var(--container-width-md);
+  padding-bottom: 6rem;
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+  padding-top: 2rem;
+
+  @media screen and (min-width: 740px) {
+    align-items: center;
+    grid-template-columns: 6fr 4fr;
+    padding-top: 4rem;
+  }
+}
+
+.text {
+  padding-top: 2rem;
+}
+
+.heading {
+  height: 3.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.paragraph {
+  height: 11.875rem;
+  margin-bottom: 2.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  & .button {
+    height: 3.375rem;
+    width: 100%;
+
+    @media screen and (min-width: 500px) {
+      width: 11.4375rem;
+    }
+  }
+}
+
+.image {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin: 0 auto;
+  max-width: 20.5rem;
+  width: 100%;
+}

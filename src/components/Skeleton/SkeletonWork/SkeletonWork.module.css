@@ -1,0 +1,67 @@
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width-md);
+  padding-bottom: 6rem;
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+  padding-top: 3rem;
+
+  @media screen and (min-width: 740px) {
+    padding-top: 5rem;
+  }
+}
+
+.heading {
+  height: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.nav {
+  margin-bottom: 2.5rem;
+
+  @media screen and (max-width: 739px) {
+    max-width: 25rem;
+  }
+}
+
+.toggle {
+  height: 3rem;
+  width: 100%;
+
+  @media screen and (min-width: 740px) {
+    display: none !important;
+  }
+}
+
+.list {
+  @media screen and (max-width: 739px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 740px) {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.item {
+  height: 2rem;
+  width: 100%;
+}
+
+.paragraph {
+  height: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.projects {
+  display: grid;
+  grid-gap: 3rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  margin-top: 4rem;
+}
+
+.project {
+  aspect-ratio: 1 / 1.05;
+}

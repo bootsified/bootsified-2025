@@ -1,0 +1,65 @@
+.container {
+  @media screen and (max-width: 739px) {
+    max-width: 25rem;
+  }
+}
+
+.toggle {
+  justify-content: space-between !important;
+  margin-bottom: 2px;
+  width: 100%;
+
+  &::after {
+    content: "\00a0\00a0+";
+    font-family: var(--font-base);
+    font-size: 1.5em;
+  }
+
+  @media screen and (min-width: 740px) {
+    display: none !important;
+  }
+
+  &[data-active="true"] {
+    &::after {
+      content: "\00a0\00a0\2014";
+    }
+  }
+
+  & svg {
+    display: none;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (max-width: 739px) {
+    display: none;
+
+    &[data-open="true"] {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 740px) {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  & a {
+    display: block;
+  }
+}
+
+.button {
+  width: 100%;
+
+  @media screen and (max-width: 739px) {
+    & svg {
+      display: none;
+    }
+  }
+}
