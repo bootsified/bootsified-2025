@@ -1,9 +1,8 @@
 .container {
   appearance: none;
-  background: #fff;
+  background: var(--text-reverse);
   border: none;
-  border-radius: 0.5em;
-  box-shadow: 4px 4px 0 var(--color-pri);
+  box-shadow: 4px 4px 0 var(--text);
   color: var(--text);
   cursor: pointer;
   display: grid;
@@ -16,18 +15,16 @@
   transition: box-shadow var(--hover-duration) ease;
 
   @nest [data-whatintent="mouse"] &:hover {
-    box-shadow: 8px 8px 0 var(--color-pri);
+    box-shadow: 8px 8px 0 var(--text);
   }
 
   &::after {
-    background-color: #fff;
-    border-radius: 0.5em;
-    color: var(--color-pri);
+    background-color: var(--text-reverse);
+    color: var(--text);
     content: attr(data-category);
     display: block;
-
-    /* font-family: var(--font-heading); */
-    font-size: 0.875em;
+		font-family: var(--font-sans);
+    font-size: 0.75em;
     font-stretch: 75%;
     left: 0;
     letter-spacing: 0.05em;
@@ -53,7 +50,8 @@
 
   & span {
     display: block;
-    font-size: 0.75em;
+		font-family: var(--font-sans);
+    font-size: 0.5em;
     font-weight: 400;
     margin-top: 0.25em;
   }
@@ -98,10 +96,11 @@
 }
 
 .ctaLive:not(:empty) {
-  background-color: var(--green-2);
+  background-color: var(--color-ter);
   border-radius: 0.25em;
   color: var(--text-reverse);
   display: block;
+	font-family: var(--font-sans);
   font-size: 0.75em;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -115,7 +114,7 @@
   background: none;
   border: none;
   border-radius: 0;
-  color: var(--color-pri);
+  color: var(--text);
   line-height: 1;
   padding: 0;
   pointer-events: none;

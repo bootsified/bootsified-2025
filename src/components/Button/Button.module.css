@@ -1,14 +1,14 @@
 .button {
   align-items: center;
   appearance: none;
-  background-color: var(--gray-10);
-  border: none;
+  background-color: transparent;
+  border: 2px solid var(--text);
   border-radius: 0;
-  color: var(--text-reverse);
+  color: var(--text);
   cursor: pointer;
   display: inline-flex;
   font-family: var(--font-heading);
-  font-size: 1em;
+  font-size: 1.5em;
   font-stretch: 75%;
   font-weight: 600;
   height: 3em;
@@ -27,7 +27,8 @@
   z-index: 0;
 
   @nest [data-whatintent="mouse"] &:hover, &[data-is-active="true"] {
-    background-color: var(--color-pri);
+    background-color: var(--text);
+		color: var(--text-reverse);
 
     &::before, &::after {
       opacity: 0.7;
@@ -66,9 +67,7 @@
 }
 
 .compact {
-  height: 2em;
-
-  /* padding: 0 1.5em; */
+  height: 1.75em;
 }
 
 .default {
@@ -86,18 +85,18 @@
 
   @nest [data-whatintent="mouse"] &:hover {
     &::before {
-      background-color: var(--color-sec);
+      /* background-color: var(--color-sec); */
       border-color: var(--color-sec);
     }
   }
 }
 
 .primary {
-  color: var(--text-reverse);
+  /* color: var(--text-reverse); */
 
   @nest [data-whatintent="mouse"] &:hover {
     &::before {
-      background-color: var(--color-sec);
+      /* background-color: var(--color-sec); */
       border-color: var(--color-sec);
     }
   }

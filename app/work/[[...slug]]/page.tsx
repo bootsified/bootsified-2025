@@ -6,13 +6,13 @@ import Project from '@/components/Project'
 import styles from '@components/Work/Work.module.css'
 
 type WorkProps = {
-  params: {
-    slug: string
-  }
+  params: Promise<{
+    slug?: string[]
+  }>
 }
 
-const WorkPage = ({ params }: WorkProps) => {
-  const { slug } = params
+const WorkPage = async ({ params }: WorkProps) => {
+  const { slug } = await params
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
   let filteredProjects = projects
 

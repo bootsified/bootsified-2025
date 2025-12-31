@@ -242,10 +242,10 @@ body[data-current-page="about"] {
 	--text-footer: #FFF;
 }
 
-body[data-current-page="work"] {
-  --text: #000;
-	--text-reverse: #FFF;
-	--text-footer: #FFF;
+body[data-current-page*="work"] {
+  --text: #FFF;
+	--text-reverse: #000;
+	--text-footer: #ff8e44;
 }
 
 body[data-current-page="contact"] {

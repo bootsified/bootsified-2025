@@ -8,6 +8,7 @@ import TextMedia from '@/components/TextMedia'
 import kidVideo from 'videos/me-kid-waving-edit-web.mp4';
 import kidPoster from '@public/images/me-kid-waving-poster.jpg';
 import meSelfie from '@public/images/me-comic-selfie3.png';
+import meRawk from '@public/images/me-comic-rawk.jpg';
 import FullWidthImage from '@/components/FullWidthImage'
 import Specialize from '@/components/Specialize'
 
@@ -104,7 +105,11 @@ const AboutPage = () => {
             (including JS)
           </li>
         </ul>
+			</TextBlock>
 
+			<FullWidthImage src={meSelfie} alt="An illustration of a recent photo of Boots on his deck, wearing glasses and a dark t-shirt, smiling at the camera." padBottom='3em' />
+				
+			<TextBlock padBottom='3em' padTop='0em' narrow>
         <p>
           That said, I can also get me hands dirty. Most of my career (2004-2018) has been in the
           design agency trenches, building client sites start to finish. The first ~7 years building
@@ -155,7 +160,7 @@ const AboutPage = () => {
         </p>
 			</TextBlock>
 
-			<FullWidthImage src={meSelfie} alt="An illustration of a recent photo of Boots on his deck, wearing glasses and a dark t-shirt, smiling at the camera." padBottom='5em' />
+			<FullWidthImage src={meRawk} alt="An illustration of Boots playing bass guitar on stage, with a dynamic and energetic pose." padBottom='5em' />
 
 			<Specialize />
 		</>

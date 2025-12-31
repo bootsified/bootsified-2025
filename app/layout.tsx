@@ -111,6 +111,7 @@ export default async function RootLayout({
 							--font-amatic-sc: ${amaticSC.style.fontFamily};
 							--font-base: var(--font-pt-serif);
 							--font-heading: var(--font-amatic-sc);
+							--font-sans: 'Helvetica Neue', Arial, sans-serif;
 						}
 					`}
 				</style>
