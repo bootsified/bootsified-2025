@@ -19,7 +19,8 @@
 }
 .night {
 	background-image: url('/images/stars-tiled2.png'), linear-gradient(#24243c, #2f5576);
-	background-size: 50%;
+	background-position: center top;
+	background-size: 53.4rem;
 }
 .cloudy {
 	background-image: linear-gradient(#bebebe, #ffffff);
@@ -36,6 +37,7 @@
 }
 .dawn {
 	background-image: url('/images/stars-tiled-few.png'), linear-gradient(#102b43, #5e7c9b 60%, #f5be34);
+	background-position: center top;
 	background-repeat: repeat-x;
-	background-size: 50%;
+	background-size: 53.4rem;
 }
