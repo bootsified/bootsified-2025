@@ -30,13 +30,13 @@
     background-color: var(--text);
 		color: var(--text-reverse);
 
-    &::before, &::after {
+    /* &::before, &::after {
       opacity: 0.7;
       transform: translate(0, -50%);
-    }
+    } */
   }
 
-  &::before,
+  /* &::before,
   &::after {
     color: var(--text-reverse);
     display: block;
@@ -57,7 +57,7 @@
     content: "\00ab";
     right: 0.75em;
     transform: translate(1em, -50%);
-  }
+  } */
 
   &:disabled {
     cursor: not-allowed !important;

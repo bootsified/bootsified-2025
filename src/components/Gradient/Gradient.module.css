@@ -15,17 +15,27 @@
 }
 
 .sunset {
-	background-image: linear-gradient(#f83600, #facc22);
+	background-image: linear-gradient(to top, #FFCE61, #EE6C45, #BF3475);
 }
 .night {
-	background-image: linear-gradient(#24243c, #2f5576);
+	background-image: url('/images/stars-tiled2.png'), linear-gradient(#24243c, #2f5576);
+	background-size: 50%;
 }
 .cloudy {
 	background-image: linear-gradient(#bebebe, #ffffff);
 }
 .dramatic {
-	background-image: linear-gradient(#35126a, #f91362, #ff8e44);
+	background-image: linear-gradient(
+    to bottom,
+    #1f214d 0%,     /* Deep Space Cadet (Night Sky bottom) */
+    #50366f 40%,    /* Imperial Purple */
+    #bf3475 70%,    /* Fuchsia Purple (Horizon line) */
+    #ee6c45 90%,    /* Chinese Orange */
+    #ffce61 100%    /* Crayola's Orange-Yellow (Sun glow top) */
+  );
 }
 .dawn {
-	background-image: linear-gradient(#102b43, #5e7c9b 60%, #f5be34);
+	background-image: url('/images/stars-tiled-few.png'), linear-gradient(#102b43, #5e7c9b 60%, #f5be34);
+	background-repeat: repeat-x;
+	background-size: 50%;
 }
