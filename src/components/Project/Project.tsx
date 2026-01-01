@@ -8,7 +8,8 @@ import ProjectDetails from './ProjectDetails'
 
 import styles from './Project.module.css'
 
-type ProjectProps = {
+interface ProjectProps {
+	rotate?: number | string
   project: {
     id: string
     title: string
@@ -18,7 +19,7 @@ type ProjectProps = {
     category: string
     agency: string
     logo: string
-    screenshot: string
+    screenshot?: string
     url: string
     media: string
     mediaType: string
@@ -27,7 +28,7 @@ type ProjectProps = {
   }
 }
 
-const Project = ({ project }: ProjectProps) => {
+const Project = ({ rotate = '', project }: ProjectProps) => {
   const [open, setOpen] = useState(false)
 
   const {
@@ -38,7 +39,7 @@ const Project = ({ project }: ProjectProps) => {
     category,
     agency,
     logo,
-    screenshot,
+    screenshot = '',
     url,
     media,
     mediaType,
@@ -62,6 +63,7 @@ const Project = ({ project }: ProjectProps) => {
           <button
             className={styles.container}
             data-category={category.replace('-', ' ')}
+						style={{ '--rotation': rotate ? `${rotate}deg` : '0deg' } as React.CSSProperties}
             type="button"
           >
             <h2 className={styles.heading}>
@@ -75,13 +77,15 @@ const Project = ({ project }: ProjectProps) => {
             </div>
             <div className={styles.content}>
               <div className={styles.screenshot}>
-                <Image
-                  src={screenshot}
-                  height={225}
-                  width={400}
-                  alt={`${title} Screenshot`}
-                  loading="lazy"
-                />
+								{screenshot && (
+									<Image
+										src={screenshot}
+										height={225}
+										width={400}
+										alt={`${title} Screenshot`}
+										loading="lazy"
+									/>
+								)}
               </div>
               <div className={styles.cta}>
                 <span className={styles.ctaLive}>{url !== '' && <>Live!</>}</span>

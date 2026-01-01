@@ -16,6 +16,11 @@
 
   @nest [data-whatintent="mouse"] &:hover {
     box-shadow: 8px 8px 0 var(--text);
+
+		& .screenshot {
+			transform: scale(1.1) rotate(var(--rotation));
+			transition-duration: 150ms;
+		}
   }
 
   &::after {
@@ -58,10 +63,13 @@
 }
 
 .logo {
+	background-color: #fff;
+	border-radius: 50%;
+	grid-area: logo;
+	overflow: hidden;
+
   & img {
-    border-radius: 50%;
     display: block;
-    grid-area: logo;
     height: 3.125em;
     width: 3.125em;
   }
@@ -81,6 +89,7 @@
   border: 1px solid var(--gray-4);
   border-radius: 4px;
   overflow: hidden;
+	transition: transform 300ms var(--ease-out-cubic);
 
   & img {
     display: block;

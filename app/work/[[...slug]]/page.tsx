@@ -30,7 +30,7 @@ const WorkPage = async ({ params }: WorkProps) => {
       )}
       <div className={styles.projects}>
         {filteredProjects.length ? (
-          filteredProjects.map(proj => <Project key={proj.id} project={proj} />)
+          filteredProjects.map(proj => <Project key={proj.id} project={proj} rotate={proj.rotate} />)
         ) : (
           <p className={styles.noResults}>
             Oooops... There aren&rsquo;t any results for&nbsp;this&nbsp;category :(

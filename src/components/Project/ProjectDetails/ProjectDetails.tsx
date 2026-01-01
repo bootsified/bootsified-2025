@@ -19,7 +19,7 @@ type ProjectProps = {
     category: string
     agency: string
     logo: string
-    screenshot: string
+    screenshot?: string
     url: string
     media: string
     mediaType: string
@@ -36,7 +36,7 @@ const ProjectDetails = ({ project }: ProjectProps) => {
     projectType,
     agency,
     logo,
-    screenshot,
+    screenshot = '',
     url,
     media,
     skills,
