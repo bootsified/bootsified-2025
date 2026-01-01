@@ -44,7 +44,7 @@
 .heading {
   align-self: center;
   font-family: var(--font-base);
-  font-size: 1.125em;
+  font-size: 1em;
   font-stretch: 80%;
   font-weight: 600;
   grid-area: heading;
@@ -56,13 +56,14 @@
   & span {
     display: block;
 		font-family: var(--font-sans);
-    font-size: 0.5em;
+    font-size: 0.75em;
     font-weight: 400;
     margin-top: 0.25em;
   }
 }
 
 .logo {
+	aspect-ratio: 1 / 1;
 	background-color: #fff;
 	border-radius: 50%;
 	grid-area: logo;

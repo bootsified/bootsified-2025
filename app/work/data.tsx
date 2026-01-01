@@ -314,7 +314,7 @@ export const projects = [
     projectType: 'Website',
     category: 'web-dev',
     agency: 'Boots',
-    logo: '/images/work/logos/jordan-logo-noir.png',
+    logo: '/images/work/logos/jordan-logo-noir2.png',
     screenshot: '/images/work/screenshots/comic-screenshot-jordan.jpg',
     url: '',
     media: '',
