@@ -30,7 +30,6 @@ const Modal = ({
   open = false,
   trigger,
   children,
-  defaultOpen = false,
   outsideClose = false,
   fullscreenMobile = false,
   tinyDots = false,

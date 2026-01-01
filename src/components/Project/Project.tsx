@@ -37,14 +37,9 @@ const Project = ({ rotate = '', project }: ProjectProps) => {
     year,
     projectType,
     category,
-    agency,
     logo,
     screenshot = '',
     url,
-    media,
-    mediaType,
-    skills,
-    notes,
   } = project
 
   const ctaLabel =

@@ -1,7 +1,6 @@
 import WorkNav from '@components/Work/WorkNav'
 
 // import richStyles from '@styles/rich-text.module.css'
-import { SITE_URL } from '@/utils/constants'
 
 import styles from '@components/Work/Work.module.css'
 
