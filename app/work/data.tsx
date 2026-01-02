@@ -128,8 +128,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-thebetarelease.jpg',
 		screenshot: '/images/work/screenshots/thebetarelease2-screenshot.jpg',
     url: '',
-    media:
-      'https://soundcloud.com/the-beta-release/the-release?in=the-beta-release/sets/first-four-demo/s-GJmPNOdFLgZ&si=3532862927724aefafb5105e8ec32838&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+    media: 'https://soundcloud.com/the-beta-release/the-release',
     mediaType: 'audio',
     skills: [
       'Writing',
