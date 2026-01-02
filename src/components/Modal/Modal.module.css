@@ -1,5 +1,5 @@
 .overlay {
-  background-color: var(--color-ter);
+  background-color: var(--color-pri);
   inset: 0;
   position: fixed;
   z-index: 1000;

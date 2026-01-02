@@ -31,7 +31,7 @@
 }
 
 .tableHeading {
-  font-family: var(--font-base);
+  font-family: var(--font-sans);
   font-size: 1.5em;
   font-stretch: 75%;
   font-weight: 400;

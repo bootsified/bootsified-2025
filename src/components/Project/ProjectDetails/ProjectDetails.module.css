@@ -101,7 +101,8 @@
 
 .typeYear {
   display: block;
-  font-size: 0.625em;
+	font-family: var(--font-sans);
+  font-size: 0.5em;
   font-weight: 400;
   margin-top: 0.25em;
 }
@@ -162,8 +163,8 @@
   }
 
   & th {
-    font-stretch: 75%;
-    font-weight: 600;
+		font-family: var(--font-sans);
+		font-stretch: 75%;
     letter-spacing: 0.05em;
     text-align: right;
     text-transform: uppercase;
