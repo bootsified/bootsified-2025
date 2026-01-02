@@ -146,8 +146,8 @@
 }
 
 .deets {
-  background-color: var(--text-reverse);
-  border: 2px solid var(--text);
+  background-color: var(--text);
+	color: var(--text-reverse);
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
 }
