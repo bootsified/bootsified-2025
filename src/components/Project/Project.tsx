@@ -20,6 +20,7 @@ interface ProjectProps {
     agency: string
     logo: string
     screenshot?: string
+    screenshotNoir?: string
     url: string
     media: string
     mediaType: string
@@ -39,6 +40,7 @@ const Project = ({ rotate = '', project }: ProjectProps) => {
     category,
     logo,
     screenshot = '',
+		screenshotNoir = '',
     url,
   } = project
 
@@ -47,7 +49,7 @@ const Project = ({ rotate = '', project }: ProjectProps) => {
       ? 'Listen Now'
       : projectType.includes('Video')
       ? 'Watch Now'
-      : projectType === 'photo'
+      : projectType === 'photo'	
       ? 'View Photo'
       : 'More Info'
 
@@ -72,9 +74,9 @@ const Project = ({ rotate = '', project }: ProjectProps) => {
             </div>
             <div className={styles.content}>
               <div className={styles.screenshot}>
-								{screenshot && (
+								{screenshotNoir && (
 									<Image
-										src={screenshot}
+										src={screenshotNoir}
 										height={225}
 										width={400}
 										alt={`${title} Screenshot`}
