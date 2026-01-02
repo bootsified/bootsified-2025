@@ -32,6 +32,7 @@ const WorkNav = () => {
           setOpen(!open)
         }}
         data-active={open}
+				compact
       >
         {titles.length ? titles.join(' / ') : 'All Projects'}
       </Button>

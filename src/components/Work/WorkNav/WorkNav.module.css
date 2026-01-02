@@ -6,7 +6,7 @@
 
 .toggle {
   justify-content: space-between !important;
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
   width: 100%;
 
   &::after {
@@ -36,6 +36,8 @@
   padding: 0;
 
   @media screen and (max-width: 739px) {
+		border: 2px solid var(--text);
+		border-top: none;
     display: none;
 
     &[data-open="true"] {
@@ -58,6 +60,8 @@
   width: 100%;
 
   @media screen and (max-width: 739px) {
+		border: none;
+
     & svg {
       display: none;
     }

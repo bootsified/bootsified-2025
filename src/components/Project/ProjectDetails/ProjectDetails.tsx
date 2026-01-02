@@ -63,13 +63,13 @@ const ProjectDetails = ({ project }: ProjectProps) => {
           {media !== '' ? (
             media.includes('soundcloud') ? (
               <iframe
-                width="100%"
-                height="166"
-                scrolling="no"
-                frameBorder={0}
-                allow="autoplay"
-                src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(media)}`}
-              />
+								width="100%"
+								height="100%"
+								scrolling="no"
+								frameBorder="0"
+								allow="autoplay"
+								src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(media)}&visual=true`}
+							/>
             ) : media.includes('.mp4') ? (
               <ReactPlayer
                 ref={mediaPlayerRef}
