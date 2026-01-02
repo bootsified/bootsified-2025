@@ -3,7 +3,7 @@ export const sections = [
     id: 'all',
     label: 'All Projects',
     description:
-      'Here&rsquo;s a little bit of everything.  Some are pretty random... some are *really* old (<code>#NoRegerts</code>). For my web projects, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
+      'Here&rsquo;s a little bit of everything.  Some are pretty random... some are *really* old. For my web projects, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
     seo: "Here is a few of the various projects I've had over the years - websites, music, goofy videos, etc.",
   },
   {
@@ -200,7 +200,7 @@ export const projects = [
     notes:
       "<p>One of the big clients we had when I was working at Switch was the Gladney Center for Adoption. <strong>AdoptED</strong> was a program of theirs dedicated to promoting adoption through education. We were able to have a little fun with the design of this site, and push the boundaries a bit with the layout and interface. I love its look and feel, and had a lot of fun developing it.</p>\
       <p>It was built using ExpressionEngine, which at the time was one of the best CMS platforms around. It also featured big, bold, fullscreen images and aggressive colors, along with some slick parallaxing that was all the rage at the time. I still think it's pretty cool.<p>\
-      <p>Sadly, it no longer exists, so the best I can do is show you a walkthrough video. <code>#WompWomp</code></p>",
+      <p>Sadly, it no longer exists, so the best I can do is show you a walkthrough video.</p>",
   },
   {
     id: 'tots-nuggs',
@@ -322,9 +322,9 @@ export const projects = [
     skills: ['HTML', 'CSS', 'JS', 'Flash Programming', 'Website Design'],
     notes:
       '<p>While freelancing in 2004, I received a random call from a friend, saying the <strong>Jordan Tourism Board</strong> (where they worked) was looking for someone to build a new website for them.  They were looking to make a new push to promote the Kingdom of Jordan to American tourists.  So naturally, I said, &ldquo;Let&rsquo;s <em>DO</em> this!&rdquo; <pre>¯\\_(ツ)_/¯</pre></p>\
-    <p>Mind you, this was 2004, so I didn&rsquo;t build it AT ALL like I would today &mdash; lots of Flash, and every page was hardcoded, with common elements included with SHTML <code>#OldSchool</code>.  For a site this large, that meant a LOT of individual files to keep up with.  Yet, it turned out great, and they loved it.</p>\
-    <p>The website launched in late 2004, and was unveiled at an international tourism conference by King Abdullah II himself.  As part of my compensation, I was invited to Jordan for a VIP tour of the country the following year, including a visit to the Royal Palace (unfortunately, the King was away at the time <code>#WompWomp</code>).  It was an amazing adventure that still seems like a dream to me, and I found a great love and respect for Jordan through that experience.</p>\
-    <p>Of course, this site is pretty ancient when it comes to the web, so no functional archives are available <code>#RIPFlash</code>.  I was lucky to even piece together a screenshot of the Flash homepage.</p>',
+    <p>Mind you, this was 2004, so I didn&rsquo;t build it AT ALL like I would today &mdash; lots of Flash, and every page was hardcoded, with common elements included with SHTML.  For a site this large, that meant a LOT of individual files to keep up with.  Yet, it turned out great, and they loved it.</p>\
+    <p>The website launched in late 2004, and was unveiled at an international tourism conference by King Abdullah II himself.  As part of my compensation, I was invited to Jordan for a VIP tour of the country the following year, including a visit to the Royal Palace (unfortunately, the King was away at the time.  It was an amazing adventure that still seems like a dream to me, and I found a great love and respect for Jordan through that experience.</p>\
+    <p>Of course, this site is pretty ancient when it comes to the web, so no functional archives are available (#RIPFlash).  I was lucky to even piece together a screenshot of the Flash homepage.</p>',
   },
   {
     id: 'electrico',
@@ -419,7 +419,7 @@ export const projects = [
     notes:
       '<p>When one of the dads of a 4-6 year olds YMCA soccer team is a web developer, you sometimes find yourself with a WAY over-engineered website for the team.  That is definitely the case with the <strong>Birds of Play FC</strong> website.</p>\
     <p>It started with me designing a logo for their uniforms, which led to me cranking out a fully-CMS&rsquo;ed website, with season schedule and game scores (even though they didn&rsquo;t actually keep an official score).  This was really a fun project for me, trying to make this little team of little kids look like a real soccer club.  We all had a lot of fun with it.  Sadly, the team only lasted one year, so the site now just exists as a historical record.</p>\
-    <p>The best part of the site was a large photo gallery from the games and practices, which I set up to pull from a Flickr group that the parents could post to.  Unfortunately, Flickr changed their rules a while back, and the photos had to be taken down.  So if you see a bunch of broken image links, there you have it.  <code>#WompWomp</code></p>',
+    <p>The best part of the site was a large photo gallery from the games and practices, which I set up to pull from a Flickr group that the parents could post to.  Unfortunately, Flickr changed their rules a while back, and the photos had to be taken down.  So if you see a bunch of broken image links, there you have it.</p>',
   },
   {
     id: 'bluebird',
