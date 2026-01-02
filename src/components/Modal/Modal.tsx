@@ -68,6 +68,7 @@ const Modal = ({
                 exit={{ opacity: 0, scale: 0.9, x: '-50%', y: '-50%' }}
                 transition={{ duration: 0.3, ease: [0.075, 0.82, 0.165, 1] }} // ease-out-circ
               >
+								<Dialog.Title className="srOnly">Project Details</Dialog.Title>
                 <div className={styles.inner}>{children}</div>
                 <Dialog.Close asChild>
                   <button className={styles.close} aria-label="Close">

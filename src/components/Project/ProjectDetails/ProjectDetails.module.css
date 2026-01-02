@@ -22,7 +22,7 @@
   }
 
   &::after {
-    background-image: linear-gradient(#eee0, #eee 85%);
+    background-image: linear-gradient(#0000, #000 85%);
     bottom: 0;
     content: " ";
     display: block;
@@ -47,8 +47,8 @@
 
 .headerMedia {
   align-self: start;
-  background-color: var(--background);
-  box-shadow: 0 25px 10px var(--background);
+  background-color: var(--text-reverse);
+  box-shadow: 0 25px 10px var(--text-reverse);
   padding-left: var(--container-side-padding);
   padding-right: var(--container-side-padding);
   padding-top: 2rem;
@@ -82,7 +82,6 @@
 
   & img {
     border-radius: 50%;
-    box-shadow: 0 0 10px #fff;
     display: block;
     height: 100%;
     width: 100%;
@@ -114,9 +113,8 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 15%;
-  border: 1px solid var(--gray-4);
-  border-radius: 0.5em;
-  box-shadow: 8px 8px 0 var(--color-pri);
+  border: 2px solid var(--text);
+  box-shadow: 8px 8px 0 var(--text-reverse);
   max-width: 40em;
   overflow: hidden;
 
@@ -147,9 +145,8 @@
 }
 
 .deets {
-  background-color: #fff;
-  border: 1px solid var(--gray-4);
-  border-radius: 0.5rem;
+  background-color: var(--text-reverse);
+  border: 2px solid var(--text);
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
 }
