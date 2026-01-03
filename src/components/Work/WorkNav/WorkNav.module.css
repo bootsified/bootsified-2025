@@ -53,6 +53,10 @@
 
   & a {
     display: block;
+
+		&:has(span[disabled]) {
+			pointer-events: none;
+		}
   }
 }
 

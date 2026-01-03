@@ -26,13 +26,13 @@ const WorkNav = () => {
     <nav className={styles.container}>
       <h2 className="srOnly">Work Navigation:</h2>
       <Button
-        variant="primary"
         className={clsx(styles.toggle)}
         onClick={() => {
           setOpen(!open)
         }}
         data-active={open}
 				compact
+				variant='outline'
       >
         {titles.length ? titles.join(' / ') : 'All Projects'}
       </Button>
@@ -62,9 +62,10 @@ const WorkNav = () => {
                   <Button
                     isLink={true}
                     className={styles.button}
-                    variant="primary"
                     compact
                     data-is-active={isActive}
+										variant={isActive ? 'default' : 'outline'}
+										disabled={isActive}
                   >
                     {section.id.replace('-', ' ')}
                   </Button>

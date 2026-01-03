@@ -33,23 +33,6 @@
     width: 90vw;
   }
 
-  /* &::after {
-    background-image: url("/images/drips-lite.svg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: " ";
-    font-size: 0.8em;
-    height: 3.5em;
-    position: absolute;
-    right: 10%;
-    top: calc(100% - 2px);
-    width: 8.625em;
-
-    @media screen and (min-width: 740px) {
-      font-size: 1em;
-    }
-  } */
-
   &:focus {
     outline: none;
   }
@@ -109,17 +92,15 @@
   border-radius: 0;
   color: inherit;
   cursor: pointer;
-	font-size: 2em;
   height: 2.75em;
   padding: 1em;
   position: absolute;
-  right: 0.5em;
-  top: 0.5em;
+  right: 0em;
+  top: 0em;
   width: 2.75em;
 
   @media screen and (min-width: 700px) {
-    right: 0;
-    top: 0;
+		font-size: 2em;
 
     @nest [data-outside-close="true"] & {
       bottom: 100%;

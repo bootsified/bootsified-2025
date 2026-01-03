@@ -245,7 +245,7 @@ body[data-current-page="about"] {
 body[data-current-page*="work"] {
   --text: #FFF;
 	--text-reverse: #000;
-	--text-footer: #ff8e44;
+	--text-footer: #fff;
 }
 
 body[data-current-page="contact"] {

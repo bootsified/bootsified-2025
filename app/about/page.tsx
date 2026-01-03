@@ -63,8 +63,8 @@ const AboutPage = () => {
 					}
 				}}
 			/> */}
-			<TextBlock padBottom='1em' padTop='0em' narrow>
-				<h1>A little about me&hellip;</h1>
+			<TextBlock padBottom='2em' padTop='1em' narrow>
+				<h1>A little about me</h1>
 			</TextBlock>
 
 			<TextMedia 

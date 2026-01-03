@@ -1,18 +1,17 @@
 .button {
   align-items: center;
   appearance: none;
-  background-color: transparent;
-  border: 2px solid var(--text);
+	border: 2px solid;
   border-radius: 0;
-  color: var(--text);
   cursor: pointer;
   display: inline-flex;
   font-family: var(--font-heading);
-  font-size: 1.5em;
+  font-size: 1em;
   font-stretch: 75%;
   font-weight: 600;
   height: 3em;
   justify-content: center;
+	letter-spacing: 0.1em;
   line-height: 1;
   outline: 2px dotted transparent;
   outline-offset: 2px;
@@ -26,38 +25,11 @@
   white-space: nowrap;
   z-index: 0;
 
-  @nest [data-whatintent="mouse"] &:hover, &[data-is-active="true"] {
-    background-color: var(--text);
-		color: var(--text-reverse);
-
-    /* &::before, &::after {
-      opacity: 0.7;
-      transform: translate(0, -50%);
-    } */
+  @nest [data-whatintent="keyboard"] & {
+    &:focus, &:focus-visible, &:active {
+      outline-color: inherit;
+    }
   }
-
-  /* &::before,
-  &::after {
-    color: var(--text-reverse);
-    display: block;
-    line-height: 1;
-    opacity: 0;
-    position: absolute;
-    top: 47%;
-    transition: all var(--hover-duration) ease;
-  }
-
-  &::before {
-    content: "\00bb";
-    left: 0.75em;
-    transform: translate(-1em, -50%);
-  }
-
-  &::after {
-    content: "\00ab";
-    right: 0.75em;
-    transform: translate(1em, -50%);
-  } */
 
   &:disabled {
     cursor: not-allowed !important;
@@ -67,38 +39,54 @@
 }
 
 .compact {
-  height: 1.75em;
+  height: 2.5em;
 }
 
 .default {
-  color: var(--text);
+  background-color: var(--text);
+  border-color: var(--text);
+  color: var(--text-reverse);
+
+  @nest [data-whatintent="mouse"] &:hover {
+    background-color: var(--text-reverse);
+		border-color: var(--text-reverse);
+		color: var(--text);
+  }
 }
 
 .reverse {
-  color: var(--text-reverse);
-
-  @nest [data-whatintent="keyboard"] & {
-    &:focus, &:focus-visible, &:active {
-      outline-color: inherit;
-    }
-  }
+  background-color: var(--text-reverse);
+  border-color: var(--text-reverse);
+  color: var(--text);
 
   @nest [data-whatintent="mouse"] &:hover {
-    &::before {
-      /* background-color: var(--color-sec); */
-      border-color: var(--color-sec);
-    }
+    background-color: var(--text);
+		border-color: var(--text);
+		color: var(--text-reverse);
   }
 }
 
-.primary {
-  /* color: var(--text-reverse); */
+.outline {
+  background-color: transparent;
+  border-color: var(--text);
+  color: var(--text);
 
-  @nest [data-whatintent="mouse"] &:hover {
-    &::before {
-      /* background-color: var(--color-sec); */
-      border-color: var(--color-sec);
-    }
+  @nest [data-whatintent="mouse"] &:hover, &[data-is-active="true"] {
+    background-color: var(--text);
+		border-color: var(--text);
+		color: var(--text-reverse);
+  }
+}
+
+.outlineReverse {
+  background-color: transparent;
+  border-color: var(--text-reverse);
+  color: var(--text-reverse);
+
+  @nest [data-whatintent="mouse"] &:hover, &[data-is-active="true"] {
+    background-color: var(--text);
+		border-color: var(--text);
+		color: var(--text-reverse);
   }
 }
 

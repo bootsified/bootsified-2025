@@ -3,12 +3,7 @@
   max-width: var(--container-width-md);
   padding-left: var(--container-side-padding);
   padding-right: var(--container-side-padding);
-}
-
-.heading {
-  font-size: clamp(2.5rem, 7vw, 4rem);
-  line-height: 1;
-  margin-bottom: 2.5rem;
+	padding-top: 1em;
 }
 
 .nav {

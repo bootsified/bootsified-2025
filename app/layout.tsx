@@ -8,7 +8,8 @@ import Header from "@/components/Header";
 import { UIProvider } from '@/context/UIContext'
 import Schema from '@/components/Schema'
 import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
-import { PT_Serif, Amatic_SC } from 'next/font/google'
+import { PT_Serif } from 'next/font/google'
+import localFont from 'next/font/local'
 import Nav from '@components/Nav'
 import Gradient from "@/components/Gradient";
 
@@ -17,10 +18,15 @@ export const ptSerif = PT_Serif({
   subsets: ['latin'],
   display: 'swap',
 })
- 
-export const amaticSC = Amatic_SC({
-	weight: ['400', '700'],
-  subsets: ['latin'],
+
+// export const bangers = Bangers({
+// 	weight: ['400'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// })
+
+const AnimeAce = localFont({
+  src: './animeacei.woff2',
   display: 'swap',
 })
 
@@ -82,7 +88,7 @@ export default async function RootLayout({
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
   
   return (
-    <html lang="en" className={ptSerif.className}>
+    <html lang="en" className={AnimeAce.className}>
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)" />
@@ -107,10 +113,8 @@ export default async function RootLayout({
 				<style>
 					{`
 						:root {
-							--font-pt-serif: ${ptSerif.style.fontFamily};
-							--font-amatic-sc: ${amaticSC.style.fontFamily};
-							--font-base: var(--font-pt-serif);
-							--font-heading: var(--font-amatic-sc);
+							--font-base: ${ptSerif.style.fontFamily}, Georgia, serif;
+							--font-heading: ${AnimeAce.style.fontFamily}, 'Comic Sans MS', cursive, sans-serif;
 							--font-sans: 'Helvetica Neue', Arial, sans-serif;
 						}
 					`}
