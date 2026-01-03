@@ -38,6 +38,7 @@
 
 .buttons {
 	display: flex;
+	font-size: 0.75em;
 	gap: 1em;
 	margin-top: 2em;
 }
