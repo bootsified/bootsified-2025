@@ -5,6 +5,10 @@
 	padding-right: var(--container-side-padding);
 }
 
+.narrow {
+	max-width: var(--container-width-sm);
+}
+
 .image {
 	background-color: #fff;
 	padding: 0.75em;
@@ -18,5 +22,17 @@
 		@media screen and ( max-width: 639px ) {
 			aspect-ratio: 4 / 3;
 		}
+	}
+}
+
+.left {
+	& img {
+		object-position: center left;
+	}
+}
+
+.right {
+	& img {
+		object-position: center right;
 	}
 }

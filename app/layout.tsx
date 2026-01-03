@@ -91,7 +91,7 @@ export default async function RootLayout({
     <html lang="en" className={AnimeAce.className}>
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: light)" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: dark)" />
         {GA_ID && (
           <>
             <Script

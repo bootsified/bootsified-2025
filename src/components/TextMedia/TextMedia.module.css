@@ -38,5 +38,6 @@
 	background-color: #fff;
 	border-bottom: 0.25em solid #fff;
   flex: 1 0 max-content;
+	margin: 0 auto;
 	padding-top: 0.5em;
 }
