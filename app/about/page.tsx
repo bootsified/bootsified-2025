@@ -78,7 +78,7 @@ const AboutPage = () => {
 
 			<TextBlock padBottom='3em' padTop='3em' narrow>
         <h2>As a web developer&hellip;</h2>
-        <p>I specialize in advanced HTML and CSS layouts that are cross-browser, accessible, and responsive across all device sizes. I have deep experience with modern, vanilla JavaScript and, over the past several years, have worked extensively with React and Next.js to build component-driven, production-ready interfaces.</p>
+        <p>For {spanWeb()} years, I&rsquo;ve specialized in advanced HTML and CSS layouts that are cross-browser, accessible, and responsive across all device sizes. I have deep experience with modern, vanilla JavaScript and, over the past several years, have worked extensively with React and Next.js to build component-driven, production-ready interfaces.</p>
 				<p>At heart, I&rsquo;m passionate about the visual and experiential side of front-end development. I enjoy solving complex layout challenges, crafting responsive systems that scale from small wearables to large-format displays, and using animation and interaction thoughtfully to enhance usability. I place a strong emphasis on semantic, accessible markup and believe that well-structured HTML should stand on its own, even without styling.</p>
 			</TextBlock>
 

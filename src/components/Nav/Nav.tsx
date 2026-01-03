@@ -42,7 +42,7 @@ const Nav = ({ className }: NavProps) => {
 				<li className={styles.item}>
 					<Link
 						href="/work"
-						className={pathname === '/work' ? styles.isActive : ''}
+						className={pathname.includes('work') ? styles.isActive : ''}
 						onClick={toggleNav}
 					>Work</Link>
 				</li>
