@@ -27,10 +27,14 @@
 	}
 	
 	h2 {
-		font-family: var(--font-base);
-		font-size: 3em;
+		/* font-family: var(--font-base); */
+		font-size: 2em;
 		line-height: 1;
 		margin-bottom: 0;
+
+		&:first-letter {
+			font-size: 1.25em;
+		}
 	}
 
 	li:first-child {
