@@ -29,6 +29,7 @@
 	h2 {
 		/* font-family: var(--font-base); */
 		font-size: 2em;
+		letter-spacing: -0.1em;
 		line-height: 1;
 		margin-bottom: 0;
 

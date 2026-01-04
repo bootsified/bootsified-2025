@@ -2,6 +2,7 @@ import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION, SEO_DEFAUL
 import Schema from '@/components/Schema'
 import Definition from '@/components/Definition'
 import Intro from '@/components/Intro'
+import FeaturedProjects from '@/components/FeaturedProjects'
 
 export const metadata = {
 	title: SEO_DEFAULT_TITLE,
@@ -67,6 +68,7 @@ const HomePage = () => {
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<Definition />
 			<Intro />
+			<FeaturedProjects />
 		</>
   )
 }
