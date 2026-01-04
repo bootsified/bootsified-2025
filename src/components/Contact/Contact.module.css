@@ -1,0 +1,94 @@
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width-md);
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+}
+
+.heading {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1;
+  margin-bottom: 2.5rem;
+}
+
+.content {
+  @media screen and (min-width: 640px) {
+    display: flex;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    gap: 4rem;
+  }
+}
+
+.intro {
+	margin-bottom: 2rem;
+}
+
+.formWrapper {
+	flex: 1 1 auto;
+}
+
+.otherLinks {
+  margin: 0 auto;
+  max-width: 20rem;
+  padding-top: 5rem;
+
+  @media screen and (min-width: 640px) {
+    border-left: 1px solid var(--border-color);
+    flex: 0 0 auto;
+    margin: 0;
+    max-width: none;
+    padding-left: 2rem;
+    padding-top: 0;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding-left: 3rem;
+  }
+
+  & h2 {
+    margin-bottom: 0.5em;
+  }
+
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    padding-bottom: 1em;
+    padding-top: 1em;
+  }
+}
+
+.link {
+  align-items: center;
+	color: inherit;
+  display: flex;
+  gap: 1em;
+	text-decoration: none;
+
+  @nest [data-whatintent="mouse"] &:hover {
+    text-decoration: underline;
+
+    & svg {
+      fill: var(--color-ter);
+    }
+  }
+
+  & svg {
+    display: block;
+		fill: var(--text);
+    flex: 0 0 auto;
+    height: 2em;
+    transition: fill var(--hover-duration) ease;
+    width: 2em;
+  }
+
+  & span {
+    font-size: 0.875em;
+  }
+}

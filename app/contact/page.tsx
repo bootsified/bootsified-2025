@@ -1,7 +1,7 @@
 import TextBlock from '@/components/TextBlock'
 import Schema from '@/components/Schema'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
-import Link from 'next/link'
+import Contact from '@/components/Contact'
 
 const pageTitle = ''
 const pageDescription = ''
@@ -55,18 +55,10 @@ const ContactPage = () => {
 				}}
 			/> */}
 			<h1 className='srOnly'>Contact Me</h1>
-			<TextBlock padBottom='1em' padTop='1em' narrow>
+			<TextBlock padBottom='2em' padTop='1em'>
 				<h1>Let me hear from you</h1>
-				<p>
-          My name is <strong>John Highland</strong>, but most people call me{' '}
-          <strong>“Boots”</strong> - long story. I’m a web developer, musician, husband, and father
-          of two awesome boys, currently living in the Seattle area. I was born in Cincinnati, OH,
-          but my family moved to Dallas, TX, when I was two. In Dallas, I grew up, went to school,
-          played in multiple bands, started a web developer career, found a wife, and birthed a
-          couple sons. In 2023, we finally said goodbye to the brutal Texas Summers, and said hello
-          to the Pacific Northwest. The new chapter begins...
-        </p>
 			</TextBlock>
+			<Contact />
 		</>
   )
 }

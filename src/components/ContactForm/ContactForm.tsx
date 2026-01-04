@@ -244,7 +244,7 @@ const ContactForm = () => {
 							aria-invalid={!!errors.message}
 							aria-describedby={errors.message ? 'message-error' : undefined}
 							className={clsx(styles.input, styles.textarea)}
-							placeholder="Tell us more about what you're looking for..."
+							placeholder="So, what can I do for you?"
 							rows={5}
 						/>
 						{errors.message && (
