@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Image from 'next/image'
 import Button from '../Button'
+import Link from 'next/link'
 
 interface IntroProps {
 	className?: string
@@ -19,8 +20,8 @@ const Intro = ({
 					<h2>Hello!</h2>
 					<p>My name is John Highland, but most people know me as <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle area, with my very loving and understanding wife and two whacky sons. For {spanWeb()} years, I’ve been developing websites, but my first passion was playing bass guitar ({thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make yourself comfortable.</p>
 					<div className={styles.buttons}>
-						<Button href='/work' variant='outlineReverse'>View my work</Button>
-						<Button href='/contact' variant='reverse'>Contact Me</Button>
+						<Link href='/work'><Button variant='outlineReverse'>My work</Button></Link>
+						<Link href='/about'><Button variant='reverse'>Get to know me</Button></Link>
 					</div>
 				</div>
 				<div className={styles.image}>
