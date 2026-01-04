@@ -1,8 +1,5 @@
-import TextBlock from '@/components/TextBlock'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION } from '@/utils/constants'
 import Schema from '@/components/Schema'
-import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
-import Link from 'next/link'
 import Definition from '@/components/Definition'
 import Intro from '@/components/Intro'
 

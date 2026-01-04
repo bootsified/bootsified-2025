@@ -1,6 +1,6 @@
 import TextBlock from '@/components/TextBlock'
 import Schema from '@/components/Schema'
-import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
+import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE, SITE_NAME } from '@/utils/constants'
 import Link from 'next/link'
 import { spanBass, spanWeb } from '@/utils/helpers'
 import Image from 'next/image';
@@ -13,8 +13,8 @@ import meUSPS from '@public/images/me-usps.jpg';
 import FullWidthImage from '@/components/FullWidthImage'
 import Specialize from '@/components/Specialize'
 
-const pageTitle = ''
-const pageDescription = ''
+const pageTitle = `About ${SITE_NAME} | Front-End Developer with a Musician’s Mindset`
+const pageDescription = 'I’m John “Boots” Highland, a front-end developer and working musician focused on clean code, accessibility, and thoughtful composition in both software and sound.'
 const pageURL = `${SITE_PUBLIC_URL}/about`
 
 export const metadata = {

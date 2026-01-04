@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: WorkProps): Promise<Metadata>
   const { slug } = await params
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
   
-  const pageTitle = activeSection?.label || 'My Projects'
-  const pageDescription = activeSection?.seo || "Here is a few of the various projects I've had over the years - websites, music, goofy videos, etc."
+  const pageTitle = activeSection?.seoTitle || 'My Projects'
+  const pageDescription = activeSection?.seoDescription || "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail."
   const pageURL = `${SITE_PUBLIC_URL}/work${slug ? `/${slug[0]}` : ''}`
 
   return {

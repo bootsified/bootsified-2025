@@ -4,21 +4,24 @@ export const sections = [
     label: 'All Projects',
     description:
       'Here&rsquo;s a little bit of everything.  Some are pretty random... some are *really* old. For my web projects, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
-    seo: "Here is a few of the various projects I've had over the years - websites, music, goofy videos, etc.",
+		seoTitle: 'Selected Work | Front-End Development & Creative Projects',
+    seoDescription: "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail.",
   },
   {
     id: 'web-dev',
     label: 'Web Development',
     description:
       'Here are some of my more recent web projects. Unfortunately, the web is an ever-evolving beast, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
-    seo: 'These are some of my most recent web development projects.',
+		seoTitle: 'Web Development Projects | Front-End & React Work',
+    seoDescription: 'Front-end projects built with HTML, CSS, JavaScript, and React, shaped by a designer’s eye and a musician’s sense of structure.',
   },
   {
     id: 'music',
     label: 'Music',
     description:
       'In fourth grade, music grabbed me by the ear and never let go. Until I discovered web development, it was my primary passion. Here are a few of the highlights over the years.',
-    seo: 'Music was my first passion, and I&rsquo;ve had a TON of musical ventures along the way.  Here are some of the highlights.',
+		seoTitle: 'Music Projects | Composition, Performance & Recording',
+    seoDescription: 'Music projects spanning composition, performance, and recording — part of an ongoing creative practice alongside front-end development.',
   },
   // {
   //   id: 'photo',
@@ -30,7 +33,8 @@ export const sections = [
     id: 'misc',
     label: 'Other Stuff',
     description: 'Here are some other random things I&rsquo;ve done.',
-    seo: "Here are some other random things I've done.",
+		seoTitle: 'Miscellaneous Projects | Experiments & Explorations',
+    seoDescription: "Creative experiments connecting design, code, and music — driven by curiosity and a love of making things well.",
   },
 ]
 
