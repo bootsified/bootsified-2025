@@ -13,8 +13,8 @@ import meUSPS from '@public/images/me-usps.jpg';
 import FullWidthImage from '@/components/FullWidthImage'
 import Specialize from '@/components/Specialize'
 
-const pageTitle = 'About The Highland Practice | Neurodivergent & Trauma-Informed Therapist'
-const pageDescription = 'Neurodivergent therapist helping late-diagnosed ADHD/autistic adults heal trauma, religious wounds, perfectionism and burnout with insight + compassion.'
+const pageTitle = ''
+const pageDescription = ''
 const pageURL = `${SITE_PUBLIC_URL}/about`
 
 export const metadata = {

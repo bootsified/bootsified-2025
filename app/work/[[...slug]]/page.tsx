@@ -1,5 +1,7 @@
 import React from 'react'
 import { projects, sections } from 'app/work/data'
+import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
+import type { Metadata } from 'next'
 
 import Project from '@/components/Project'
 
@@ -9,6 +11,40 @@ type WorkProps = {
   params: Promise<{
     slug?: string[]
   }>
+}
+
+export async function generateMetadata({ params }: WorkProps): Promise<Metadata> {
+  const { slug } = await params
+  const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
+  
+  const pageTitle = activeSection?.label || 'My Projects'
+  const pageDescription = activeSection?.seo || "Here is a few of the various projects I've had over the years - websites, music, goofy videos, etc."
+  const pageURL = `${SITE_PUBLIC_URL}/work${slug ? `/${slug[0]}` : ''}`
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+      canonical: pageURL
+    },
+    twitter: {
+      title: pageTitle,
+      description: pageDescription,
+      images: [SEO_DEFAULT_IMAGE],
+    },
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      url: pageURL,
+      images: [
+        {
+          url: SEO_DEFAULT_IMAGE,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  }
 }
 
 const WorkPage = async ({ params }: WorkProps) => {

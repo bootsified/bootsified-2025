@@ -3,9 +3,9 @@ import Schema from '@/components/Schema'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
 import Link from 'next/link'
 
-const pageTitle = 'About The Highland Practice | Neurodivergent & Trauma-Informed Therapist'
-const pageDescription = 'Neurodivergent therapist helping late-diagnosed ADHD/autistic adults heal trauma, religious wounds, perfectionism and burnout with insight + compassion.'
-const pageURL = `${SITE_PUBLIC_URL}/about`
+const pageTitle = ''
+const pageDescription = ''
+const pageURL = `${SITE_PUBLIC_URL}/contact`
 
 export const metadata = {
 	title: pageTitle,
