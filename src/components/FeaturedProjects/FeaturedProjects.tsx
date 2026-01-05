@@ -13,7 +13,7 @@ const FeaturedProjects = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Some recent projects</h2>
+      <h2 className={styles.heading}>Some featured projects</h2>
       <div className={styles.list}>
         {featuredArray.length &&
           featuredArray.map(proj => <Project key={proj.id} project={proj} rotate={proj.rotate} />)}

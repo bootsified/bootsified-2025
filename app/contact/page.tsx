@@ -54,9 +54,9 @@ const ContactPage = () => {
 					}
 				}}
 			/> */}
-			<h1 className='srOnly'>Contact Me</h1>
+			<h1 className='srOnly'>Contact</h1>
 			<TextBlock padBottom='2em' padTop='1em'>
-				<h1>Let me hear from you</h1>
+				<h2 className='h1'>Let me hear from you</h2>
 			</TextBlock>
 			<Contact />
 		</>

@@ -25,7 +25,7 @@ const Intro = ({
 					</div>
 				</div>
 				<div className={styles.image}>
-					<Image src='/images/me-comic.png' alt='A comic-style illustration of John "Boots" Highland' width={400} height={400} />
+					<Image src='/images/me-comic.jpg' alt='A comic-style illustration of John "Boots" Highland' width={400} height={400} />
 				</div>
 			</div>
 		</section>
