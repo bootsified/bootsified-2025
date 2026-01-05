@@ -20,9 +20,6 @@ const Header = ({ className = '' }: HeaderProps) => {
 						<Logo alt="Bootsified Logo" aria-hidden="true" focusable="false" />
 					</Link>
 				</div>
-				<div className={styles.hamburgerWrapper}>
-					<Hamburger />
-				</div>
       </div>
     </header>
   )

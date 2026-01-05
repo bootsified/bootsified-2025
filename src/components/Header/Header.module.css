@@ -5,24 +5,17 @@
 
 .container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: flex-start;
 	width: 100%;
 	max-width: var(--container-width-md);
 	margin: 0 auto;
 	padding-left: var(--container-side-padding);
 	padding-right: var(--container-side-padding);
-	
-	&::before {
-		content: ' ';
-		display: block;
-		flex: 0 1 33.3%;
-	}
 }
 
 .branding {
 	display: block;
-	flex: 0 1 33.3%;
 	font-size: 0.875em;
 	transition: font-size 500ms var(--ease-in-out-cubic);
 
@@ -46,10 +39,4 @@
 			max-width: 55vw;
 		}
 	}
-}
-
-.hamburgerWrapper {
-	flex: 0 1 33.3%;
-	display: flex;
-	justify-content: flex-end;
 }

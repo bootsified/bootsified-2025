@@ -1,3 +1,42 @@
-.hamburger {
-	
+.container {
+	display: flex;
+	justify-content: flex-end;
+	left: 50%;
+	max-width: var(--container-width-md);
+	padding-left: var(--container-side-padding);
+	padding-right: var(--container-side-padding);
+	padding-top: 2em;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transform: translateX(-50%);
+	width: 100%;
+	z-index: 4;
 }
+
+.button {
+	pointer-events: auto;
+
+	&[aria-expanded="true"] {
+		--text: #FFF;
+	}
+}
+.box {
+	margin-top: 10px;
+}
+
+.inner { 
+	&,
+	&::before, 
+	&::after {
+		background-color: var(--text);
+		border-radius: 0;
+		height: 4px;
+		transition-duration: 500ms, 0.15s !important;
+		transition-property: background-color, transform !important;
+	}
+}
+
+/* .hamburger.is-active .hamburger-inner, 
+.hamburger.is-active .hamburger-inner::before, 
+.hamburger.is-active .hamburger-inner::after */

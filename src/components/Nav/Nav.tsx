@@ -23,7 +23,6 @@ const Nav = ({ className }: NavProps) => {
 
   return (
 		<nav className={clsx(styles.wrapper, navOpen && styles.navOpen, className)}>
-			<button className={styles.toggleButton} onClick={toggleNav} aria-expanded={navOpen} aria-controls="primary-navigation" aria-label="Toggle navigation menu">&times;</button>
 			<ul className={styles.list} id="primary-navigation">
 				<li className={styles.item}>
 					<Link 
