@@ -22,7 +22,7 @@
   }
 
   &::after {
-    background-image: linear-gradient(#0000, #000 85%);
+    background-image: linear-gradient(color-mix(in srgb, var(--text-reverse) 0%, transparent), var(--text-reverse) 85%);
     bottom: 0;
     content: " ";
     display: block;
@@ -86,6 +86,16 @@
     height: 100%;
     width: 100%;
   }
+
+	@nest [data-current-page="home"] & {
+		background-color: var(--text-reverse);
+		border-radius: 50%;
+
+		& img {
+			filter: invert();
+			mix-blend-mode: multiply;
+		}
+	}
 }
 
 .heading {
@@ -175,6 +185,10 @@
 
 .notes {
   padding-bottom: 2rem;
+
+	& a {
+		color: inherit;
+	}
 
   & em {
     font-style: oblique;

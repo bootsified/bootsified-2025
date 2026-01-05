@@ -24,8 +24,8 @@ body {
 
 html {
   height: auto;
-  scroll-behavior: smooth;
-	scroll-padding-top: 0;
+  /* scroll-behavior: smooth;
+	scroll-padding-top: 0; */
 
 	&.nav-open {
 		height: 100vh !important;
@@ -96,8 +96,8 @@ button:focus {
 code {
   /* background-color: #fff; */
   border: 1px solid var(--border-color);
-  border-radius: 0.3em;
-  color: var(--color-pri);
+  /* border-radius: 0.3em;
+  color: var(--color-pri); */
   font-size: 0.875em;
   padding: 0.1em 0.2em;
 }
@@ -232,8 +232,9 @@ main {
 
 body[data-current-page="home"] {
   --text: #000;
-	--text-reverse: #FA8C29;
-	--text-footer: #facc22;
+	--text-reverse: #F07D4A;
+	--reversed-text: var(--text-reverse);
+	--text-footer: #FFCE61;
 }
 
 body[data-current-page="about"] {
