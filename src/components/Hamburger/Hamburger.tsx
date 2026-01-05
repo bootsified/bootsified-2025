@@ -19,7 +19,7 @@ const Hamburger = () => {
 				onClick={toggleNav}
 			>
 				<span className={clsx(styles.box, 'hamburger-box')}>
-					<span className={clsx(styles.inner, 'hamburger-inner')}></span>
+					<span className={clsx(styles.inner, 'hamburger-inner')} data-is-active={navOpen}></span>
 				</span>
 			</button>
 		</div>

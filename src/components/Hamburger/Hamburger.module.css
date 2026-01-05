@@ -17,8 +17,16 @@
 .button {
 	pointer-events: auto;
 
+	&:hover {
+		opacity: 1;
+	}
+
 	&[aria-expanded="true"] {
 		--text: #FFF;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
 .box {
@@ -32,7 +40,37 @@
 		background-color: var(--text);
 		border-radius: 0;
 		height: 4px;
-		transition-duration: 500ms, 0.15s !important;
-		transition-property: background-color, transform !important;
+		transition-duration: 150ms !important;
+		transition-property: all !important;
+		transition-timing-function: var(--ease-in-out-circ) !important;
+	}
+
+	&::before {
+		transition-property: background-color opacity !important;
+		transition-delay: 0ms 300ms;
+		transition-duration: 0ms 300ms !important;
+	}
+
+	&[data-is-active="true"] {
+
+		&::before {
+			transform: rotate(0deg) translate3d(0, 0, 0) !important;
+			transition-delay: 0ms !important;
+			transition-duration: 0ms !important;
+		}
+	}
+
+	&[data-is-active="false"] {
+		width: calc(100% + 0.5em);
+		transform: translateX(-0.5em);
+
+		&::before {
+			left: 0.5em;
+		}
+
+		&::after {
+			left: 1em;
+			width: calc(100% - 1em);
+		}
 	}
 }
