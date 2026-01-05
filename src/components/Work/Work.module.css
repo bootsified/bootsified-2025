@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  max-width: var(--container-width-md);
+  max-width: var(--container-width-lg);
   padding-left: var(--container-side-padding);
   padding-right: var(--container-side-padding);
 	padding-top: 1em;
@@ -21,7 +21,7 @@
 .projects {
   display: grid;
   grid-gap: 3rem 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   margin-top: 4rem;
 }
 
