@@ -98,9 +98,7 @@ const AboutPage = () => {
           play acoustic bass, guitar, drums, and cello (my first instrument); and have experience
           with synth programming and studio mixing and producing - mostly with Logic Pro. Music has
           taken a back seat for me, since web development took over, but I still try to get back to
-          it from time to time. I actually have <Link href="/work/music">an album of my own</Link>{' '}
-          in the works that will hopefully see the light of day sometime soon. I&rsquo;ll keep you
-          posted.
+          it from time to time. I actually have <Link href="/work/music/the-release">an album of my own</Link> in the works that will hopefully see the light of day sometime soon. I&rsquo;ll keep you posted.
         </p>
 			</TextBlock>
 
