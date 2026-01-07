@@ -21,12 +21,28 @@ const Footer = ({ className = '' }: FooterProps) => {
 				</div>
 			</div>
 			<div className={styles.sasquatch}>
-				<div className={styles.image}>
+				<div className={styles.slice}>
+					<Image
+						src="/images/sasquatch-living-room-left.png"
+						alt="A front door, leading into the left side of an illustrated living room, containing a comfy chair, lamp, and plant on the floor."
+						width="156"
+						height="93"
+					/>
+				</div>
+				<div className={styles.slice}>
 					<Image
 						src="/images/sasquatch-jogging3-sm.gif"
 						alt="A friendly sasquatch jogging on a treadmill."
 						width="160"
 						height="90"
+					/>
+				</div>
+				<div className={styles.slice}>
+					<Image
+						src="/images/sasquatch-living-room-right.png"
+						alt="The right side of the living room, featuring a vintage TV on an entertainment stand, and a couple plants."
+						width="100"
+						height="93"
 					/>
 				</div>
 			</div>
