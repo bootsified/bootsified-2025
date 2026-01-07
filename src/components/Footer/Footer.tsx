@@ -11,6 +11,15 @@ const Footer = ({ className = '' }: FooterProps) => {
 
 	return (
     <footer className={clsx(styles.wrapper, className)}>
+			<div className={styles.seaplane}>
+				<Image
+					src="/images/seaplane.png"
+					alt="A small illustrated seaplane, with a banner, flying through the air."
+					width="400"
+					height="65"
+				/>
+				<span>Open for hire!</span>
+			</div>
       <div className={styles.trees}></div>
 			<div className={styles.bottom}>
 				<div className={styles.container}>

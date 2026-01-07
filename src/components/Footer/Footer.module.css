@@ -1,9 +1,46 @@
 .wrapper {
 	bottom: -50em;
+	overflow: hidden;
 	pointer-events: none;
 	position: sticky;
 	width: 100vw;
 	z-index: 2;
+}
+
+@keyframes seaplanefly {
+	0% {
+		transform: translateX(100vw);
+	}
+	50% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+.seaplane {
+	font-size: 0.6em;
+	pointer-events: none;
+	position: absolute;
+	top: 2em;
+	animation: seaplanefly 20s linear infinite;
+
+	& img {
+		height: 4.0625em;
+		width: 25em;
+	}
+
+	& span {
+		color: var(--text-footer);
+		font-family: var(--font-heading);
+		font-size: 1.25em;
+		right: 0.75em;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-55%);
+		transition: color 500ms ease;
+	}
 }
 	
 .trees {
