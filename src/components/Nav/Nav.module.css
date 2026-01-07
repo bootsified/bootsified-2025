@@ -55,7 +55,7 @@
 	@media screen and (orientation: portrait) {
 		background-position: calc(42vw * -1) calc(100vh - 80vw);
 		background-size: 111vw auto;
-		padding-top: 3em;
+		padding-top: 2.5em;
 	}
 }
 

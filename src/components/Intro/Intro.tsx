@@ -20,8 +20,9 @@ const Intro = ({
 					<h2>Hello!</h2>
 					<p>My name is John Highland, but most people know me as <strong>&ldquo;Boots&rdquo;</strong> &mdash; long story. I currently live in the Seattle area, with my very loving and understanding wife and two whacky sons. For {spanWeb()} years, I’ve been developing websites, but my first passion was playing bass guitar ({thisYear()} marks {spanBass()} years). Welcome to my home. Take a look around... make yourself comfortable.</p>
 					<div className={styles.buttons}>
+						<Link href='/about'><Button variant='reverse'>My Bio</Button></Link>
 						<Link href='/work'><Button variant='outlineReverse'>My work</Button></Link>
-						<Link href='/about'><Button variant='reverse'>Get to know me</Button></Link>
+						<Link href='https://docs.google.com/document/d/1rQctHdBV9pXxVna_HOguMz88CmM4ywg9sugs21w9_Ls/export?format=pdf' download={true}><Button variant='outlineReverse'>My Resume</Button></Link>
 					</div>
 				</div>
 				<div className={styles.image}>
