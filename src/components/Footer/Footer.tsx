@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import Logo from '@/assets/images/boots-signature.svg'
 import styles from './Footer.module.css'
+import Image from 'next/image'
 
 interface FooterProps {
   className?: string
@@ -17,6 +18,16 @@ const Footer = ({ className = '' }: FooterProps) => {
 					<p className={styles.signature}>
 						<Logo alt="Bootsified Signature" aria-hidden="true" focusable="false" />
 					</p>
+				</div>
+			</div>
+			<div className={styles.sasquatch}>
+				<div className={styles.image}>
+					<Image
+						src="/images/sasquatch-jogging3-sm.gif"
+						alt="A friendly sasquatch jogging on a treadmill."
+						width="160"
+						height="90"
+					/>
 				</div>
 			</div>
     </footer>
