@@ -15,7 +15,11 @@
 }
 
 .sunset {
-	background-image: linear-gradient(to top, #FFCE61, #EE6C45, #BF3475);
+	background-image: linear-gradient(to top, #FFCE61, #EE6C45 70%, #BF3475);
+
+	@media screen and ( min-width: 768px ) {
+		background-image: linear-gradient(to top, #FFCE61, #EE6C45, #BF3475);
+	}
 }
 .night {
 	background-image: url('/images/stars-tiled2.png'), linear-gradient(#24243c, #2f5576);

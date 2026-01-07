@@ -20,11 +20,15 @@
 }
 
 .seaplane {
-	font-size: 0.6em;
+	font-size: 0.5em;
 	pointer-events: none;
 	position: absolute;
 	top: 2em;
 	animation: seaplanefly 20s linear infinite;
+
+	@media screen and ( min-width: 768px ) {
+		font-size: 0.6em;
+	}
 
 	& img {
 		height: 4.0625em;
