@@ -23,11 +23,18 @@
 		font-size: 0.625em;
 	}
 
-	a {
+	& a {
 		color: inherit;
+
+		@nest [data-whatintent="mouse"] & :hover {
+			
+			& circle {
+				fill: #FFF;
+			}
+		}
 	}
 	
-	svg {
+	& svg {
 		display: block;
 		fill: var(--text);
 		margin: 0 auto;
@@ -37,6 +44,11 @@
 
 		@media screen and ( max-width: 559px ) {
 			max-width: 55vw;
+		}
+
+		& circle {
+			fill: #FFF0;
+			transition: fill var(--hover-duration) ease;
 		}
 	}
 }

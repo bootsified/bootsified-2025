@@ -33,10 +33,10 @@ export default async function AdminPage() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Mail Room</h1>
-      <p className={styles.count}>Total submissions: {submissions.length}</p>
+      <h1>Mail Room</h1>
+      <p>Total submissions: {submissions.length}</p>
       
-      <div className={styles.tableWrapper}>
+      <div className={pageStyles.tableWrapper}>
         <table className={pageStyles.table}>
           <thead>
             <tr>
@@ -66,10 +66,10 @@ export default async function AdminPage() {
                   
                   return (
                   <tr key={submission.id}>
-                    <td className={styles.date}>
+                    <td>
                       {dateStr}<br />{timeStr}
                     </td>
-                    <td className={styles.name}>{submission.name}</td>
+                    <td>{submission.name}</td>
                     <td>
                       <a href={`mailto:${submission.email}`} className={styles.link}>
                         {submission.email}
@@ -84,7 +84,7 @@ export default async function AdminPage() {
                         <span className={styles.empty}>—</span>
                       )}
                     </td>
-                    <td className={styles.message}>{submission.message}</td>
+                    <td>{submission.message}</td>
                   </tr>
                   )
                 })
