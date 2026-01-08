@@ -83,7 +83,7 @@
 
 		@nest [data-whatintent="mouse"] &:hover {
 			/* background-color: var(--color-pri); */
-			color: var(--color-ter);
+			color: var(--color-pri);
 		}
 
     @nest [data-whatintent="keyboard"] &:focus {
@@ -97,7 +97,7 @@
 
 	&::after,
 	&::before {
-		color: var(--color-ter);
+		color: var(--color-pri);
 		content: '\002A';
 		display: inline-block;
 		font-family: var(--font-heading);

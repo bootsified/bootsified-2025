@@ -29,7 +29,7 @@
 		@nest [data-whatintent="mouse"] & :hover {
 			
 			& circle {
-				fill: #FFF;
+				fill: var(--splat-hover-color);
 			}
 		}
 	}
@@ -47,7 +47,7 @@
 		}
 
 		& circle {
-			fill: #FFF0;
+			fill: transparent;
 			transition: fill var(--hover-duration) ease;
 		}
 	}
