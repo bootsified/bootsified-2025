@@ -32,14 +32,25 @@
 
 .table {
 	border-collapse: collapse;
-	font-size: 0.875rem;
 	margin-top: 1rem;
 	width: 100%;
 
 	th, td {
-		border: 1px solid var(--text);
+		border: 2px solid var(--text);
+		font-size: 0.875em;
 		padding: 0.5rem;
 		text-align: left;
+	}
+
+	th {
+		background-color: var(--text);
+		color: var(--text-reverse);
+		font-family: var(--font-sans);
+		font-size: 0.75em;
+		font-stretch: 75%;
+		letter-spacing: 0.1em;
+		text-align: center;
+		text-transform: uppercase;
 	}
 }
 

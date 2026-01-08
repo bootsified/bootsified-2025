@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import styles from './admin.module.css'
+import pageStyles from '@/styles/Page.module.css'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -32,55 +33,65 @@ export default async function AdminPage() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Contact Form Submissions</h1>
+      <h1 className={styles.title}>Mail Room</h1>
+      <p className={styles.count}>Total submissions: {submissions.length}</p>
       
-      {submissions.length === 0 ? (
-        <p className={styles.emptyState}>No submissions yet.</p>
-      ) : (
-        <>
-          <p className={styles.count}>Total submissions: {submissions.length}</p>
-          
-          <div className={styles.grid}>
-            {submissions.map((submission: ContactSubmission) => (
-              <div key={submission.id} className={styles.card}>
-                <div className={styles.header}>
-                  <h2 className={styles.name}>{submission.name}</h2>
-                  <time className={styles.date}>
-                    {new Date(submission.createdAt).toLocaleString()}
-                  </time>
-                </div>
-                
-                <div className={styles.details}>
-                  <div className={styles.field}>
-                    <strong>Email:</strong>{' '}
-                    <a href={`mailto:${submission.email}`} className={styles.link}>
-                      {submission.email}
-                    </a>
-                  </div>
+      <div className={styles.tableWrapper}>
+        <table className={pageStyles.table}>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {submissions.length === 0 ? (
+              <tr>
+                <td colSpan={5} className={styles.emptyState}>
+                  No submissions yet.
+                </td>
+              </tr>
+            ) : (
+              submissions.map((submission: ContactSubmission) => {
+                  const date = new Date(submission.createdAt)
+                  const dateStr = date.toLocaleDateString('en-US')
+                  const timeStr = date.toLocaleTimeString('en-US', { 
+                    hour: 'numeric', 
+                    minute: '2-digit', 
+                    hour12: true 
+                  })
                   
-                  {submission.phone && (
-                    <div className={styles.field}>
-                      <strong>Phone:</strong>{' '}
-                      <a href={`tel:${submission.phone}`} className={styles.link}>
-                        {submission.phone}
+                  return (
+                  <tr key={submission.id}>
+                    <td className={styles.date}>
+                      {dateStr}<br />{timeStr}
+                    </td>
+                    <td className={styles.name}>{submission.name}</td>
+                    <td>
+                      <a href={`mailto:${submission.email}`} className={styles.link}>
+                        {submission.email}
                       </a>
-                    </div>
-                  )}
-                  
-                  <div className={styles.field}>
-                    <strong>Message:</strong>
-                    <p className={styles.message}>{submission.message}</p>
-                  </div>
-                  
-                  <div className={styles.meta}>
-                    <small>ID: {submission.id}</small>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+                    </td>
+                    <td>
+                      {submission.phone ? (
+                        <a href={`tel:${submission.phone}`} className={styles.link}>
+                          {submission.phone}
+                        </a>
+                      ) : (
+                        <span className={styles.empty}>—</span>
+                      )}
+                    </td>
+                    <td className={styles.message}>{submission.message}</td>
+                  </tr>
+                  )
+                })
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
