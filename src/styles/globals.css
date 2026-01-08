@@ -119,14 +119,8 @@ button:focus {
   outline: none;
 
   @nest [data-whatintent="keyboard"] & {
-    outline: 2px dotted;
+    outline: 2px dotted var(--text);
     outline-offset: 2px;
-  }
-}
-
-button:focus {
-  @nest [data-whatintent="keyboard"] & {
-    outline-color: var(--text);
   }
 }
 

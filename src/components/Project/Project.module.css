@@ -23,6 +23,11 @@
 		}
   }
 
+  @nest [data-whatintent="keyboard"] &:focus {
+		outline-offset: 6px;
+		outline-width: 4px;
+	}
+
   &::after {
     background-color: var(--text-reverse);
     color: var(--text);

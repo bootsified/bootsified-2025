@@ -6,13 +6,11 @@ import * as constants from '@/utils/constants'
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { UIProvider } from '@/context/UIContext'
-import Schema from '@/components/Schema'
 import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
 import { PT_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
-import Nav from '@components/Nav'
+import Navigation from '@components/Navigation'
 import Gradient from "@/components/Gradient";
-import Hamburger from "@/components/Hamburger";
 
 export const ptSerif = PT_Serif({
 	weight: ['400', '700'],
@@ -199,8 +197,7 @@ export default async function RootLayout({
 					<Gradient />
 					<div className="vignette"></div>
           <Header />
-					<Hamburger />
-					<Nav className={styles.nav} />
+					<Navigation navClassName={styles.nav} />
           <main id="main-content" className={styles.main}>{children}</main>
           <Footer className={styles.footer} />
           <KonamiEasterEggWrapper />
