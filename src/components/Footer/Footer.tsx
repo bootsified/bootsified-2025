@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import Logo from '@/assets/images/boots-signature.svg'
 import styles from './Footer.module.css'
 import Image from 'next/image'
+import Seaplane from '@/assets/images/seaplane.svg'
 
 interface FooterProps {
   className?: string
@@ -12,8 +13,8 @@ const Footer = ({ className = '' }: FooterProps) => {
 	return (
     <footer className={clsx(styles.wrapper, className)}>
 			<div className={styles.seaplane}>
-				<Image
-					src="/images/seaplane.png"
+				<Seaplane
+					className={styles.seaplaneSvg}
 					alt="A small illustrated seaplane, with a banner, flying through the air."
 					width="400"
 					height="65"

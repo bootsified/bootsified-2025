@@ -30,11 +30,6 @@
 		font-size: 0.6em;
 	}
 
-	& img {
-		height: 4.0625em;
-		width: 25em;
-	}
-
 	& span {
 		color: var(--text-footer);
 		font-family: var(--font-heading);
@@ -42,8 +37,21 @@
 		right: 0.75em;
 		position: absolute;
 		top: 50%;
-		transform: translateY(-55%);
+		transform: translateY(-63%);
 		transition: color 500ms ease;
+	}
+}
+
+.seaplaneSvg {
+	height: 4.0625em;
+	width: 25em;
+
+	& :global(.seaplane_svg__plane) {
+		fill: #000;
+	}
+
+	& :global(.seaplane_svg__windows) {
+		fill: var(--text-footer);
 	}
 }
 	
