@@ -106,19 +106,19 @@
 }
 
 .status-loading {
-	background-color: #f0f8ff;
-	border-color: var(--blue);
-	color: var(--blue);
+	background-color: #fff;
+	border-color: var(--red-3);
+	color: var(--red-3);
 }
 
 .status-success {
-	background-color: #f0fdf4;
-	border-color: var(--color-pri);
-	color: var(--color-pri);
+	background-color: #fff;
+	border-color: var(--blue-2);
+	color: var(--green-4);
 }
 
 .status-error {
-	background-color: #fef2f2;
+	background-color: #fff;
 	border-color: var(--red-5);
 	color: var(--red-5);
 }
