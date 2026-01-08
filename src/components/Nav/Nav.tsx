@@ -16,7 +16,7 @@ import styles from './Nav.module.css'
 
 interface NavProps {
   className: string
-	hamburgerRef?: React.RefObject<HTMLButtonElement>
+	hamburgerRef?: React.RefObject<HTMLButtonElement | null>
 }
 
 const Nav = ({ className, hamburgerRef }: NavProps) => {
