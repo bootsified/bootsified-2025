@@ -82,34 +82,56 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const emailData = {
-      from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL_RECIPIENT || email,
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Submission ID: ${submission.id}</small></p>
-        <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
-      `,
-      text: `
-New Contact Form Submission
-
-Name: ${name}
-Email: ${email}
-${phone ? `Phone: ${phone}\n` : ''}
-Message:
-${message}
-
----
-Submission ID: ${submission.id}
-Submitted at: ${new Date().toLocaleString()}
-      `,
-    }
+			from: process.env.EMAIL_FROM || 'donotreply@notifications.boots.dev',
+			to: process.env.CONTACT_EMAIL_RECIPIENT || 'hello@boots.dev',
+			replyTo: email,
+			subject: `New contact form submission from ${name}`,
+			html: `
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<style>
+							body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; }
+							.container { max-width: 600px; margin: 0 auto; padding: 20px; }
+							.header { background: #B00075; color: white; padding: 20px; border-radius: 4px; margin-bottom: 20px; }
+							.field { margin-bottom: 1em; }
+							.label { font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; }
+							.value { color: #444; margin-top: 5px; font-size: 1.25em; }
+							.message-content { background: #f9f9f9; padding: 1.25em; border-left: 4px solid #B00075; margin-top: 10px; }
+						</style>
+					</head>
+					<body>
+						<div class="container">
+							<div class="header">
+								<h2>New Contact Form Submission</h2>
+							</div>
+							
+							<div class="field">
+								<div class="label">Name:</div>
+								<div class="value">${name}</div>
+							</div>
+							
+							<div class="field">
+								<div class="label">Email:</div>
+								<div class="value"><a style="color: #B00075;" href="mailto:${email}">${email}</a></div>
+							</div>
+							
+							<div class="field">
+								<div class="label">Phone:</div>
+								<div class="value"><a style="color: #B00075;" href="tel:${phone}">${phone}</a></div>
+							</div>
+							
+							<div class="field">
+								<div class="label">Message:</div>
+								<div class="message-content">
+									${message.replace(/\n/g, '<br>')}
+								</div>
+							</div>
+						</div>
+					</body>
+				</html>
+			`,
+		}
 
     try {
       await resend.emails.send(emailData)
