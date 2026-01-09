@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: WorkProps): Promise<Metadata>
   
   const pageTitle = activeSection?.seoTitle || 'My Projects'
   const pageDescription = activeSection?.seoDescription || "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail."
-  const pageURL = `${SITE_PUBLIC_URL}/work${slug ? `/${slug[0]}` : ''}`
+  const pageURL = `${SITE_PUBLIC_URL}/work${slug ? `/${slug.join('/')}` : ''}`
 
   return {
     title: pageTitle,
@@ -68,12 +68,13 @@ const WorkPage = async ({ params }: WorkProps) => {
   if (activeProject) {
     const hasExternalLink = activeProject.url && activeProject.url !== ''
     const schemaType = hasExternalLink ? 'WebSite' : 'CreativeWork'
+    const projectURL = `https://boots.dev/work/${activeProject.category}/${activeProject.id}`
     
     projectSchema = [
       {
         '@context': 'https://schema.org',
         '@type': schemaType,
-        '@id': `https://boots.dev/work/${activeProject.id}`,
+        '@id': projectURL,
         name: activeProject.title,
         dateCreated: activeProject.year,
         about: activeProject.skills.join(', '),
@@ -89,7 +90,7 @@ const WorkPage = async ({ params }: WorkProps) => {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://boots.dev/' },
           { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://boots.dev/work' },
-          { '@type': 'ListItem', position: 3, name: activeProject.title, item: `https://boots.dev/work/${activeProject.id}` }
+          { '@type': 'ListItem', position: 3, name: activeProject.title, item: projectURL }
         ]
       }
     ]
