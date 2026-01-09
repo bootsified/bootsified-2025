@@ -27,6 +27,7 @@ const SCHEMA_BASE_URL = `https://${SITE_PUBLIC_DOMAIN}`
 
 // Schema.org Person
 export const PERSON_SCHEMA = {
+  '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${SCHEMA_BASE_URL}/#person`,
   name: 'John Highland',
@@ -51,6 +52,7 @@ export const PERSON_SCHEMA = {
 
 // Schema.org WebSite
 export const WEBSITE_SCHEMA = {
+  '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': `${SCHEMA_BASE_URL}/#website`,
   url: SCHEMA_BASE_URL,

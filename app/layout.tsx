@@ -109,7 +109,7 @@ export default async function RootLayout({
           </>
         )}
       </head>
-      <body className={styles.body} data-current-page="home">
+      <body className={styles.body} suppressHydrationWarning>
 				<style>
 					{`
 						:root {
@@ -125,8 +125,36 @@ export default async function RootLayout({
             data={{
               '@context': 'https://schema.org',
               '@graph': [
-                constants.WEBSITE_SCHEMA,
-                constants.PERSON_SCHEMA
+                {
+                  '@type': 'WebSite',
+                  '@id': `${constants.SITE_PUBLIC_DOMAIN}/#website`,
+                  url: `https://${constants.SITE_PUBLIC_DOMAIN}`,
+                  name: constants.SITE_NAME,
+                  inLanguage: 'en-US',
+                  publisher: { '@id': `https://${constants.SITE_PUBLIC_DOMAIN}/#person` }
+                },
+                {
+                  '@type': 'Person',
+                  '@id': `https://${constants.SITE_PUBLIC_DOMAIN}/#person`,
+                  name: 'John Highland',
+                  alternateName: 'John "Boots" Highland',
+                  jobTitle: ['Front-End Developer', 'Web Developer', 'Musician'],
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'WA',
+                    addressCountry: 'US'
+                  },
+                  homeLocation: {
+                    '@type': 'Place',
+                    name: 'Seattle area'
+                  },
+                  url: `https://${constants.SITE_PUBLIC_DOMAIN}`,
+                  sameAs: [
+                    constants.LINKEDIN_URL,
+                    constants.GITHUB_URL,
+                    constants.BLUESKY_URL
+                  ]
+                }
               ]
             }}
           />

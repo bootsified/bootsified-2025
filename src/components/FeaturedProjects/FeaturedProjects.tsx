@@ -12,7 +12,7 @@ const FeaturedProjects = () => {
   const featuredArray = projects.slice(0, 3)
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <h2 className={styles.heading}>Some featured projects</h2>
       <div className={styles.list}>
         {featuredArray.length &&
@@ -25,7 +25,7 @@ const FeaturedProjects = () => {
           </Button>
         </Link>
       </p>
-    </div>
+    </section>
   )
 }
 

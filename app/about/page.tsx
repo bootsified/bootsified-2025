@@ -44,7 +44,7 @@ export const metadata = {
 
 const AboutPage = () => {
   return (
-		<>
+		<article>
 			<Schema
 				data={[
 					{
@@ -116,7 +116,7 @@ const AboutPage = () => {
 			<FullWidthImage src={meUSPS} narrow position="right" alt="An illustration of Boots working as a USPS Letter Carrier, delivering mail out of his mail truck." padBottom='5em' />
 
 			<Specialize />
-		</>
+		</article>
   )
 }
 

@@ -39,7 +39,7 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange} {...props}>
-      <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
+      <Dialog.Trigger asChild suppressHydrationWarning>{trigger}</Dialog.Trigger>
       <AnimatePresence>
         {open && (
           <Dialog.Portal forceMount>
