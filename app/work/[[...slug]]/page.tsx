@@ -98,6 +98,17 @@ const WorkPage = async ({ params }: WorkProps) => {
         ]
       }
     ]
+  } else {
+    // Category or main work page - just breadcrumbs
+    const workURL = slug?.[0] ? `https://boots.dev/work/${slug[0]}` : 'https://boots.dev/work'
+    projectSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://boots.dev/' },
+        { '@type': 'ListItem', position: 2, name: 'Work', item: workURL }
+      ]
+    }
   }
 
   return (
