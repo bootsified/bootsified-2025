@@ -35,25 +35,29 @@ export const metadata = {
 const ContactPage = () => {
   return (
 		<>
-			{/* <Schema
-				data={{
-					'@context': 'https://schema.org',
-					'@type': 'AboutPage',
-					'@id': `${pageURL}#webpage`,
-					url: pageURL,
-					name: pageTitle,
-					description: pageDescription,
-					isPartOf: { '@id': `${SITE_PUBLIC_URL}#website` },
-					inLanguage: 'en-US',
-					breadcrumb: {
+			<Schema
+				data={[
+					{
+						'@context': 'https://schema.org',
+						'@type': 'ContactPage',
+						'@id': 'https://boots.dev/contact#webpage',
+						url: 'https://boots.dev/contact',
+						name: pageTitle,
+						description: pageDescription,
+						about: { '@id': 'https://boots.dev/#person' },
+						isPartOf: { '@id': 'https://boots.dev/#website' },
+						inLanguage: 'en-US'
+					},
+					{
+						'@context': 'https://schema.org',
 						'@type': 'BreadcrumbList',
 						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE_PUBLIC_URL },
-							{ '@type': 'ListItem', position: 2, name: 'About', item: pageURL }
+							{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://boots.dev/' },
+							{ '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://boots.dev/contact' }
 						]
 					}
-				}}
-			/> */}
+				]}
+			/>
 			<h1 className='srOnly'>Contact</h1>
 			<TextBlock padBottom='2em' padTop='1em'>
 				<h2 className='h1'>Let me hear from you</h2>

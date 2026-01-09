@@ -4,6 +4,7 @@ import LinkedInIcon from '@assets/icons/contact-icon-linkedin.svg'
 import PDFIcon from '@assets/icons/contact-icon-pdf.svg'
 import BlueskyIcon from '@assets/icons/contact-icon-bluesky.svg'
 import Link from 'next/link'
+import { BLUESKY_HANDLE, BLUESKY_URL, GITHUB_HANDLE, GITHUB_URL, LINKEDIN_HANDLE, LINKEDIN_URL } from '@utils/constants'
 
 import ContactForm from '@components/ContactForm'
 
@@ -23,27 +24,27 @@ const Contact = () => {
             <li>
               <Link
                 className={styles.link}
-                href="https://www.linkedin.com/in/boots-highland/"
+                href={`${LINKEDIN_URL}`}
                 target="_blank"
               >
                 <LinkedInIcon />
-                <span>linkedin.com/in/boots-highland</span>
+                <span>{LINKEDIN_HANDLE}</span>
               </Link>
             </li>
             <li>
-              <Link className={styles.link} href="https://github.com/bootsified" target="_blank">
+              <Link className={styles.link} href={`${GITHUB_URL}`} target="_blank">
                 <GithubIcon />
-                <span>github.com/bootsified</span>
+                <span>{GITHUB_HANDLE}</span>
               </Link>
             </li>
             <li>
               <Link
                 className={styles.link}
-                href="https://bsky.app/profile/bootsified.bsky.social"
+                href={`${BLUESKY_URL}`}
                 target="_blank"
               >
                 <BlueskyIcon />
-                <span>bootsified.bsky.social</span>
+                <span>{BLUESKY_HANDLE}</span>
               </Link>
             </li>
             <li>

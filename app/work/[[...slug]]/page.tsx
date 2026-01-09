@@ -1,9 +1,10 @@
 import React from 'react'
 import { projects, sections } from 'app/work/data'
-import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE } from '@/utils/constants'
+import { SITE_PUBLIC_URL } from '@/utils/constants'
 import type { Metadata } from 'next'
 
 import Project from '@/components/Project'
+import Schema from '@/components/Schema'
 
 import styles from '@components/Work/Work.module.css'
 
@@ -16,6 +17,7 @@ type WorkProps = {
 export async function generateMetadata({ params }: WorkProps): Promise<Metadata> {
   const { slug } = await params
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
+  const SEO_DEFAULT_IMAGE = `${SITE_PUBLIC_URL}/images/bootsified-seo.jpg`
   
   const pageTitle = activeSection?.seoTitle || 'My Projects'
   const pageDescription = activeSection?.seoDescription || "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail."
@@ -53,6 +55,7 @@ const WorkPage = async ({ params }: WorkProps) => {
   
   // Get project ID from second slug segment (e.g., /work/web-dev/mizzen)
   const projectId = slug?.[1]
+  const activeProject = projectId ? projects.find(p => p.id === projectId) : null
   
   let filteredProjects = projects
 
@@ -60,8 +63,41 @@ const WorkPage = async ({ params }: WorkProps) => {
     filteredProjects = projects.filter(proj => proj.category === activeSection?.id)
   }
 
+  // Generate schema for individual project if one is selected
+  let projectSchema = null
+  if (activeProject) {
+    const hasExternalLink = activeProject.url && activeProject.url !== ''
+    const schemaType = hasExternalLink ? 'WebSite' : 'CreativeWork'
+    
+    projectSchema = [
+      {
+        '@context': 'https://schema.org',
+        '@type': schemaType,
+        '@id': `https://boots.dev/work/${activeProject.id}`,
+        name: activeProject.title,
+        dateCreated: activeProject.year,
+        about: activeProject.skills.join(', '),
+        description: activeProject.skills.join(', '),
+        keywords: activeProject.skills,
+        image: `${SITE_PUBLIC_URL}${activeProject.screenshot}`,
+        ...(hasExternalLink && { url: activeProject.url }),
+        creator: { '@id': 'https://boots.dev/#person' }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://boots.dev/' },
+          { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://boots.dev/work' },
+          { '@type': 'ListItem', position: 3, name: activeProject.title, item: `https://boots.dev/work/${activeProject.id}` }
+        ]
+      }
+    ]
+  }
+
   return (
     <>
+      {projectSchema && <Schema data={projectSchema} />}
       {activeSection?.description && (
         <p
           className={styles.introText}

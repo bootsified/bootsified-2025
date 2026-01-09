@@ -11,6 +11,7 @@ import { PT_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import Navigation from '@components/Navigation'
 import Gradient from "@/components/Gradient";
+import Schema from '@/components/Schema';
 
 export const ptSerif = PT_Serif({
 	weight: ['400', '700'],
@@ -120,80 +121,15 @@ export default async function RootLayout({
 				</style>
         <a href="#main-content" className="srOnly">Skip to main content</a>
         <UIProvider>
-          {/* <Schema
-            data={[
-              {
-                '@context': 'https://schema.org',
-                '@type': 'MedicalBusiness',
-                '@id': `${constants.SITE_PUBLIC_URL}#practice`,
-                name: constants.SITE_NAME,
-                url: constants.SITE_PUBLIC_URL,
-								telephone: constants.CONTACT_PHONE_URL,
-                logo: `${constants.SITE_PUBLIC_URL}/images/hlpc-seo.png`,
-								image: [
-									`${constants.SITE_PUBLIC_URL}/images/alyssa-square.jpg`,
-								],
-                sameAs: [
-                  'https://www.psychologytoday.com/us/therapists/alyssa-highland-mill-creek-wa/180679',
-                  'https://www.instagram.com/alyssa.highland.lpcs/',
-                  'http://facebook.com/AlyssaHighlandLPCS/',
-									'https://care.headway.co/providers/alyssa-highland'
-                ],
-                medicalSpecialty: ['Psychiatric', 'Psychology'],
-                contactPoint: {
-                  '@type': 'ContactPoint',
-                  telephone: constants.CONTACT_PHONE_URL,
-                  contactType: 'customer service',
-                  areaServed: ['US-WA', 'US-TX'],
-                  availableLanguage: ['en']
-                },
-                address: {
-                  '@type': 'PostalAddress',
-                  streetAddress: '13300 Bothell Everett Hwy, Ste 303-212',
-                  addressLocality: 'Mill Creek',
-                  addressRegion: 'WA',
-                  postalCode: '98012',
-                  addressCountry: 'US'
-                },
-                founder: { '@id': `${constants.SITE_PUBLIC_URL}#founder` },
-                availableService: [
-                  { '@type': 'Service', name: 'ADHD & Autism Therapy', areaServed: ['US-WA','US-TX'] },
-                  { '@type': 'Service', name: 'Trauma Therapy', areaServed: ['US-WA','US-TX'] },
-                  { '@type': 'Service', name: 'Attachment & Relationship Work', areaServed: ['US-WA','US-TX'] },
-                  { '@type': 'Service', name: 'Burnout & Life Transitions', areaServed: ['US-WA','US-TX'] },
-                  { '@type': 'Service', name: 'Faith Transitions & Religious Trauma', areaServed: ['US-WA','US-TX'] }
-                ],
-                aggregateRating: {
-                  '@type': 'AggregateRating',
-                  ratingValue: rating.ratingValue,
-                  ratingCount: rating.ratingCount,
-                  reviewCount: rating.reviewCount,
-                  bestRating: 5,
-                  worstRating: 5
-                }
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Person',
-                '@id': `${constants.SITE_PUBLIC_URL}#founder`,
-                name: 'Alyssa Highland',
-                jobTitle: 'Licensed Mental Health Counselor / Licensed Professional Counselor',
-                worksFor: { '@id': `${constants.SITE_PUBLIC_URL}#practice` },
-                url: constants.SITE_PUBLIC_URL,
-                image: `${constants.SITE_PUBLIC_URL}/images/alyssa-bio.jpg`
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'WebSite',
-                '@id': `${constants.SITE_PUBLIC_URL}#website`,
-                url: constants.SITE_PUBLIC_URL,
-                name: constants.SITE_NAME,
-                description: constants.SEO_DEFAULT_DESCRIPTION,
-                publisher: { '@id': `${constants.SITE_PUBLIC_URL}#practice` },
-                inLanguage: 'en-US'
-              }
-            ]}
-          /> */}
+          <Schema
+            data={{
+              '@context': 'https://schema.org',
+              '@graph': [
+                constants.WEBSITE_SCHEMA,
+                constants.PERSON_SCHEMA
+              ]
+            }}
+          />
 					<Gradient />
 					<div className="vignette"></div>
           <Header />
