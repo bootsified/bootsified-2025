@@ -7,7 +7,7 @@ import Image from 'next/image';
 import TextMedia from '@/components/TextMedia'
 import kidVideo from 'videos/me-kid-waving-edit-web.mp4';
 import kidPoster from '@public/images/me-kid-waving-poster.jpg';
-import meSelfie from '@public/images/me-comic-selfie3.png';
+import meSelfie from '@public/images/me-comic-selfie4.png';
 import meRawk from '@public/images/me-comic-rawk2.jpg';
 import meUSPS from '@public/images/me-usps.jpg';
 import FullWidthImage from '@/components/FullWidthImage'
