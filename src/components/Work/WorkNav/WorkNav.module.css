@@ -1,4 +1,6 @@
 .container {
+	margin: 0 auto;
+
   @media screen and (max-width: 739px) {
     max-width: 25rem;
   }
@@ -46,10 +48,17 @@
   }
 
   @media screen and (min-width: 740px) {
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    gap: 1rem;
   }
+
+  @media screen and (min-width: 1000px) {
+    gap: 2rem;
+  }
+
+	& li {
+		flex: 1 1 1em;
+	}
 
   & a {
     display: block;

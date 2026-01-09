@@ -7,14 +7,14 @@ import { SITE_PUBLIC_URL } from '@/utils/constants'
 const WorkLayout = ({ children }: { children: React.ReactNode }) => {
   // Filter featured projects and map to schema.org CreativeWork or WebSite
   const featuredProjects = projects
-    .filter(p => p.featured)
+    .filter(p => p.categories.includes('featured'))
     .map((project, index) => {
       const hasExternalLink = project.url && project.url !== ''
       const schemaType = hasExternalLink ? 'WebSite' : 'CreativeWork'
       
       const item: Record<string, unknown> = {
         '@type': schemaType,
-        '@id': `https://boots.dev/work/${project.category}/${project.id}`,
+        '@id': `https://boots.dev/work/${project.categories[0]}/${project.id}`,
         name: project.title,
         dateCreated: project.year,
         about: project.skills.join(', '),

@@ -17,7 +17,7 @@ interface ProjectProps {
     client: string
     year: string
     projectType: string
-    category: string
+    categories: string[]
     agency: string
     logo: string
     screenshot?: string
@@ -41,7 +41,7 @@ const Project = ({ rotate = '', project, initialOpen = false }: ProjectProps) =>
     client,
     year,
     projectType,
-    category,
+    categories,
     logo,
     screenshot = '',
 		screenshotNoir = '',
@@ -76,8 +76,8 @@ const Project = ({ rotate = '', project, initialOpen = false }: ProjectProps) =>
 
       const from = existingFrom ?? currentCleanUrl
       const nextUrl = existingFrom
-        ? `/work/${category}/${id}?from=${encodeURIComponent(existingFrom)}`
-        : `/work/${category}/${id}?from=${encodeURIComponent(from)}`
+        ? `/work/${categories[0]}/${id}?from=${encodeURIComponent(existingFrom)}`
+        : `/work/${categories[0]}/${id}?from=${encodeURIComponent(from)}`
 
       router.push(nextUrl, { scroll: false })
       return
@@ -108,7 +108,7 @@ const Project = ({ rotate = '', project, initialOpen = false }: ProjectProps) =>
         trigger={
           <button
             className={styles.container}
-            data-category={category.replace('-', ' ')}
+            data-category={categories[0].replace('-', ' ')}
 						style={{ '--rotation': rotate ? `${rotate}deg` : '0deg' } as React.CSSProperties}
             type="button"
           >

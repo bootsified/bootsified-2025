@@ -16,7 +16,7 @@ type ProjectProps = {
     client: string
     year: string
     projectType: string
-    category: string
+    categories: string[]
     agency: string
     logo: string
     screenshot?: string

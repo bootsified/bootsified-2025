@@ -1,14 +1,14 @@
 export const sections = [
   {
-    id: 'all',
-    label: 'All Projects',
+    id: 'featured',
+    label: 'Featured',
     description:
-      'Here&rsquo;s a little bit of everything.  Some are pretty random... some are *really* old. For my web projects, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
-		seoTitle: 'Selected Work | Front-End Development & Creative Projects',
-    seoDescription: "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail.",
+      "Here are some of my favorite projects that I've worked on over the years. Since the web is ever-changing, some of these projects may no longer be live or have been updated since their initial launch. Archived versions *may* be available upon request.",
+		seoTitle: 'Featured Work | Front-End Development',
+    seoDescription: "A curated collection of featured front-end development projects showcasing craft, curiosity, and attention to detail.",
   },
   {
-    id: 'web-dev',
+    id: 'web',
     label: 'Web Development',
     description:
       'Here are some of my more recent web projects. Unfortunately, the web is an ever-evolving beast, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.',
@@ -23,12 +23,6 @@ export const sections = [
 		seoTitle: 'Music Projects | Composition, Performance & Recording',
     seoDescription: 'Music projects spanning composition, performance, and recording — part of an ongoing creative practice alongside front-end development.',
   },
-  // {
-  //   id: 'photo',
-  //   label: 'Photography',
-  //   description:
-  //     "Along the way, I wound up picking up a camera and found that I kinda liked shooting photos as well. It's never really been a *passion* per se, but it's fun when I have the time.  Enjoy!",
-  // },
   {
     id: 'misc',
     label: 'Other Stuff',
@@ -36,6 +30,14 @@ export const sections = [
 		seoTitle: 'Miscellaneous Projects | Experiments & Explorations',
     seoDescription: "Creative experiments connecting design, code, and music — driven by curiosity and a love of making things well.",
   },
+  {
+    id: 'all',
+    label: 'All Projects',
+    description:
+      "You wanted everything?  Well, here&rsquo;s everything.  Some are pretty random... some are *really* old. For my web projects, so many of these either no longer exist, or have been redeveloped since I launched them. Archived links *might* be available upon request.",
+		seoTitle: 'Selected Work | Front-End Development & Creative Projects',
+    seoDescription: "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail.",
+  }
 ]
 
 export const projects = [
@@ -46,7 +48,7 @@ export const projects = [
     client: 'Vickery Trading Co',
     year: '2024',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Boots',
     logo: '/images/work/logos/vickery-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-vickery.jpg',
@@ -54,7 +56,6 @@ export const projects = [
     url: '',
     media: '',
     mediaType: '',
-		featured: false,
     skills: [
       'HTML',
       'CSS',
@@ -76,7 +77,7 @@ export const projects = [
     client: 'Boots',
     year: '2023',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Boots',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-bootsified2023.jpg',
@@ -84,7 +85,6 @@ export const projects = [
     url: '',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'Next.js/React', 'Website Design', 'Logo Design'],
     notes:
       '<p>For the first time in almost 20 years, I&rsquo;ve found myself in need of a full portfolio website.  I have to say, it was really fun getting to build something for <strong><em>myself</em></strong> for a change.</p>\
@@ -99,7 +99,7 @@ export const projects = [
     client: 'Mizzen+Main',
     year: '2018-2023',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web', 'featured'],
     agency: 'Mizzen+Main',
     logo: '/images/work/logos/mizzen-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-mizzen.jpg',
@@ -107,7 +107,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/mizzen-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: true,
     skills: [
       'HTML',
       'CSS',
@@ -129,7 +128,7 @@ export const projects = [
     client: 'The Beta Release (AKA Boots)',
     year: '2021',
     projectType: 'Song',
-    category: 'music',
+    categories: ['music'],
     agency: '',
     logo: '/images/work/logos/thebetarelease-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-thebetarelease.jpg',
@@ -137,7 +136,6 @@ export const projects = [
     url: '',
     media: 'https://soundcloud.com/the-beta-release/the-release',
     mediaType: 'audio',
-		featured: false,
     skills: [
       'Writing',
       'Arranging',
@@ -160,7 +158,7 @@ export const projects = [
     client: 'Canales & Co',
     year: '2018',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/canalesco-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-canalesco.jpg',
@@ -168,7 +166,6 @@ export const projects = [
     url: 'http://canalesco.com',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       "<p>The last website I built while I was at Good Work was for a design agency in Austin, called <strong>Canales & Co</strong>.  They specialize in product branding, with much of their work in the beverage industry. I absolutely LOVE these guys.  SO creative, and simply beautiful designs.</p>\
@@ -182,7 +179,7 @@ export const projects = [
     client: 'Vale Counseling',
     year: '2017',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web', 'featured'],
     agency: 'Boots',
     logo: '/images/work/logos/vale-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-vale.jpg',
@@ -190,7 +187,6 @@ export const projects = [
     url: 'https://valecounseling.boots.media/',
     media: '',
     mediaType: '',
-		featured: true,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig', 'Website Design', 'Logo Design'],
     notes:
       "<p>This was kind of a fun &ldquo;passion project&rdquo; for my wife's former counseling practice. It's several years old now, but it's still a favorite of mine, and still serves the practice well.</p>\
@@ -204,7 +200,7 @@ export const projects = [
     client: 'Gladney Center for Adoption',
     year: '2015',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Switch',
     logo: '/images/work/logos/adopted-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-adopted.jpg',
@@ -212,7 +208,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/adopted-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
       "<p>One of the big clients we had when I was working at Switch was the Gladney Center for Adoption. <strong>AdoptED</strong> was a program of theirs dedicated to promoting adoption through education. We were able to have a little fun with the design of this site, and push the boundaries a bit with the layout and interface. I love its look and feel, and had a lot of fun developing it.</p>\
@@ -226,7 +221,7 @@ export const projects = [
     client: 'Boots',
     year: '2022',
     projectType: 'Song',
-    category: 'music',
+    categories: ['music'],
     agency: '',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-totsandnuggs.jpg',
@@ -235,7 +230,6 @@ export const projects = [
     media:
       'https://soundcloud.com/the-beta-release/tots-nugs?si=ac1f0deed53e4c989695d00be8cad362&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
     mediaType: 'audio',
-		featured: false,
     skills: [
       'Writing',
       'Arranging',
@@ -256,7 +250,7 @@ export const projects = [
     client: 'Maridoe Golf Club',
     year: '2017',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/maridoe-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-maridoe.jpg',
@@ -264,7 +258,6 @@ export const projects = [
     url: 'https://maridoe.com/',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       '<p><strong>Maridoe Golf Club</strong> is a relatively new golf course in the Dallas area.  We were brought on pretty early to create a very &ldquo;high-end&rdquo; feeling site to promote the new club.  This site features lots of slick animated transitions, and a beautiful fullscreen drone video of the course as a background for the homepage.  This one still hold up pretty well, I think.  It&rsquo;s fully content managed through a custom CraftCMS build.</p>',
@@ -276,7 +269,7 @@ export const projects = [
     client: 'Criquet Shirts',
     year: '2018',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/criquet-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-criquet.jpg',
@@ -284,7 +277,6 @@ export const projects = [
     url: '',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'Liquid', 'Custom Shopify Themeing'],
     notes:
       "<p><strong>Criquet Shirts</strong> is a fun men's clothing company based in Austin, TX.  As they were starting to really take off, I was brought in to give the site a refresh.  I built a new custom Shopify theme for the site that really took things to the next level.  Unfortunately, they've since changed their theme, and there isn&rsquo;t really a good archive of the site in its older state. The best I can do is a cool shot of the homepage.</p>",
@@ -296,7 +288,7 @@ export const projects = [
     client: 'The Laurel Texas',
     year: '2016',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Switch',
     logo: '/images/work/logos/thelaurel-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-thelaurel.jpg',
@@ -304,7 +296,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/thelaurel-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       '<p><strong>The Laurel</strong> is a high-end wedding and special event facility in the Dallas area.  Switch created a knock-out of a design for their launch, and I was able to make this a real marquis site.  It was all focused around photography, which was sourced from local photographers who had worked events there.  As part of the massive CMS (CraftCMS), we were able to cite each of the photos throughout the site with links to the vendor sites.</p>\
@@ -317,7 +308,7 @@ export const projects = [
     client: 'Boots',
     year: '2022',
     projectType: 'Video',
-    category: 'misc',
+    categories: ['misc'],
     agency: 'Boots',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-theinterrogation.jpg',
@@ -325,7 +316,6 @@ export const projects = [
     url: '',
     media: 'https://youtu.be/lhPjK90urgk',
     mediaType: 'video',
-		featured: false,
     skills: ['Screenplay', 'Direction', 'Cinematography', 'Video Editing', 'Acting?'],
     notes:
       '<p>While I was at Mizzen+Main, we would do silly videos for social media and internal stuff once in a while.  In 2022, each of the company&rsquo;s &ldquo;all-hands&rdquo; meetings featured one of the departments of the corporate HQ.  Each of the employees of the featured department was tasked to make a short video, where they would answer a set of questions about themselves.  It was a simple get-to-know-you thing for the company.</p>\
@@ -339,7 +329,7 @@ export const projects = [
     client: 'Jordan Tourism Board North America',
     year: '2004',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Boots',
     logo: '/images/work/logos/jordan-logo-noir2.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-jordan.jpg',
@@ -347,7 +337,6 @@ export const projects = [
     url: '',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'Flash Programming', 'Website Design'],
     notes:
       '<p>While freelancing in 2004, I received a random call from a friend, saying the <strong>Jordan Tourism Board</strong> (where they worked) was looking for someone to build a new website for them.  They were looking to make a new push to promote the Kingdom of Jordan to American tourists.  So naturally, I said, &ldquo;Let&rsquo;s <em>DO</em> this!&rdquo; <pre>¯\\_(ツ)_/¯</pre></p>\
@@ -362,7 +351,7 @@ export const projects = [
     client: 'Passing Strangers',
     year: '2007',
     projectType: 'Music Video',
-    category: 'music',
+    categories: ['music'],
     agency: '',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-possumkingdom3.jpg',
@@ -370,7 +359,6 @@ export const projects = [
     url: '',
     media: 'https://www.youtube.com/watch?v=CWyxoTYKXnw&list=PLeo8qWiBmVzenP3aZ7_QCaD2vGS4CUhj4',
     mediaType: 'video',
-		featured: false,
     skills: ['Bass Guitar', 'Video Production'],
     notes:
       "<p>This is a playlist of songs from a live DVD that my band, <strong>Passing Strangers</strong>, made in 2007.  It was filmed at a pretty awesome venue in Grapevine, TX, called The Glass Cactus.</p>\
@@ -384,7 +372,7 @@ export const projects = [
     client: 'Gladney Center for Adoption',
     year: '2018',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/gladney-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-gladney.jpg',
@@ -392,7 +380,6 @@ export const projects = [
     url: 'https://adoptionsbygladney.com/',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       '<p>One of the big clients we had when I was working at Switch was the <strong>Gladney Center for Adoption</strong>, and this is their main website.  Switch&rsquo;s design for the site was another knockout, and once again, I was able to stretch my legs a bit with the development.  It&rsquo;s a MASSIVE site, with a custom CMS built with CraftCMS.  This was by far the most intense CMS build I&rsquo;ve had, but it all turned out great.  The site is still in use today (2023)</p>\
@@ -405,7 +392,7 @@ export const projects = [
     client: 'Passing Strangers',
     year: '1998',
     projectType: 'Music Video',
-    category: 'music',
+    categories: ['music'],
     agency: '',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-basssolodock.jpg',
@@ -413,7 +400,6 @@ export const projects = [
     url: '',
     media: 'https://www.youtube.com/watch?v=Bys69-mxu6E',
     mediaType: 'video',
-		featured: false,
     skills: ['Bass Guitar'],
     notes:
       '<p>This was a slow Sunday evening, the fourth night of four, at The Dock in Jackson, MS &mdash; one of our regular stops along the gulf coast back in the day.  After blowing it out for a packed house the three nights before, this was definitely a <em>tired</em> &ldquo;performance&rdquo;, but the handful of people watching didn&rsquo;t seem to care.  I would play a variation of this solo just about every night.  As far as I know, this is the only footage there is of it.</p>',
@@ -425,7 +411,7 @@ export const projects = [
     client: 'Jametown Urban Management',
     year: '2016',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/falchi-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-falchi.jpg',
@@ -433,7 +419,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/falchi-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       "<p><strong>The Falchi Building</strong> is a historic office building in Long Island City, New York.  This website was part of a hip, modern rebranding of the building to represent the new renaissance happening in the area.  I loved the clean, bold design, and was able to add some cool flourishes in the build. The site featured some nice, subtle parallaxing, and an SVG map of the floors, with hyperlinks to each of the floors&rsquo; availabilities.  It's a pretty simple, information-based site, but still one of my faves.</p>",
@@ -445,7 +430,7 @@ export const projects = [
     client: 'Birds of Play FC',
     year: '2017',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web', 'featured'],
     agency: 'Boots',
     logo: '/images/work/logos/birdsofplay-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-birdsofplay.jpg',
@@ -453,7 +438,6 @@ export const projects = [
     url: 'http://birdsofplay.boots.media/',
     media: '',
     mediaType: '',
-		featured: true,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig', 'Website Design', 'Logo Design'],
     notes:
       '<p>When one of the dads of a 4-6 year olds YMCA soccer team is a web developer, you sometimes find yourself with a WAY over-engineered website for the team.  That is definitely the case with the <strong>Birds of Play FC</strong> website.</p>\
@@ -467,7 +451,7 @@ export const projects = [
     client: 'Bluebird Real Estate',
     year: '2018',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Good Work',
     logo: '/images/work/logos/bluebird-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-bluebird.jpg',
@@ -475,7 +459,6 @@ export const projects = [
     url: 'https://bbre1.com/',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
       '<p><strong>Bluebird Real Estate</strong> is a real estate company based in the Crested Butte, CO, area.  The website was designed to be a simple, clean site, to really feature the property photographs.  It featured a custom CMS built with CraftCMS, and is integrated with their MLS account to pull in their available properties.  While the MLS integration took a while to work out the kinks, we finally nailed it, and the site has performed very well for them ever since.</p>',
@@ -487,7 +470,7 @@ export const projects = [
     client: 'Hinge Analytics',
     year: '2015',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Switch',
     logo: '/images/work/logos/hinge-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-hinge.jpg',
@@ -495,7 +478,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/hinge-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
       '<p><strong>Hinge Analytics</strong> was a... well, I&rsquo;m not actually sure what they were.  Something about &ldquo;consulting&rdquo; and &ldquo;results&rdquo;, with a ton of generic biz-speak in between.  Fortunately for me, they wanted a website that would really stand out, and Switch and I gave them one.</p>\
@@ -509,7 +491,7 @@ export const projects = [
     client: 'Interface',
     year: '1990',
     projectType: 'Music Video',
-    category: 'music',
+    categories: ['music'],
     agency: 'Boots',
     logo: '/images/work/logos/bootsified-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-seeyoutoday.jpg',
@@ -517,7 +499,6 @@ export const projects = [
     url: '',
     media: 'https://www.youtube.com/watch?v=trqFaoDmofs',
     mediaType: 'video',
-		featured: false,
     skills: ['Bass Guitar'],
     notes:
       "<p>The first real gigging band I was in was <strong>Interface</strong>, based in Dallas, TX.  We started in 1990 and quickly became one of the better known bands in the scene.  We later even had a song that got significant airplay on regional alt-rock stations, but weren&rsquo;t able to break through before things fell apart in 1994.  It's too bad...  we were pretty good.</p>\
@@ -530,7 +511,7 @@ export const projects = [
     client: 'Dallas Guitar Repair',
     year: '2016',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Boots',
     logo: '/images/work/logos/dallasguitarrepair-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-dallasguitarrepair.jpg',
@@ -538,7 +519,6 @@ export const projects = [
     url: 'http://dallasguitarrepair.boots.media/',
     media: '',
     mediaType: '',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig', 'Website Design', 'Logo Design'],
     notes:
       "<p>This one is interesting. A friend of mine has run a local guitar repair shop, called <strong>Dallas Guitar Repair</strong>, since the late 80s. He has a website for his business, but it was pretty old and had a lot of issues. In December of 2016, I was inspired to build him a new website and logo as a surprise Christmas gift.  I had an idea in my head, and a little extra time over the holidays, so I knocked out a quick website and sent him a link.  Obviously, this was his business, and I would make sure it represented him as he'd like, so I left the door open to make any changes that would suit him.</p>\
@@ -552,7 +532,7 @@ export const projects = [
     client: 'Gladney Center for Adoption',
     year: '2015',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Switch',
     logo: '/images/work/logos/gladney-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-pregnancyhotline.jpg',
@@ -560,7 +540,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/pregnancyhotline-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
       '<p>One of the big clients we had when I was working at Switch was the <strong>Gladney Center for Adoption</strong>.  This was their "Pregnancy Hotline" website, for pregnant women who needed help.  Switch&rsquo;s design for the site was another knockout, and once again, I was able to stretch my legs a bit with the development.  The site actually won a DSVC Bronze Award in 2016.</p>\
@@ -573,7 +552,7 @@ export const projects = [
     client: 'Blood Red Sky',
     year: '2006',
     projectType: 'Music Video',
-    category: 'music',
+    categories: ['music'],
     agency: 'Boots',
     logo: '/images/work/logos/bloodredsky-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-newyearsday.jpg',
@@ -581,7 +560,6 @@ export const projects = [
     url: '',
     media: 'https://www.youtube.com/watch?v=0w_aBtBo7PI',
     mediaType: 'video',
-		featured: false,
     skills: ['Bass Guitar', 'Video Production'],
     notes:
       "<p>Back in 2006, my band at the time (Passing Strangers) had the idea to do a side project.  Our singer could kill it on U2 songs, so we thought it would be fun to start a U2 tribute band.  We called it <strong>Blood Red Sky</strong>.  The Dallas Hard Rock Cafe booked us to premiere our new band for their St Patrick's Day celebration, so we spent the couple months leading up to it practicing hard and worked up about 30 songs &mdash; many of them were already in our regular playlist.</p>\
@@ -595,7 +573,7 @@ export const projects = [
     client: 'Double R Brand by Ravi Ratan',
     year: '2015',
     projectType: 'Website',
-    category: 'web-dev',
+    categories: ['web'],
     agency: 'Switch',
     logo: '/images/work/logos/doubler-logo-noir.png',
     screenshotNoir: '/images/work/screenshots/comic-screenshot-doubler.jpg',
@@ -603,7 +581,6 @@ export const projects = [
     url: '',
     media: '/images/work/video/doubler-walkthrough-web.mp4',
     mediaType: 'walkthrough',
-		featured: false,
     skills: ['HTML', 'CSS', 'JS', 'Liquid', 'Custom Shopify Themeing'],
     notes:
       '<p>Double R is a custom dress shirt company for women.  This was my first time to build custom Shopify themes, and I think it turned out great.  The big feature of the site was a multi-stage video walkthrough, to help women take their measurements and input them correctly for their order.  Overall, I throught the design was really nice.</p>\

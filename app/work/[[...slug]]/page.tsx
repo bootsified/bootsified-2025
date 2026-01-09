@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: WorkProps): Promise<Metadata>
   const pageTitle = activeSection?.seoTitle || 'My Projects'
   const pageDescription = activeSection?.seoDescription || "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail."
   const pageURL = activeProject 
-    ? `${SITE_PUBLIC_URL}/work/${activeProject.category}/${activeProject.id}`
+    ? `${SITE_PUBLIC_URL}/work/${activeProject.categories[0]}/${activeProject.id}`
     : `${SITE_PUBLIC_URL}/work${slug ? `/${slug[0]}` : ''}`
 
   return {
@@ -63,8 +63,8 @@ const WorkPage = async ({ params }: WorkProps) => {
   
   let filteredProjects = projects
 
-  if (activeSection?.id !== 'all') {
-    filteredProjects = projects.filter(proj => proj.category === activeSection?.id)
+  if (activeSection?.id !== 'all' && activeSection?.id) {
+    filteredProjects = projects.filter(proj => proj.categories.includes(activeSection.id))
   }
 
   // Generate schema for individual project if one is selected
@@ -72,7 +72,7 @@ const WorkPage = async ({ params }: WorkProps) => {
   if (activeProject) {
     const hasExternalLink = activeProject.url && activeProject.url !== ''
     const schemaType = hasExternalLink ? 'WebSite' : 'CreativeWork'
-    const projectURL = `https://boots.dev/work/${activeProject.category}/${activeProject.id}`
+    const projectURL = `https://boots.dev/work/${activeProject.categories[0]}/${activeProject.id}`
     
     projectSchema = [
       {

@@ -41,7 +41,7 @@ const WorkNav = () => {
           {sections.map(section => {
             let url = ''
             let isActive = false
-            if (section.id === 'all') {
+            if (section.id === 'featured') {
               url = '/work'
             } else {
               url = `/work/${section.id}`
