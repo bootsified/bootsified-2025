@@ -23,16 +23,16 @@ body {
 }
 
 html {
-	--text: #000;
-	--text-reverse: #fff;
-	--text-footer: #fff;
-	--splat-hover-color: var(--text-reverse);
   height: auto;
   /* scroll-behavior: smooth;
 	scroll-padding-top: 0; */
 }
 
 body {
+	--text: #000;
+	--text-reverse: #fff;
+	--text-footer: #fff;
+	--splat-hover-color: var(--text-reverse);
   background-color: #000;
   color: var(--text);
   font-family: var(--font-base);
@@ -57,6 +57,7 @@ body[data-current-page="home"] {
 	--text-reverse: #F07D4A;
 	--reversed-text: var(--text-reverse);
 	--text-footer: #FFCE61;
+	--splat-hover-color: #FFF;
 }
 
 body[data-current-page="about"] {
