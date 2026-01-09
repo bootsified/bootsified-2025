@@ -14,7 +14,7 @@ const WorkLayout = ({ children }: { children: React.ReactNode }) => {
       
       const item: Record<string, unknown> = {
         '@type': schemaType,
-        '@id': `https://boots.dev/work/${project.id}`,
+        '@id': `https://boots.dev/work/${project.category}/${project.id}`,
         name: project.title,
         dateCreated: project.year,
         about: project.skills.join(', '),
