@@ -1,4 +1,5 @@
 import { forwardRef, ReactNode } from 'react'
+import Link from 'next/link'
 import clsx from 'clsx'
 
 import styles from './Button.module.css'
@@ -53,16 +54,40 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
     )
   }
 
-  const Element = props.href ? 'a' : isLink ? 'span' : 'button'
+  const isAnchor = 'href' in props && props.href
+  const isExternal = isAnchor && (
+    props.href.startsWith('http://') || 
+    props.href.startsWith('https://') || 
+    props.href.startsWith('mailto:') ||
+    props.href.startsWith('tel:')
+  )
+  const isInternal = isAnchor && !isExternal
+
+  const Element = isAnchor ? 'a' : isLink ? 'span' : 'button'
+  
+  const buttonClasses = clsx(
+    styles.button,
+    BUTTON_VARIANTS[variant],
+    compact ? styles.compact : '',
+    className
+  )
+
+  if (isInternal) {
+    const { href, ...linkProps } = props as ButtonAsAnchor
+    return (
+      <Link
+        href={href}
+        className={buttonClasses}
+        {...linkProps}
+      >
+        {children}
+      </Link>
+    )
+  }
 
   return (
     <Element
-      className={clsx(
-        styles.button,
-        BUTTON_VARIANTS[variant],
-        compact ? styles.compact : '',
-        className
-      )}
+      className={buttonClasses}
       // @ts-expect-error because polymorphic typing is complex
       ref={ref}
       {...props}
