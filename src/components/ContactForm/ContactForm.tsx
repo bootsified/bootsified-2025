@@ -105,7 +105,7 @@ const ContactForm = () => {
 			return
 		}
 
-		setStatus({ type: 'loading' })
+		setStatus({ type: 'loading', message: 'Sending your message...' })
 
 		try {
 			const response = await fetch('/api/contact', {

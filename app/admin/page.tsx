@@ -1,97 +1,59 @@
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { isAuthenticated } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import styles from './admin.module.css'
-import pageStyles from '@/styles/Page.module.css'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-type ContactSubmission = {
-  id: string
-  name: string
-  email: string
-  phone: string | null
-  message: string
-  createdAt: Date
-}
-
-async function getSubmissions(): Promise<ContactSubmission[]> {
+async function getStats() {
   try {
-    const submissions = await prisma.contactSubmission.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-    })
-    return submissions
+    const [projectCount, submissionCount] = await Promise.all([
+      prisma.project.count(),
+      prisma.contactSubmission.count(),
+    ])
+    return { projectCount, submissionCount }
   } catch (error) {
-    console.error('Failed to fetch submissions:', error)
-    return []
+    console.error('Failed to fetch stats:', error)
+    return { projectCount: 0, submissionCount: 0 }
   }
 }
 
 export default async function AdminPage() {
-  const submissions = await getSubmissions()
+  const authenticated = await isAuthenticated()
+  if (!authenticated) {
+    redirect('/admin/login')
+  }
+
+  const { projectCount, submissionCount } = await getStats()
 
   return (
-    <div className={styles.container}>
-      <h1>Mail Room</h1>
-      <p>Total submissions: {submissions.length}</p>
+    <div className={styles.dashboard}>
+      <h1 className={styles.heading}>Admin Dashboard</h1>
       
-      <div className={pageStyles.tableWrapper}>
-        <table className={pageStyles.table}>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Message</th>
-            </tr>
-          </thead>
-          <tbody>
-            {submissions.length === 0 ? (
-              <tr>
-                <td colSpan={5} className={styles.emptyState}>
-                  No submissions yet.
-                </td>
-              </tr>
-            ) : (
-              submissions.map((submission: ContactSubmission) => {
-                  const date = new Date(submission.createdAt)
-                  const dateStr = date.toLocaleDateString('en-US')
-                  const timeStr = date.toLocaleTimeString('en-US', { 
-                    hour: 'numeric', 
-                    minute: '2-digit', 
-                    hour12: true 
-                  })
-                  
-                  return (
-                  <tr key={submission.id}>
-                    <td>
-                      {dateStr}<br />{timeStr}
-                    </td>
-                    <td>{submission.name}</td>
-                    <td>
-                      <a href={`mailto:${submission.email}`} className={styles.link}>
-                        {submission.email}
-                      </a>
-                    </td>
-                    <td>
-                      {submission.phone ? (
-                        <a href={`tel:${submission.phone}`} className={styles.link}>
-                          {submission.phone}
-                        </a>
-                      ) : (
-                        <span className={styles.empty}>—</span>
-                      )}
-                    </td>
-                    <td>{submission.message}</td>
-                  </tr>
-                  )
-                })
-            )}
-          </tbody>
-        </table>
+      <div className={styles.cardGrid}>
+        <Link href="/admin/projects" className={styles.card}>
+          <div className={styles.cardIcon}>📁</div>
+          <h2 className={styles.cardTitle}>Projects</h2>
+          <p className={styles.cardCount}>{projectCount}</p>
+          <p className={styles.cardDescription}>Manage your portfolio projects</p>
+        </Link>
+        
+        <Link href="/admin/contact" className={styles.card}>
+          <div className={styles.cardIcon}>✉️</div>
+          <h2 className={styles.cardTitle}>Contact Submissions</h2>
+          <p className={styles.cardCount}>{submissionCount}</p>
+          <p className={styles.cardDescription}>View contact form submissions</p>
+        </Link>
       </div>
+      
+      <form action="/api/admin/login" method="POST" className={styles.logoutForm}>
+        <input type="hidden" name="action" value="logout" />
+        <button type="submit" className={styles.logoutButton}>
+          Logout
+        </button>
+      </form>
     </div>
   )
 }

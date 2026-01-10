@@ -23,3 +23,59 @@ model ContactSubmission {
   
   @@map("contact_submissions")
 }
+
+enum ProjectType {
+  WEBSITE
+  SONG
+  MUSIC_VIDEO
+  VIDEO
+}
+
+enum MediaType {
+  NONE
+  WALKTHROUGH
+  AUDIO
+  VIDEO
+}
+
+model Project {
+  id              String      @id @default(cuid())
+  slug            String      @unique
+  title           String
+  client          String
+  year            String
+  projectType     ProjectType
+  agency          String      @default("")
+  logo            String
+  screenshotNoir  String
+  screenshot      String
+  url             String      @default("")
+  media           String      @default("") @db.Text
+  mediaType       MediaType   @default(NONE)
+  notes           String      @db.Text
+  order           Int         @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  categories      Category[]
+  skills          Skill[]
+  
+  @@map("projects")
+  @@index([order])
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  name      String
+  projects  Project[]
+  
+  @@map("categories")
+}
+
+model Skill {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  projects  Project[]
+  
+  @@map("skills")
+}

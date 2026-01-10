@@ -1,0 +1,160 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem var(--container-side-padding);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.heading {
+  flex: 1;
+  margin: 0;
+}
+
+.backLink {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.createButton {
+  font-size: 0.75em !important;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.savingIndicator {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #2196f3;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.emptyState p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: var(--text);
+}
+
+.table th {
+	color: var(--text-reverse);
+	font-family: var(--font-sans);
+	font-size: 0.875em;
+	font-stretch: 75%;
+  padding: 1rem;
+  text-align: left;
+	text-transform: uppercase;
+}
+
+.dragHeader {
+  width: 40px;
+}
+
+.row {
+  border-bottom: 1px solid;
+  transition: background 0.2s;
+}
+
+.row:hover {
+  background: #f9f9f9;
+}
+
+.row td {
+  padding: 1rem;
+}
+
+.dragHandle {
+  cursor: grab;
+  user-select: none;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.projectTitle {
+	font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.editButton {
+  font-size: 0.75rem !important;
+}
+
+.deleteButton {
+	font-size: 0.75em !important;
+
+	&:hover {
+		background-color: var(--color-pri) !important;
+		border-color: var(--color-pri) !important;
+		color: var(--text-reverse) !important;
+	}
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.875rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heading {
+    order: -1;
+  }
+}

@@ -82,48 +82,38 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const emailData = {
-			from: process.env.EMAIL_FROM || 'donotreply@notifications.boots.dev',
+			from: `"Boots Online" <${process.env.EMAIL_FROM || 'donotreply@notifications.boots.dev'}>`,
 			to: process.env.CONTACT_EMAIL_RECIPIENT || 'hello@boots.dev',
 			replyTo: email,
 			subject: `New contact form submission from ${name}`,
 			html: `
 				<!DOCTYPE html>
 				<html>
-					<head>
-						<style>
-							body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; }
-							.container { max-width: 600px; margin: 0 auto; padding: 20px; }
-							.header { background: #B00075; color: white; padding: 20px; border-radius: 4px; margin-bottom: 20px; }
-							.field { margin-bottom: 1em; }
-							.label { font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; }
-							.value { color: #444; margin-top: 5px; font-size: 1.25em; }
-							.message-content { background: #f9f9f9; padding: 1.25em; border-left: 4px solid #B00075; margin-top: 10px; }
-						</style>
-					</head>
-					<body>
-						<div class="container">
-							<div class="header">
-								<h2>New Contact Form Submission</h2>
+					<head></head>
+					<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; margin: 0; padding: 0;">
+						<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+							<div style="background: #B00075; color: white; padding: 20px; border-radius: 4px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+								<h2 style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">New Contact Form Submission</h2>
 							</div>
 							
-							<div class="field">
-								<div class="label">Name:</div>
-								<div class="value">${name}</div>
+							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+								<div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Name:</div>
+								<div style="color: #444; margin-top: 5px; font-size: 1.25em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">${name}</div>
 							</div>
 							
-							<div class="field">
-								<div class="label">Email:</div>
-								<div class="value"><a style="color: #B00075;" href="mailto:${email}">${email}</a></div>
+							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+								<div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Email:</div>
+								<div style="color: #444; margin-top: 5px; font-size: 1.25em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;"><a style="color: #B00075; text-decoration: none;" href="mailto:${email}">${email}</a></div>
 							</div>
 							
-							<div class="field">
-								<div class="label">Phone:</div>
-								<div class="value"><a style="color: #B00075;" href="tel:${phone}">${phone}</a></div>
+							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+								<div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Phone:</div>
+								<div style="color: #444; margin-top: 5px; font-size: 1.25em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;"><a style="color: #B00075; text-decoration: none;" href="tel:${phone}">${phone}</a></div>
 							</div>
 							
-							<div class="field">
-								<div class="label">Message:</div>
-								<div class="message-content">
+							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+								<div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Message:</div>
+								<div style="background: #f9f9f9; padding: 1.25em; border-left: 4px solid #B00075; margin-top: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 									${message.replace(/\n/g, '<br>')}
 								</div>
 							</div>

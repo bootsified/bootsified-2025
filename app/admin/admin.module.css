@@ -5,10 +5,111 @@
 	padding-right: var(--container-side-padding);
 }
 
+.dashboard {
+  max-width: var(--container-width-md);
+  margin: 0 auto;
+  padding: 3rem var(--container-side-padding);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  display: block;
+  padding: 2rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-primary, #667eea);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cardCount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary, #667eea);
+  margin: 0.5rem 0;
+}
+
+.cardDescription {
+  color: #666;
+  margin: 0;
+}
+
+.logoutForm {
+  text-align: center;
+}
+
+.logoutButton {
+  padding: 0.75rem 2rem;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logoutButton:hover {
+  background: #d32f2f;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.backLink {
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.backLink:hover {
+  background: #e0e0e0;
+}
+
 .emptyState {
   padding: 3em !important;
   text-align: center !important;
   font-size: 1.5rem !important;
+}
+
+.heading {
+	margin-bottom: 0.25em;
+}
+
+.totalSubmissions {
+	margin-bottom: 0;
 }
 
 .link {
@@ -18,4 +119,8 @@
 	&:hover {
 		text-decoration: none;
 	}
+}
+
+.dateCell {
+	white-space: nowrap;
 }

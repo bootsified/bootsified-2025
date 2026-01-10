@@ -1,12 +1,72 @@
 import React from 'react'
-import { projects, sections } from 'app/work/data'
+import { sections } from 'app/work/data'
+import { prisma } from '@/lib/prisma'
 import { SITE_PUBLIC_URL } from '@/utils/constants'
+import { getVideoAsset } from '@/utils/videoAssets'
 import type { Metadata } from 'next'
 
 import Project from '@/components/Project'
 import Schema from '@/components/Schema'
 
 import styles from '@components/Work/Work.module.css'
+
+// Helper function to generate a random rotation value (-0.125 to 0.125)
+function generateRotate() {
+  return (Math.random() - 0.5) * 0.25
+}
+
+async function getProjects(categorySlug?: string) {
+  try {
+    const projects = await prisma.project.findMany({
+      where: categorySlug && categorySlug !== 'all' ? {
+        categories: {
+          some: {
+            slug: categorySlug,
+          },
+        },
+      } : undefined,
+      include: {
+        categories: {
+          select: {
+            slug: true,
+            name: true,
+          },
+        },
+        skills: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      orderBy: {
+        order: 'asc',
+      },
+    })
+
+    // Transform to match the expected format with generated rotate values
+    return projects.map(project => ({
+      id: project.slug,
+      rotate: generateRotate(),
+      title: project.title,
+      client: project.client,
+      year: project.year,
+      projectType: project.projectType.replace('_', ' '),
+      categories: project.categories.map(c => c.slug),
+      agency: project.agency,
+      logo: project.logo,
+      screenshotNoir: project.screenshotNoir,
+      screenshot: project.screenshot,
+      url: project.url,
+      media: getVideoAsset(project.media || ''),
+      mediaType: project.mediaType.toLowerCase(),
+      skills: project.skills.map(s => s.name),
+      notes: project.notes,
+    }))
+  } catch (error) {
+    console.error('Error fetching projects:', error)
+    return []
+  }
+}
 
 type WorkProps = {
   params: Promise<{
@@ -17,8 +77,14 @@ type WorkProps = {
 export async function generateMetadata({ params }: WorkProps): Promise<Metadata> {
   const { slug } = await params
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
-  const projectId = slug?.[1]
-  const activeProject = projectId ? projects.find(p => p.id === projectId) : null
+  const projectSlug = slug?.[1]
+  
+  let activeProject = null
+  if (projectSlug) {
+    const projects = await getProjects()
+    activeProject = projects.find(p => p.id === projectSlug)
+  }
+  
   const SEO_DEFAULT_IMAGE = `${SITE_PUBLIC_URL}/images/bootsified-seo.jpg`
   
   const pageTitle = activeSection?.seoTitle || 'My Projects'
@@ -58,14 +124,13 @@ const WorkPage = async ({ params }: WorkProps) => {
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
   
   // Get project ID from second slug segment (e.g., /work/web-dev/mizzen)
-  const projectId = slug?.[1]
-  const activeProject = projectId ? projects.find(p => p.id === projectId) : null
+  const projectSlug = slug?.[1]
   
-  let filteredProjects = projects
-
-  if (activeSection?.id !== 'all' && activeSection?.id) {
-    filteredProjects = projects.filter(proj => proj.categories.includes(activeSection.id))
-  }
+  // Fetch projects from database
+  const categorySlug = activeSection?.id
+  const projects = await getProjects(categorySlug)
+  
+  const activeProject = projectSlug ? projects.find(p => p.id === projectSlug) : null
 
   // Generate schema for individual project if one is selected
   let projectSchema = null
@@ -121,13 +186,13 @@ const WorkPage = async ({ params }: WorkProps) => {
         />
       )}
       <div className={styles.projects}>
-        {filteredProjects.length ? (
-          filteredProjects.map(proj => (
+        {projects.length ? (
+          projects.map(proj => (
             <Project 
               key={proj.id} 
               project={proj} 
               rotate={proj.rotate}
-              initialOpen={projectId === proj.id}
+              initialOpen={projectSlug === proj.id}
             />
           ))
         ) : (
