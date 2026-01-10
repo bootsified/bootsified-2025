@@ -23,7 +23,6 @@
 		"next-video": "^2.6.0",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
-		"react-player": "^3.4.0",
 		"resend": "^6.4.2",
 		"uuid": "^13.0.0",
 		"vercel": "^50.1.6"

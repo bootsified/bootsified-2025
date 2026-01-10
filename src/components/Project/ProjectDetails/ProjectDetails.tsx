@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-import ReactPlayer from 'react-player'
+import Video from 'next-video'
+import { Asset } from 'next-video/dist/assets.js'
 import clsx from 'clsx'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import Button from '@/components/Button'
 
@@ -21,7 +21,7 @@ type ProjectProps = {
     logo: string
     screenshot?: string
     url: string
-    media: string
+    media: string | Asset
     mediaType: string
     skills: string[]
     notes: string
@@ -42,8 +42,30 @@ const ProjectDetails = ({ project }: ProjectProps) => {
     skills,
     notes,
   } = project
-  const mediaPlayerRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [showOverlay, setShowOverlay] = useState(true)
+
+  // Determine if media is a next-video Asset object
+  const isAsset = typeof media === 'object' && media !== null
+
+  // Extract media URL for string checks (for YouTube/SoundCloud)
+  const mediaUrl = typeof media === 'string' ? media : ''
+
+  const handleOverlayClick = () => {
+    setShowOverlay(false)
+    // Use setTimeout to ensure overlay is hidden before attempting play
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = false
+        const playPromise = videoRef.current.play()
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.error('Play error:', error)
+          })
+        }
+      }
+    }, 0)
+  }
 
   return (
     <div className={styles.container}>
@@ -61,44 +83,71 @@ const ProjectDetails = ({ project }: ProjectProps) => {
         </div>
         <div className={styles.media}>
           {media !== '' ? (
-            media.includes('soundcloud') ? (
+            mediaUrl.includes('soundcloud') ? (
               <iframe
 								width="100%"
 								height="100%"
 								scrolling="no"
 								frameBorder="0"
 								allow="autoplay"
-								src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(media)}&visual=true`}
+								src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(mediaUrl)}&visual=true`}
+                style={{ objectFit: 'contain' }}
 							/>
-            ) : media.includes('.mp4') ? (
-              <ReactPlayer
-                ref={mediaPlayerRef}
-                src={media}
-                light={screenshot}
-                muted={!playing}
-                controls
-                playing={playing}
+            ) : mediaUrl.includes('youtube.com') || mediaUrl.includes('youtu.be') ? (
+              <iframe
                 width="100%"
                 height="100%"
-                onClickPreview={() => {
-                  setPlaying(true)
-                }}
-                onPlay={() => setPlaying(true)}
-                onPause={() => setPlaying(false)}
-                onEnded={() => setPlaying(false)}
+                src={`https://www.youtube.com/embed/${
+                  mediaUrl.includes('youtu.be') 
+                    ? mediaUrl.split('youtu.be/')[1]?.split('?')[0]
+                    : mediaUrl.split('v=')[1]?.split('&')[0]
+                }?autoplay=0&controls=1&modestbranding=1&rel=0`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ objectFit: 'contain' }}
               />
-            ) : (
-              <ReactPlayer src={media} controls width="100%" height="100%" />
-            )
-          ) : (
+            ) : isAsset ? (
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Video
+                  ref={videoRef}
+                  src={media as Asset}
+                  controls
+                  muted
+                  onPlay={() => setShowOverlay(false)}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                />
+                {showOverlay && screenshot && (
+                  <div 
+                    className={styles.videoOverlay}
+                    onClick={handleOverlayClick}
+                  >
+                    <Image
+                      src={screenshot}
+                      fill
+                      alt={`${title} Preview`}
+                      style={{ objectFit: 'contain' }}
+                      quality={90}
+                    />
+                    <div className={styles.overlayDarkness} />
+                    <div className={styles.playButton}>
+                      <div className={styles.playIcon} />
+                      <span className={styles.playText}>Watch Website Walkthrough</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : null
+          ) : screenshot ? (
             <Image
               src={screenshot}
               width={640}
               height={360}
               alt={`${title} Screenshot`}
               quality={90}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
             />
-          )}
+          ) : null}
         </div>
 
         {url && (

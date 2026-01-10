@@ -1,3 +1,13 @@
+import { Asset } from 'next-video/dist/assets.js'
+
+import mizzenVideo from 'videos/mizzen-walkthrough-web.mp4'
+import adoptedVideo from 'videos/adopted-walkthrough-web.mp4'
+import theLaurelVideo from 'videos/thelaurel-walkthrough-web.mp4'
+import falchiVideo from 'videos/falchi-walkthrough-web.mp4'
+import hingeVideo from 'videos/hinge-walkthrough-web.mp4'
+import pregnancyHotlineVideo from 'videos/pregnancyhotline-walkthrough-web.mp4'
+import doublerVideo from 'videos/doubler-walkthrough-web.mp4'
+
 export const sections = [
   {
     id: 'featured',
@@ -105,7 +115,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-mizzen.jpg',
 		screenshot: '/images/work/screenshots/mizzen-screenshot.jpg',
     url: '',
-    media: '/images/work/video/mizzen-walkthrough-web.mp4',
+    media: mizzenVideo,
     mediaType: 'walkthrough',
     skills: [
       'HTML',
@@ -206,7 +216,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-adopted.jpg',
 		screenshot: '/images/work/screenshots/adopted-screenshot.jpg',
     url: '',
-    media: '/images/work/video/adopted-walkthrough-web.mp4',
+    media: adoptedVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
@@ -294,7 +304,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-thelaurel.jpg',
 		screenshot: '/images/work/screenshots/thelaurel-screenshot.jpg',
     url: '',
-    media: '/images/work/video/thelaurel-walkthrough-web.mp4',
+    media: theLaurelVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
@@ -417,7 +427,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-falchi.jpg',
 		screenshot: '/images/work/screenshots/falchi-screenshot.jpg',
     url: '',
-    media: '/images/work/video/falchi-walkthrough-web.mp4',
+    media: falchiVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'CraftCMS', 'Twig'],
     notes:
@@ -476,7 +486,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-hinge.jpg',
 		screenshot: '/images/work/screenshots/hinge-screenshot.jpg',
     url: '',
-    media: '/images/work/video/hinge-walkthrough-web.mp4',
+    media: hingeVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
@@ -538,7 +548,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-pregnancyhotline.jpg',
 		screenshot: '/images/work/screenshots/pregnancyhotline-screenshot.jpg',
     url: '',
-    media: '/images/work/video/pregnancyhotline-walkthrough-web.mp4',
+    media: pregnancyHotlineVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'ExpressionEngine'],
     notes:
@@ -579,7 +589,7 @@ export const projects = [
     screenshotNoir: '/images/work/screenshots/comic-screenshot-doubler.jpg',
 		screenshot: '/images/work/screenshots/doubler-screenshot.jpg',
     url: '',
-    media: '/images/work/video/doubler-walkthrough-web.mp4',
+    media: doublerVideo,
     mediaType: 'walkthrough',
     skills: ['HTML', 'CSS', 'JS', 'Liquid', 'Custom Shopify Themeing'],
     notes:

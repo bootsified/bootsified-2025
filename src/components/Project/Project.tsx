@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { Asset } from 'next-video/dist/assets.js'
 
 import Modal from '../Modal'
 import ProjectDetails from './ProjectDetails'
@@ -23,7 +24,7 @@ interface ProjectProps {
     screenshot?: string
     screenshotNoir?: string
     url: string
-    media: string
+    media: string | Asset
     mediaType: string
     skills: string[]
     notes: string
