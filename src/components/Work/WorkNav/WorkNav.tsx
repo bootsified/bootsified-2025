@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import Button from '@components/Button'
 import { sections } from 'app/work/data'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import styles from './WorkNav.module.css'
@@ -53,23 +52,21 @@ const WorkNav = () => {
             }
             return (
               <li key={section.id} className={styles.item}>
-                <Link
-                  href={url}
-                  onClick={() => {
-                    setOpen(false)
-                  }}
-                >
-                  <Button
-                    isLink={true}
-                    className={styles.button}
-                    compact
-                    data-is-active={isActive}
-										variant={isActive ? 'default' : 'outline'}
-										disabled={isActive}
-                  >
-                    {section.id.replace('-', ' ')}
-                  </Button>
-                </Link>
+								<Button
+									href={url}
+									className={styles.button}
+									compact
+									data-is-active={isActive}
+									variant={isActive ? 'default' : 'outline'}
+									disabled={isActive}
+									tabIndex={isActive ? -1 : 0}
+									onClick={() => {
+										setOpen(false)
+									}
+								}
+								>
+									{section.id.replace('-', ' ')}
+								</Button>
               </li>
             )
           })}

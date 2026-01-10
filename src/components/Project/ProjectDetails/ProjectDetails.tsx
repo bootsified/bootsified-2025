@@ -103,11 +103,9 @@ const ProjectDetails = ({ project }: ProjectProps) => {
 
         {url && (
           <div className={styles.cta}>
-            <Link href={url} target="_blank">
-              <Button isLink variant='outline'>
-                Visit {title} {projectType}
-              </Button>
-            </Link>
+						<Button href={url} target="_blank" variant='outline'>
+							Visit {title} {projectType}
+						</Button>
           </div>
         )}
       </div>

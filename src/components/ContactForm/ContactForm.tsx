@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import clsx from 'clsx'
 import styles from './ContactForm.module.css'
+import Button from '../Button'
 
 interface FormData {
 	name: string
@@ -270,14 +271,14 @@ const ContactForm = () => {
 			)}
 
 			{status.type !== 'success' && (
-				<button
+				<Button
 					type="submit"
 					className={styles.submitButton}
 					disabled={status.type === 'loading'}
 					aria-busy={status.type === 'loading'}
 				>
 					{status.type === 'loading' ? 'Sending...' : 'Send'}
-				</button>
+				</Button>
 			)}
 		</form>
 	)

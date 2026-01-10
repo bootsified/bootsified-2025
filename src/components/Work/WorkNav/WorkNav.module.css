@@ -59,24 +59,16 @@
 	& li {
 		flex: 1 1 1em;
 	}
-
-  & a {
-    display: block;
-
-		&:has(span[disabled]) {
-			pointer-events: none;
-		}
-  }
 }
 
 .button {
-  width: 100%;
+	width: 100%;
 
   @media screen and (max-width: 739px) {
 		border: none;
-
-    & svg {
-      display: none;
-    }
   }
+
+	&:has(span[disabled]) {
+		pointer-events: none;
+	}
 }

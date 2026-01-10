@@ -69,27 +69,18 @@
 
 .submitButton {
 	align-self: flex-start;
-	background-color: var(--text);
-	border: none;
-	border-radius: 0;
-	color: var(--text-reverse);
-	cursor: pointer;
-	font-family: var(--font-heading);
 	font-size: 1.25em;
 	margin-left: auto;
 	max-width: 12em;
-	outline-offset: 2px;
-	outline: 2px dotted transparent;
-	padding: 0.25em 2em;
-	transition: background-color var(--hover-duration, 200ms) ease;
 	width: 100%;
 
 	@nest [data-whatintent="mouse"] &:hover:not(:disabled) {
 		background-color: var(--color-ter);
+		border-color: var(--color-ter);
 	}
 
 	&:focus {
-		outline: 2px dotted var(--text);
+		outline-color: #fff !important;
 	}
 
 	&:disabled {
