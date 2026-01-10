@@ -64,41 +64,20 @@ const Project = ({ rotate = '', project, initialOpen = false }: ProjectProps) =>
 
   const handleOpenChange = (newOpen: boolean) => {
     if (newOpen) {
-      // Preserve origin in the URL so we can return to it after closing
-      // If a from param already exists, reuse it; otherwise create one without nesting `from`
-      const searchParams = new URLSearchParams(window.location.search)
-      const existingFrom = searchParams.get('from')
-
-      // Remove any existing `from` before computing the current clean URL
-      searchParams.delete('from')
-      const cleanedSearch = searchParams.toString()
-      const currentCleanUrl = `${window.location.pathname}${cleanedSearch ? `?${cleanedSearch}` : ''}`
-
-      const from = existingFrom ?? currentCleanUrl
-      const nextUrl = existingFrom
-        ? `/work/${categories[0]}/${id}?from=${encodeURIComponent(existingFrom)}`
-        : `/work/${categories[0]}/${id}?from=${encodeURIComponent(from)}`
-
-      router.push(nextUrl, { scroll: false })
+      // Just open the modal without changing the URL
+      setOpen(true)
       return
     }
 
-    // Closing: first try to read the origin from the query param
-    const searchParams = new URLSearchParams(window.location.search)
-    const fromParam = searchParams.get('from')
-    if (fromParam) {
-      router.push(fromParam, { scroll: false })
-      return
-    }
-
-    // Fallback: derive a parent URL from the current path
-    const pathSegments = window.location.pathname.split('/').filter(Boolean)
-    if (pathSegments.length >= 3) {
-      router.push(`/work/${pathSegments[1]}`, { scroll: false })
-    } else if (pathSegments.length >= 2) {
-      router.push(`/work/${pathSegments[1]}`, { scroll: false })
+    // Closing: check if we're on a deep link URL
+    const isDeepLink = window.location.pathname.includes(`/work/${categories[0]}/${id}`)
+    
+    if (isDeepLink) {
+      // Navigate back to the category page for deep-linked modals
+      router.push(`/work/${categories[0]}`, { scroll: false })
     } else {
-      router.push('/work', { scroll: false })
+      // Just close the modal for click-opened modals
+      setOpen(false)
     }
   }
 
