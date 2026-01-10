@@ -10,19 +10,39 @@ export const BUTTON_VARIANTS = {
 	outlineReverse: styles.outlineReverse,
 }
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type BaseButtonProps = {
   compact?: boolean
   children: ReactNode
   variant?: keyof typeof BUTTON_VARIANTS
-  href?: string
-  isLink?: boolean
-	disabled?: boolean
 }
+
+type ButtonAsButton = BaseButtonProps & 
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseButtonProps> & {
+    href?: never
+    isLink?: false
+    download?: never
+  }
+
+type ButtonAsAnchor = BaseButtonProps & 
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseButtonProps> & {
+    href: string
+    isLink?: never
+    disabled?: boolean
+  }
+
+type ButtonAsSpan = BaseButtonProps & 
+  Omit<React.HTMLAttributes<HTMLSpanElement>, keyof BaseButtonProps> & {
+    href?: never
+    isLink: true
+    download?: never
+  }
+
+export type ButtonProps = ButtonAsButton | ButtonAsAnchor | ButtonAsSpan
 
 export type ButtonRef = HTMLButtonElement | HTMLAnchorElement
 
 const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
-  { className, compact = false, children, variant = 'default', isLink = false, disabled = false, ...props },
+  { className, compact = false, children, variant = 'default', isLink = false, ...props },
   ref
 ) {
   if (!BUTTON_VARIANTS[variant]) {
@@ -37,7 +57,6 @@ const Button = forwardRef<ButtonRef, ButtonProps>(function Button(
 
   return (
     <Element
-			disabled={disabled}
       className={clsx(
         styles.button,
         BUTTON_VARIANTS[variant],

@@ -26,9 +26,8 @@
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   margin-bottom: 3rem;
 
-  & button {
-    margin: 0 auto;
-    max-width: 23rem;
+  @nest [data-whatintent="keyboard"] & button:focus {
+		outline-color: #000;
   }
 }
 

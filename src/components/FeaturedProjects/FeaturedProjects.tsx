@@ -19,11 +19,9 @@ const FeaturedProjects = () => {
           featuredArray.map(proj => <Project key={proj.id} project={proj} rotate={proj.rotate} />)}
       </div>
       <p className={styles.cta}>
-        <Link href="/work">
-          <Button variant="outline" isLink>
-            See more of my work
-          </Button>
-        </Link>
+				<Button href="/work" variant="outline">
+					See more of my work
+				</Button>
       </p>
     </section>
   )

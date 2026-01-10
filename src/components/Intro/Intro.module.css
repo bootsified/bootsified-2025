@@ -57,34 +57,33 @@
 
 .button,
 .buttonPrimary {
-	text-decoration: none;
-	padding: 0.5em 0.875em;
-	transition: background-color var(--hover-duration) ease, color var(--hover-duration) ease;
-	font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.125em;
+
+	@nest [data-whatintent="keyboard"] &:focus {
+		outline: 2px dotted #f07d4a !important;
+		outline-offset: 4px !important;
+	}
 }
 
 .button {
-	border: 1px solid var(--text-reverse);
-	color: var(--text-reverse);
+	background-color: #000 !important;
+	border-color: #f07d4a !important;
+	color: #f07d4a !important;
 
-	&:hover,
-	&:focus {
-		background-color: var(--text-footer);
-		border-color: var(--text-footer);
-		color: var(--text);
+	@nest [data-whatintent="mouse"] &:hover {
+		background-color: #f07d4a !important;
+		border-color: #f07d4a !important;
+		color: #000 !important;
 	}
 }
 
 .buttonPrimary {
-	background-color: var(--text-reverse);
-	border: 1px solid var(--text-reverse);
-	color: var(--text);
+	background-color: #f07d4a !important;
+	border-color: #f07d4a !important;
+	color: #000 !important;
 
-	&:hover,
-	&:focus {
-		background-color: var(--text-footer) !important;
-		border-color: var(--text-footer) !important;
+	@nest [data-whatintent="mouse"] &:hover {
+		background-color: #000 !important;
+		border-color: #f07d4a !important;
+		color: #f07d4a !important;
 	}
 }
