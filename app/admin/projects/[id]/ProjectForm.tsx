@@ -6,6 +6,9 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import 'easymde/dist/easymde.min.css'
 import styles from './project-form.module.css'
+import Button from '@/components/Button/Button'
+import clsx from 'clsx'
+import Image from 'next/image'
 
 // Dynamically import SimpleMDE to avoid SSR issues
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), {
@@ -242,12 +245,12 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link href="/admin/projects" className={styles.backLink}>
-          ← Back to Projects
-        </Link>
         <h1 className={styles.heading}>
           {isEditing ? 'Edit Project' : 'New Project'}
         </h1>
+        <Link href="/admin/projects" className={styles.backLink}>
+          ← Projects
+        </Link>
       </div>
 
       <form onSubmit={handleSubmit} className={styles.form}>
@@ -373,72 +376,79 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
 
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>Images</h3>
-          
-          <div className={styles.imageField}>
-            <label className={styles.label}>Logo *</label>
-            {formData.logo && (
-              <img
-                src={formData.logo}
-                alt="Logo"
-                className={styles.thumbnail}
-              />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) handleFileUpload(file, 'logo')
-              }}
-              className={styles.fileInput}
-              disabled={uploading === 'logo'}
-            />
-            {uploading === 'logo' && <span className={styles.uploading}>Uploading...</span>}
-          </div>
+          <div className={styles.images}>
+						<div className={clsx(styles.imageField, styles.logoField)}>
+							<label className={styles.label}>Logo *</label>
+							{formData.logo && (
+								<Image
+									src={formData.logo}
+									alt="Logo"
+									className={styles.thumbnail}
+									width={200}
+									height={200}
+								/>
+							)}
+							<input
+								type="file"
+								accept="image/*"
+								onChange={(e) => {
+									const file = e.target.files?.[0]
+									if (file) handleFileUpload(file, 'logo')
+								}}
+								className={styles.fileInput}
+								disabled={uploading === 'logo'}
+							/>
+							{uploading === 'logo' && <span className={styles.uploading}>Uploading...</span>}
+						</div>
 
-          <div className={styles.imageField}>
-            <label className={styles.label}>Screenshot (Noir/Comic Style) *</label>
-            {formData.screenshotNoir && (
-              <img
-                src={formData.screenshotNoir}
-                alt="Screenshot Noir"
-                className={styles.thumbnail}
-              />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) handleFileUpload(file, 'screenshotNoir')
-              }}
-              className={styles.fileInput}
-              disabled={uploading === 'screenshotNoir'}
-            />
-            {uploading === 'screenshotNoir' && <span className={styles.uploading}>Uploading...</span>}
-          </div>
+						<div className={styles.imageField}>
+							<label className={styles.label}>Screenshot (Comic) *</label>
+							{formData.screenshotNoir && (
+								<Image
+									src={formData.screenshotNoir}
+									alt="Screenshot Comic Style"
+									className={styles.thumbnail}
+									width={300}
+									height={169}
+								/>
+							)}
+							<input
+								type="file"
+								accept="image/*"
+								onChange={(e) => {
+									const file = e.target.files?.[0]
+									if (file) handleFileUpload(file, 'screenshotNoir')
+								}}
+								className={styles.fileInput}
+								disabled={uploading === 'screenshotNoir'}
+							/>
+							{uploading === 'screenshotNoir' && <span className={styles.uploading}>Uploading...</span>}
+						</div>
 
-          <div className={styles.imageField}>
-            <label className={styles.label}>Screenshot (Regular) *</label>
-            {formData.screenshot && (
-              <img
-                src={formData.screenshot}
-                alt="Screenshot"
-                className={styles.thumbnail}
-              />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) handleFileUpload(file, 'screenshot')
-              }}
-              className={styles.fileInput}
-              disabled={uploading === 'screenshot'}
-            />
-            {uploading === 'screenshot' && <span className={styles.uploading}>Uploading...</span>}
-          </div>
+						<div className={styles.imageField}>
+							<label className={styles.label}>Screenshot (Regular) *</label>
+							{formData.screenshot && (
+								<Image
+									src={formData.screenshot}
+									alt="Screenshot"
+									className={styles.thumbnail}
+									width={300}
+									height={169}
+								/>
+							)}
+							<input
+								type="file"
+								accept="image/*"
+								onChange={(e) => {
+									const file = e.target.files?.[0]
+									if (file) handleFileUpload(file, 'screenshot')
+								}}
+								className={styles.fileInput}
+								disabled={uploading === 'screenshot'}
+							/>
+							{uploading === 'screenshot' && <span className={styles.uploading}>Uploading...</span>}
+						</div>
+					</div>
         </div>
 
         <div className={styles.section}>
@@ -580,13 +590,13 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
           <Link href="/admin/projects" className={styles.cancelButton}>
             Cancel
           </Link>
-          <button
+          <Button
             type="submit"
             className={styles.submitButton}
             disabled={saving}
           >
             {saving ? 'Saving...' : isEditing ? 'Update Project' : 'Create Project'}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

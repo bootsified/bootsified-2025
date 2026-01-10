@@ -40,6 +40,10 @@
 		transform: translateY(-63%);
 		transition: color 500ms ease;
 	}
+
+	@nest [data-current-page*='admin'] & {
+		display: none;
+	}
 }
 
 .seaplaneSvg {
