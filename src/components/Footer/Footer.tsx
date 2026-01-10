@@ -15,7 +15,7 @@ const Footer = ({ className = '' }: FooterProps) => {
 			<div className={styles.seaplane}>
 				<Seaplane
 					className={styles.seaplaneSvg}
-					alt="A small illustrated seaplane, with a banner, flying through the air."
+					title="A small illustrated seaplane, with a banner, flying through the air."
 					width="400"
 					height="65"
 				/>
@@ -26,7 +26,7 @@ const Footer = ({ className = '' }: FooterProps) => {
 				<div className={styles.container}>
 					<p className={styles.made}>Made with <span className={styles.heart} title="love">♥</span> in Seattle</p>
 					<p className={styles.signature}>
-						<Logo alt="Bootsified Signature" aria-hidden="true" focusable="false" />
+						<Logo title="Bootsified Signature" aria-hidden="true" focusable="false" />
 					</p>
 				</div>
 			</div>
@@ -41,9 +41,9 @@ const Footer = ({ className = '' }: FooterProps) => {
 				</div>
 				<div className={styles.slice}>
 					<Image
-						src="/images/sasquatch-jogging3-sm.gif"
+						src="/images/sasquatch-jogging-cropped.gif"
 						alt="A friendly sasquatch jogging on a treadmill."
-						width="160"
+						width="90"
 						height="90"
 					/>
 				</div>
