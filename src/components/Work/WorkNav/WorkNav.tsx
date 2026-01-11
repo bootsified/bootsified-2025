@@ -33,7 +33,7 @@ const WorkNav = () => {
 				compact
 				variant='outline'
       >
-        {titles.length ? titles.join(' / ') : 'All Projects'}
+        {titles.length ? titles.join(' / ') : 'Featured'}
       </Button>
       <ul className={styles.list} data-open={open}>
         <>
