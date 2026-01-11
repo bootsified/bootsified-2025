@@ -42,11 +42,39 @@
   letter-spacing: 0.05em;
 }
 
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input {
   padding: 0.75rem;
   border: 2px solid;
   font-size: 1rem;
   transition: border-color 0.2s;
+  width: 100%;
+}
+
+.passwordWrapper .input {
+  padding-right: 4.5rem;
+}
+
+.toggleButton {
+  position: absolute;
+  right: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
+  color: #333;
 }
 
 .input:focus {
