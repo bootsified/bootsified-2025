@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { isAuthenticated } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import styles from './admin.module.css'
+import Button from '@/components/Button'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -34,25 +35,23 @@ export default async function AdminPage() {
       
       <div className={styles.cardGrid}>
         <Link href="/admin/projects" className={styles.card}>
-          <div className={styles.cardIcon}>📁</div>
           <h2 className={styles.cardTitle}>Projects</h2>
-          <p className={styles.cardCount}>{projectCount}</p>
+          <p className={styles.cardCount}>{projectCount} Projects</p>
           <p className={styles.cardDescription}>Manage your portfolio projects</p>
         </Link>
         
         <Link href="/admin/contact" className={styles.card}>
-          <div className={styles.cardIcon}>✉️</div>
-          <h2 className={styles.cardTitle}>Contact Submissions</h2>
-          <p className={styles.cardCount}>{submissionCount}</p>
+          <h2 className={styles.cardTitle}>Mail Room</h2>
+          <p className={styles.cardCount}>{submissionCount} Submissions</p>
           <p className={styles.cardDescription}>View contact form submissions</p>
         </Link>
       </div>
       
       <form action="/api/admin/login" method="POST" className={styles.logoutForm}>
         <input type="hidden" name="action" value="logout" />
-        <button type="submit" className={styles.logoutButton}>
+        <Button type="submit" className={styles.logoutButton}>
           Logout
-        </button>
+        </Button>
       </form>
     </div>
   )
