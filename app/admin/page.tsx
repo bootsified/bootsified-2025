@@ -4,6 +4,7 @@ import { isAuthenticated } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import styles from './admin.module.css'
 import Button from '@/components/Button'
+import { clsx } from 'clsx'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -30,7 +31,7 @@ export default async function AdminPage() {
   const { projectCount, submissionCount } = await getStats()
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, 'fadeIn')}>
       <h1 className={styles.heading}>Admin Dashboard</h1>
       
       <div className={styles.cardGrid}>

@@ -177,7 +177,7 @@ const WorkPage = async ({ params }: WorkProps) => {
   }
 
   return (
-    <>
+    <div className="fadeIn">
       {projectSchema && <Schema data={projectSchema} />}
       {activeSection?.description && (
         <p
@@ -201,7 +201,7 @@ const WorkPage = async ({ params }: WorkProps) => {
           </p>
         )}
       </div>
-    </>
+    </div>
   )
 }
 

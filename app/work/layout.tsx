@@ -33,7 +33,7 @@ const WorkLayout = ({ children }: { children: React.ReactNode }) => {
     })
 
   return (
-    <>
+    <div className="fadeIn">
       <Schema
         data={{
           '@context': 'https://schema.org',
@@ -60,7 +60,7 @@ const WorkLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         {children}
       </div>
-    </>
+    </div>
   )
 }
 

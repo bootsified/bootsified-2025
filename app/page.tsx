@@ -31,7 +31,7 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-		<article>
+		<article className="fadeIn">
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<Definition />
 			<Intro />

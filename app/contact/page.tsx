@@ -34,7 +34,7 @@ export const metadata = {
 
 const ContactPage = () => {
   return (
-		<>
+		<div className="fadeIn">
 			<Schema
 				data={[
 					{
@@ -63,7 +63,7 @@ const ContactPage = () => {
 				<h2 className='h1'>Let me hear from you</h2>
 			</TextBlock>
 			<Contact />
-		</>
+		</div>
   )
 }
 

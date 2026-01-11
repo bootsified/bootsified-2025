@@ -44,7 +44,7 @@ export const metadata = {
 
 const AboutPage = () => {
   return (
-		<article>
+		<article className="fadeIn">
 			<Schema
 				data={[
 					{
