@@ -28,20 +28,33 @@ export async function isAuthenticated(): Promise<boolean> {
 }
 
 export async function verifyPassword(password: string): Promise<boolean> {
-  const adminPassword = process.env.ADMIN_PASSWORD
+  const adminPassword = process.env.ADMIN_PASSWORD?.trim()
   
   if (!adminPassword) {
     console.error('ADMIN_PASSWORD environment variable is not set')
     return false
   }
 
-  // Check if the stored password is hashed (starts with $2a$ or $2b$)
+  // Check if the stored password is hashed (bcrypt format: $2a$, $2b$, $2y$, etc.)
   if (adminPassword.startsWith('$2')) {
-    return bcrypt.compare(password, adminPassword)
+    try {
+      const isValid = await bcrypt.compare(password, adminPassword)
+      if (!isValid) {
+        console.log('Password comparison failed for hashed password')
+      }
+      return isValid
+    } catch (error) {
+      console.error('Error comparing bcrypt password:', error)
+      return false
+    }
   }
   
   // For backwards compatibility, support plain text passwords (not recommended)
-  return password === adminPassword
+  const isValid = password === adminPassword
+  if (!isValid) {
+    console.log('Password comparison failed for plain text password')
+  }
+  return isValid
 }
 
 export async function login(password: string): Promise<boolean> {

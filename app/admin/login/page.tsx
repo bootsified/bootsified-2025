@@ -3,6 +3,7 @@
 import { useState, FormEvent, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './login.module.css'
+import Button from '@/components/Button'
 
 export default function LoginPage() {
   const [password, setPassword] = useState('')
@@ -70,13 +71,13 @@ export default function LoginPage() {
             />
           </div>
           {error && <div className={styles.error}>{error}</div>}
-          <button
+          <Button
             type="submit"
             className={styles.button}
             disabled={loading}
           >
             {loading ? 'Logging in...' : 'Login'}
-          </button>
+          </Button>
         </form>
       </div>
     </div>
