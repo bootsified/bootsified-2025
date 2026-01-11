@@ -30,7 +30,7 @@ export default async function AdminPage() {
   const { projectCount, submissionCount } = await getStats()
 
   return (
-    <div className={styles.dashboard}>
+    <div className={styles.container}>
       <h1 className={styles.heading}>Admin Dashboard</h1>
       
       <div className={styles.cardGrid}>

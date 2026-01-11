@@ -40,8 +40,8 @@ export default async function ContactPage() {  const authenticated = await isAut
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Link href="/admin" className={styles.backLink}>← Back to Dashboard</Link>
         <h1 className={styles.heading}>Mail Room</h1>
+        <Link href="/admin" className={styles.backLink}>← Dashboard</Link>
       </div>
       <p className={styles.totalSubmissions}>Total submissions: {submissions.length}</p>
       
@@ -62,16 +62,16 @@ export default async function ContactPage() {  const authenticated = await isAut
                 <td>{new Date(submission.createdAt).toLocaleDateString()}</td>
                 <td>{submission.name}</td>
                 <td>
-                  <a href={`mailto:${submission.email}`}>{submission.email}</a>
+                  <a className={styles.link} href={`mailto:${submission.email}`}>{submission.email}</a>
                 </td>
                 <td>
                   {submission.phone ? (
-                    <a href={`tel:${submission.phone}`}>{submission.phone}</a>
+                    <a className={styles.link} href={`tel:${submission.phone}`}>{submission.phone}</a>
                   ) : (
                     '—'
                   )}
                 </td>
-                <td className={pageStyles.messageCell}>{submission.message}</td>
+                <td className={styles.messageCell}>{submission.message}</td>
               </tr>
             ))}
           </tbody>
