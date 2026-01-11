@@ -68,7 +68,7 @@
 		border: none;
   }
 
-	&:has(span[disabled]) {
+	&[disabled] {
 		pointer-events: none;
 	}
 }

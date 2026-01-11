@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react'
 import Video from 'next-video'
 import { Asset } from 'next-video/dist/assets.js'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import clsx from 'clsx'
 import Image from 'next/image'
 
@@ -183,10 +186,14 @@ const ProjectDetails = ({ project }: ProjectProps) => {
         </div>
 
         {notes !== '' && (
-          <div
-            className={clsx(styles.notes, richStyles.richText)}
-            dangerouslySetInnerHTML={{ __html: notes }}
-          />
+          <div className={clsx(styles.notes, richStyles.richText)}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+            >
+              {notes}
+            </ReactMarkdown>
+          </div>
         )}
       </div>
     </div>
