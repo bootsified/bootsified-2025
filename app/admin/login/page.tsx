@@ -22,7 +22,7 @@ export default function LoginPage() {
         }
       })
       .catch(() => {})
-  }, [])
+  }, [router])
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
