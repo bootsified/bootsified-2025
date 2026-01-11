@@ -1,5 +1,5 @@
 .container {
-  max-width: var(--container-width-lg);
+  max-width: var(--container-width-md);
   margin: 0 auto;
   padding-left: var(--container-side-padding);
   padding-right: var(--container-side-padding);
@@ -117,6 +117,7 @@
 }
 
 .projectTitle {
+	color: var(--color-pri);
 	font-weight: 700;
 }
 
