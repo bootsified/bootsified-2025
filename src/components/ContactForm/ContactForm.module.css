@@ -9,7 +9,6 @@
 .formGroup {
 	display: flex;
 	flex-direction: column;
-	gap: 0.25em;
 }
 
 .label {
@@ -22,11 +21,16 @@
 	font-weight: 400;
 	gap: 0.25em;
 	letter-spacing: 0.1em;
+	margin-bottom: 0.5em;
 	text-transform: uppercase;
 }
 
 .required {
 	aria-label: 'required';
+	font-size: 1.75em;
+  line-height: 0.5;
+  display: inline-block;
+  padding-top: 0.35em;
 }
 
 .input {
@@ -61,10 +65,12 @@
 }
 
 .error {
-	color: var(--red-5);
-	font-size: 0.875em;
-	margin-top: 0.25em;
+	background-color: var(--red-5);
+	color: var(--text);
 	display: block;
+	font-size: 0.875em;
+  line-height: 1;
+	padding: 0.5em 1em;
 }
 
 .submitButton {

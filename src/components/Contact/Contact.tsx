@@ -27,13 +27,13 @@ const Contact = () => {
                 href={`${LINKEDIN_URL}`}
                 target="_blank"
               >
-                <LinkedInIcon />
+                <LinkedInIcon aria-hidden="true" />
                 <span>{LINKEDIN_HANDLE}</span>
               </Link>
             </li>
             <li>
               <Link className={styles.link} href={`${GITHUB_URL}`} target="_blank">
-                <GithubIcon />
+                <GithubIcon aria-hidden="true" />
                 <span>{GITHUB_HANDLE}</span>
               </Link>
             </li>
@@ -43,7 +43,7 @@ const Contact = () => {
                 href={`${BLUESKY_URL}`}
                 target="_blank"
               >
-                <BlueskyIcon />
+                <BlueskyIcon aria-hidden="true" />
                 <span>{BLUESKY_HANDLE}</span>
               </Link>
             </li>
@@ -53,7 +53,7 @@ const Contact = () => {
                 href="https://docs.google.com/document/d/1rQctHdBV9pXxVna_HOguMz88CmM4ywg9sugs21w9_Ls/export?format=pdf"
                 download
               >
-                <PDFIcon />
+                <PDFIcon aria-hidden="true" />
                 <span>John &ldquo;Boots&rdquo; Highland Resume</span>
               </a>
             </li>
