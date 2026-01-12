@@ -5,8 +5,8 @@ import { SITE_PUBLIC_URL } from '@/utils/constants'
 import { getVideoAsset } from '@/utils/videoAssets'
 import type { Metadata } from 'next'
 
-import Project from '@/components/Project'
 import Schema from '@/components/Schema'
+import WorkClient from '@/components/Work/WorkClient'
 
 import styles from '@components/Work/Work.module.css'
 
@@ -15,16 +15,9 @@ function generateRotate() {
   return (Math.random() - 0.5) * 0.25
 }
 
-async function getProjects(categorySlug?: string) {
+async function getProjects() {
   try {
     const projects = await prisma.project.findMany({
-      where: categorySlug && categorySlug !== 'all' ? {
-        categories: {
-          some: {
-            slug: categorySlug,
-          },
-        },
-      } : undefined,
       include: {
         categories: {
           select: {
@@ -126,9 +119,9 @@ const WorkPage = async ({ params }: WorkProps) => {
   // Get project ID from second slug segment (e.g., /work/web-dev/mizzen)
   const projectSlug = slug?.[1]
   
-  // Fetch projects from database
-  const categorySlug = activeSection?.id
-  const projects = await getProjects(categorySlug)
+  // Fetch ALL projects from database
+  const projects = await getProjects()
+  const categorySlug = activeSection?.id || 'featured'
   
   const activeProject = projectSlug ? projects.find(p => p.id === projectSlug) : null
 
@@ -177,31 +170,15 @@ const WorkPage = async ({ params }: WorkProps) => {
   }
 
   return (
-    <div className="fadeIn">
+    <>
       {projectSchema && <Schema data={projectSchema} />}
-      {activeSection?.description && (
-        <p
-          className={styles.introText}
-          dangerouslySetInnerHTML={{ __html: activeSection?.description }}
-        />
-      )}
-      <div className={styles.projects}>
-        {projects.length ? (
-          projects.map(proj => (
-            <Project 
-              key={proj.id} 
-              project={proj} 
-              rotate={proj.rotate}
-              initialOpen={projectSlug === proj.id}
-            />
-          ))
-        ) : (
-          <p className={styles.noResults}>
-            Oooops... There aren&rsquo;t any results for&nbsp;this&nbsp;category :(
-          </p>
-        )}
-      </div>
-    </div>
+      <WorkClient 
+        projects={projects}
+        categorySlug={categorySlug}
+        projectSlug={projectSlug}
+        introText={activeSection?.description}
+      />
+    </>
   )
 }
 
