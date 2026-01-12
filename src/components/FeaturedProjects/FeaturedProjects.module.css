@@ -29,6 +29,10 @@
   @nest [data-whatintent="keyboard"] & button:focus {
 		outline-color: #000;
   }
+
+	@media (prefers-contrast: more) {
+		--text: #FECD61;
+	}
 }
 
 .cta {

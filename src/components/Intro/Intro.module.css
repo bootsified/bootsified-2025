@@ -19,6 +19,10 @@
 		flex-direction: row;
 		gap: 2em;
 	}
+
+	@media (prefers-contrast: more) {
+		--text-reverse: var(--text-footer);
+	}
 }
 
 .text {
@@ -49,41 +53,46 @@
 }
 
 .buttons {
+	--button-color: #f07d4a;
 	display: flex;
 	font-size: 0.75em;
 	gap: 1em;
 	margin-top: 3em;
+
+	@media (prefers-contrast: more) {
+		--button-color: var(--text-footer);
+	}
 }
 
 .button,
 .buttonPrimary {
 
 	@nest [data-whatintent="keyboard"] &:focus {
-		outline: 2px dotted #f07d4a !important;
+		outline: 2px dotted var(--button-color) !important;
 		outline-offset: 4px !important;
 	}
 }
 
 .button {
 	background-color: #000 !important;
-	border-color: #f07d4a !important;
-	color: #f07d4a !important;
+	border-color: var(--button-color) !important;
+	color: var(--button-color) !important;
 
 	@nest [data-whatintent="mouse"] &:hover {
-		background-color: #f07d4a !important;
-		border-color: #f07d4a !important;
+		background-color: var(--button-color) !important;
+		border-color: var(--button-color) !important;
 		color: #000 !important;
 	}
 }
 
 .buttonPrimary {
-	background-color: #f07d4a !important;
-	border-color: #f07d4a !important;
+	background-color: var(--button-color) !important;
+	border-color: var(--button-color) !important;
 	color: #000 !important;
 
 	@nest [data-whatintent="mouse"] &:hover {
 		background-color: #000 !important;
-		border-color: #f07d4a !important;
-		color: #f07d4a !important;
+		border-color: var(--button-color) !important;
+		color: var(--button-color) !important;
 	}
 }

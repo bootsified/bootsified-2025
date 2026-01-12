@@ -20,11 +20,21 @@
 	@media screen and ( orientation: portrait ) {
 		background-image: linear-gradient(to top, #FFCE61, #EE6C45 70%, #BF3475);
 	}
+
+	@media (prefers-contrast: more) {
+		background-image: none;
+		background-color: var(--text-footer);
+	}
 }
 .night {
 	background-image: url('/images/stars-tiled2.png'), linear-gradient(#24243c, #2f5576);
 	background-position: center top;
 	background-size: 53.4rem;
+
+	@media (prefers-contrast: more) {
+		background-image: url('/images/stars-tiled2.png');
+		background-color: #24243c;
+	}
 }
 .cloudy {
 	background-image: linear-gradient(#bebebe, #ffffff);
@@ -38,10 +48,20 @@
     #ee6c45 90%,    /* Chinese Orange */
     #ffce61 100%    /* Crayola's Orange-Yellow (Sun glow top) */
   );
+
+	@media (prefers-contrast: more) {
+		background-image: none;
+		background-color: #50366f;
+	}
 }
 .dawn {
 	background-image: url('/images/stars-tiled-few.png'), linear-gradient(#102b43, #5e7c9b 60%, #f5be34);
 	background-position: center top;
 	background-repeat: repeat-x;
 	background-size: 53.4rem;
+
+	@media (prefers-contrast: more) {
+		background-image: url('/images/stars-tiled-few.png');
+		background-color: #43596F;
+	}
 }
