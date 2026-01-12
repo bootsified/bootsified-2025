@@ -2,9 +2,9 @@
   animation: swipe-it 2000ms ease infinite;
   background: linear-gradient(
     112deg,
-    var(--background-contrast) 25%,
-    var(--gray-1),
-    var(--background-contrast) 75%
+    #FFF1 25%,
+    #FFF4,
+    #FFF1 75%
   );
   background-size: 600% 600%;
 }
