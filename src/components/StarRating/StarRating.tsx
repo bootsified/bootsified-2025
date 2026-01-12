@@ -20,11 +20,11 @@ const StarRating = ({ className = '', rating }: StarRatingProps) => {
           <div key={index} className={styles.star}>
             {/* <VisuallyHidden>{`${starValue} ${starValue === 1 ? 'star' : 'stars'}`}</VisuallyHidden> */}
             {starValue - rating < 1 && starValue - rating > 0 ? (
-              <StarHalfIcon />
+              <StarHalfIcon aria-hidden="true" />
             ) : starValue <= rating ? (
-              <StarFilledIcon />
+              <StarFilledIcon aria-hidden="true" />
             ) : (
-              <StarIcon />
+              <StarIcon aria-hidden="true" />
             )}
           </div>
         )

@@ -34,12 +34,12 @@ const TextMedia = ({
       </div>
       <div className={styles.image}>
         {!videoSrc && <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} />}
-        {videoSrc && <Video src={videoSrc} loop muted autoPlay playsInline controls={false} width={imageWidth} height={imageHeight}>
+        {videoSrc && <Video src={videoSrc} loop muted autoPlay playsInline controls={false} width={imageWidth} height={imageHeight} tabIndex={-1} aria-label={imageAlt}>
 					<Image
 						slot="poster"
 						src={imageSrc}
 						placeholder="blur"
-						alt={imageAlt}
+						alt=""
 						width={imageWidth}
 						height={imageHeight}
 					/>
