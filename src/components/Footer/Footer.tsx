@@ -16,6 +16,8 @@ const Footer = ({ className = '' }: FooterProps) => {
 				<Seaplane
 					className={styles.seaplaneSvg}
 					title="A small illustrated seaplane, with a banner, flying through the air."
+					aria-hidden="true"
+					role="presentation"
 					width="400"
 					height="65"
 				/>
