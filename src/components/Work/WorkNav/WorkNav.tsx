@@ -53,13 +53,12 @@ const WorkNav = () => {
             return (
               <li key={section.id} className={styles.item}>
 								<Button
-									href={url}
+									{...(isActive ? { isLink: true } : { href: url })}
 									className={styles.button}
 									compact
 									data-is-active={isActive}
 									variant={isActive ? 'default' : 'outline'}
-									disabled={isActive}
-									tabIndex={isActive ? -1 : 0}
+									aria-current={isActive ? 'page' : undefined}
 									onClick={() => {
 										setOpen(false)
 									}

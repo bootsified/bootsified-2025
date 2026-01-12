@@ -68,7 +68,7 @@
 		border: none;
   }
 
-	&[disabled] {
+	&[aria-current="page"] {
 		pointer-events: none;
 	}
 }
