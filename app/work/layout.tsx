@@ -1,23 +1,42 @@
-import WorkNav from '@components/Work/WorkNav'
-import styles from '@components/Work/Work.module.css'
+import WorkNav from '@/components/Work/WorkNav'
+import styles from '@/components/Work/Work.module.css'
 import Schema from '@/components/Schema'
-import { projects } from './data'
+import { prisma } from '@/lib/prisma'
 import { SITE_PUBLIC_URL } from '@/utils/constants'
 
-const WorkLayout = ({ children }: { children: React.ReactNode }) => {
+const WorkLayout = async ({ children }: { children: React.ReactNode }) => {
+  // Fetch featured projects from database
+  const projects = await prisma.project.findMany({
+    include: {
+      categories: {
+        select: {
+          slug: true,
+        },
+      },
+      skills: {
+        select: {
+          name: true,
+        },
+      },
+    },
+    orderBy: {
+      order: 'asc',
+    },
+  })
+
   // Filter featured projects and map to schema.org CreativeWork or WebSite
   const featuredProjects = projects
-    .filter(p => p.categories.includes('featured'))
+    .filter(p => p.categories.some(c => c.slug === 'featured'))
     .map((project, index) => {
       const hasExternalLink = project.url && project.url !== ''
       const schemaType = hasExternalLink ? 'WebSite' : 'CreativeWork'
       
       const item: Record<string, unknown> = {
         '@type': schemaType,
-        '@id': `https://boots.dev/work/${project.categories[0]}/${project.id}`,
+        '@id': `https://boots.dev/work/${project.categories[0].slug}/${project.slug}`,
         name: project.title,
         dateCreated: project.year,
-        about: project.skills.join(', '),
+        about: project.skills.map(s => s.name).join(', '),
         image: `${SITE_PUBLIC_URL}${project.screenshot}`
       }
       
