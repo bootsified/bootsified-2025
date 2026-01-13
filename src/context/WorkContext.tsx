@@ -16,7 +16,7 @@ export type ProjectData = {
   screenshotNoir: string
   screenshot: string
   url: string
-  media: string | unknown
+  media: string
   mediaType: string
   skills: string[]
   notes: string
