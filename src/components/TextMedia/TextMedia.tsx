@@ -45,7 +45,6 @@ const TextMedia = ({
             width={imageWidth} 
             height={imageHeight} 
             aria-label={imageAlt}
-            style={{ width: '100%', height: 'auto' }}
           />
         )}
       </div>
