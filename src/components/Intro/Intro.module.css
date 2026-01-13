@@ -15,6 +15,10 @@
 	max-width: var(--container-width-md);
 	margin: 0 auto;
 
+	@media screen and ( max-width: 767px ) {
+		--text-reverse: #F9B359;
+	}
+
 	@media (min-width: 768px) {
 		flex-direction: row;
 		gap: 2em;
@@ -53,7 +57,7 @@
 }
 
 .buttons {
-	--button-color: #f07d4a;
+	--button-color: #F9B359;
 	display: flex;
 	font-size: 0.75em;
 	gap: 1em;

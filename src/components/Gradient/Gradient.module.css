@@ -21,6 +21,10 @@
 		background-image: linear-gradient(to top, #FFCE61, #EE6C45 70%, #BF3475);
 	}
 
+	@media screen and ( max-width: 767px ) {
+		background-image: linear-gradient(to top, #ffce61 30%, #ee6c45);
+	}
+
 	@media (prefers-contrast: more) {
 		background-image: none;
 		background-color: var(--text-footer);

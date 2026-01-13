@@ -26,6 +26,10 @@
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   margin-bottom: 3rem;
 
+	@media screen and ( max-width: 767px ) {
+		--text: #F9B359;
+	}
+
   @nest [data-whatintent="keyboard"] & button:focus {
 		outline-color: #000;
   }
@@ -41,7 +45,8 @@
 
   @media screen and (max-width: 500px) {
     & a {
-      display: block;
+      display: flex;
+			place-content: center;
 
       & span {
         max-width: 23rem;
