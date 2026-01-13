@@ -14,8 +14,15 @@ function generateRotate() {
 }
 
 const FeaturedProjects = async () => {
-  // Fetch first 3 projects from database
+  // Fetch first 3 projects from the "featured" category
   const projects = await prisma.project.findMany({
+    where: {
+      categories: {
+        some: {
+          slug: 'featured',
+        },
+      },
+    },
     include: {
       categories: {
         select: {
