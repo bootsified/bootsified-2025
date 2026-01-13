@@ -32,6 +32,11 @@
 
 	@media (prefers-contrast: more) {
 		--text: rgb(var(--color-ter-rgb));
+	}
+}
+
+.cta {
+	font-size: 0.875em;
   text-align: center;
 
   @media screen and (max-width: 500px) {
