@@ -19,6 +19,14 @@ const nextConfig = {
 	experimental: {
 		optimizePackageImports: ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-popover'],
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '*.public.blob.vercel-storage.com',
+			},
+		],
+	},
 };
 
 export default nextConfig;
