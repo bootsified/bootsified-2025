@@ -259,7 +259,7 @@ main {
 }
 
 .fadeIn {
-	animation: fadeInAnimation 1000ms ease-in;
+	animation: fadeInAnimation 500ms ease-in;
 	animation-delay: 500ms;
 	animation-fill-mode: backwards;
 
