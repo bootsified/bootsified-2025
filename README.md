@@ -20,6 +20,29 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Managing Videos
+
+Videos are hosted on Vercel Blob storage. To add or update videos:
+
+### Upload a new video:
+
+**Option 1: Using Vercel CLI (recommended)**
+```bash
+vercel blob put path/to/your-video.mp4
+```
+
+**Option 2: Using Vercel Dashboard**
+1. Go to your project on Vercel
+2. Navigate to Storage → Blob
+3. Upload your video file
+
+### Add video to your project:
+1. Copy the generated Blob URL (e.g., `https://xxxxx.public.blob.vercel-storage.com/videos/your-video.mp4`)
+2. Paste the full URL into your project's `media` field in the database or admin panel
+3. The video will automatically work in project modals and other components
+
+**Note:** Always use the full Blob URL, not a relative path. External URLs (YouTube, SoundCloud) are also supported.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

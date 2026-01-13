@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import Script from 'next/script';
+import dynamic from 'next/dynamic';
 import '@styles/globals.css';
 import styles from '@styles/RootLayout.module.css'
 import * as constants from '@/utils/constants'
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { UIProvider } from '@/context/UIContext'
-import KonamiEasterEggWrapper from '@/components/KonamiEasterEggWrapper'
 import { PT_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import Navigation from '@components/Navigation'
 import Gradient from "@/components/Gradient";
-import Schema from '@/components/Schema';
+
+const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'))
+const Schema = dynamic(() => import('@/components/Schema'))
+const KonamiEasterEggWrapper = dynamic(() => import('@/components/KonamiEasterEggWrapper'))
 
 export const ptSerif = PT_Serif({
 	weight: ['400', '700'],
@@ -28,6 +30,7 @@ export const ptSerif = PT_Serif({
 const AnimeAce = localFont({
   src: './animeacei.woff2',
   display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -92,22 +95,6 @@ export default async function RootLayout({
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: dark)" />
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
       </head>
       <body className={styles.body} suppressHydrationWarning>
 				<style>
@@ -166,6 +153,7 @@ export default async function RootLayout({
           <Footer className={styles.footer} />
           <KonamiEasterEggWrapper />
         </UIProvider>
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
   );

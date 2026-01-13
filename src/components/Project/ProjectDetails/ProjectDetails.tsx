@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
-import Video from 'next-video'
-import { Asset } from 'next-video/dist/assets.js'
+import NativeVideo from '@/components/NativeVideo'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -24,7 +23,7 @@ type ProjectProps = {
     logo: string
     screenshot?: string
     url: string
-    media: string | Asset
+    media: string
     mediaType: string
     skills: string[]
     notes: string
@@ -48,11 +47,9 @@ const ProjectDetails = ({ project }: ProjectProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [showOverlay, setShowOverlay] = useState(true)
 
-  // Determine if media is a next-video Asset object
-  const isAsset = typeof media === 'object' && media !== null
-
-  // Extract media URL for string checks (for YouTube/SoundCloud)
+  // Extract media URL for string checks
   const mediaUrl = typeof media === 'string' ? media : ''
+  const isVercelBlobVideo = mediaUrl.includes('.blob.vercel-storage.com')
 
   const handleOverlayClick = () => {
     setShowOverlay(false)
@@ -110,13 +107,15 @@ const ProjectDetails = ({ project }: ProjectProps) => {
                 allowFullScreen
                 style={{ objectFit: 'contain' }}
               />
-            ) : isAsset ? (
+            ) : isVercelBlobVideo ? (
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                <Video
+                <NativeVideo
                   ref={videoRef}
-                  src={media as Asset}
+                  src={mediaUrl}
+                  poster={screenshot}
                   controls
                   muted
+                  preload="metadata"
                   onPlay={() => setShowOverlay(false)}
                   style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />

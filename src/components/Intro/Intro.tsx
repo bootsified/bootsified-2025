@@ -26,7 +26,15 @@ const Intro = ({
 					</div>
 				</div>
 				<div className={styles.image}>
-					<Image src='/images/me-comic.jpg' alt='A comic-style illustration of John "Boots" Highland' width={400} height={400} />
+					<Image 
+						src='/images/me-comic.jpg' 
+						alt='A comic-style illustration of John "Boots" Highland' 
+						width={400} 
+						height={400}
+						priority={true}
+						sizes="(max-width: 768px) 100vw, 400px"
+						quality={90}
+					/>
 				</div>
 			</div>
 		</section>

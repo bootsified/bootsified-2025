@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev & npx next-video sync -w",
+		"dev": "next dev",
 		"build": "prisma generate && next build",
 		"start": "next start",
 		"lint": "eslint",
@@ -33,7 +33,6 @@
 		"hamburgers": "^1.2.1",
 		"iron-session": "^8.0.4",
 		"next": "16.0.10",
-		"next-video": "^2.6.0",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
 		"react-markdown": "^10.1.0",

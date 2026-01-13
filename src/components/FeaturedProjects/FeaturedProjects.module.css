@@ -31,12 +31,7 @@
   }
 
 	@media (prefers-contrast: more) {
-		--text: #FECD61;
-	}
-}
-
-.cta {
-	font-size: 0.875em;
+		--text: rgb(var(--color-ter-rgb));
   text-align: center;
 
   @media screen and (max-width: 500px) {

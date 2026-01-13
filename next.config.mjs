@@ -1,4 +1,3 @@
-import { withNextVideo } from "next-video/process";
 /** @type {import('next').NextConfig} */
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -17,8 +16,9 @@ const nextConfig = {
 			},
 		},
 	},
+	experimental: {
+		optimizePackageImports: ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-popover'],
+	},
 };
 
-export default withNextVideo(nextConfig, {
-	provider: 'vercel-blob',
-});
+export default nextConfig;

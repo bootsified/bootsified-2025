@@ -89,18 +89,9 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
   }, [isEditing, projectId])
 
   useEffect(() => {
-    // Fetch video URL for preview when media path changes
-    if (formData.media && !formData.media.startsWith('http') && mediaInputType === 'file') {
-      fetch(`/api/video-url?path=${encodeURIComponent(formData.media)}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.url) {
-            setVideoPreviewUrl(data.url)
-          } else {
-            setVideoPreviewUrl(null)
-          }
-        })
-        .catch(() => setVideoPreviewUrl(null))
+    // Set video preview URL based on media input
+    if (formData.media && formData.media.startsWith('http')) {
+      setVideoPreviewUrl(formData.media)
     } else {
       setVideoPreviewUrl(null)
     }
@@ -473,14 +464,14 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
                 checked={mediaInputType === 'file'}
                 onChange={(e) => setMediaInputType(e.target.value as 'file' | 'url')}
               />
-              Local Video Path (for next-video)
+              Vercel Blob URL or Legacy Path
             </label>
           </div>
 
           {mediaInputType === 'url' ? (
             <div className={styles.field}>
               <label htmlFor="media" className={styles.label}>
-                Media URL
+                External Media URL
               </label>
               <input
                 type="url"
@@ -497,7 +488,7 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
             <>
               <div className={styles.field}>
                 <label htmlFor="media" className={styles.label}>
-                  Video Path (relative to project root)
+                  Video URL or Path
                 </label>
                 <input
                   type="text"
@@ -507,14 +498,14 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
                     setFormData({ ...formData, media: e.target.value })
                   }
                   className={styles.input}
-                  placeholder="videos/my-video.mp4"
+                  placeholder="https://xxxxx.blob.vercel-storage.com/videos/my-video.mp4"
                 />
                 <div style={{ fontSize: '0.875rem', color: '#666', marginTop: '0.5rem', padding: '0.75rem', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
-                  <strong>For next-video managed videos:</strong>
+                  <strong>Upload videos to Vercel Blob:</strong>
                   <ol style={{ margin: '0.5rem 0 0 1.25rem', paddingLeft: 0 }}>
-                    <li>Upload your .mp4 file to the <code>/videos/</code> folder in the project</li>
-                    <li>Run <code>npx next-video sync</code> to process and upload to Vercel Blob</li>
-                    <li>Enter the path here (e.g., <code>videos/my-video.mp4</code>)</li>
+                    <li>Upload via CLI: <code>vercel blob put path/to/video.mp4</code></li>
+                    <li>Or use Vercel Dashboard: Storage → Blob</li>
+                    <li>Paste the full Blob URL here</li>
                   </ol>
                 </div>
               </div>

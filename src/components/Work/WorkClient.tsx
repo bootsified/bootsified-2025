@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { Asset } from 'next-video/dist/assets.js'
 import Project from '@/components/Project'
 import styles from './Work.module.css'
 
@@ -18,7 +17,7 @@ type ProjectData = {
   screenshotNoir: string
   screenshot: string
   url: string
-  media: string | Asset
+  media: string
   mediaType: string
   skills: string[]
   notes: string

@@ -1,8 +1,13 @@
 import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION, SEO_DEFAULT_IMAGE } from '@/utils/constants'
+import dynamic from 'next/dynamic'
 import Schema from '@/components/Schema'
 import Definition from '@/components/Definition'
 import Intro from '@/components/Intro'
-import FeaturedProjects from '@/components/FeaturedProjects'
+
+const FeaturedProjects = dynamic(() => import('@/components/FeaturedProjects'), {
+	ssr: true,
+	loading: () => <div style={{ minHeight: '400px' }} />,
+})
 
 export const metadata = {
 	title: SEO_DEFAULT_TITLE,

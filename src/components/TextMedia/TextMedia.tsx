@@ -1,8 +1,7 @@
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import clsx from 'clsx'
-import Video from 'next-video';
-import { Asset } from 'next-video/dist/assets.js';
+import NativeVideo from '@/components/NativeVideo'
 
 import styles from './TextMedia.module.css'
 
@@ -11,7 +10,7 @@ interface TextMediaProps {
   imageAlt: string
   imageWidth?: number
   imageHeight?: number
-	videoSrc?: Asset | string
+	videoSrc?: string
   reverse?: boolean
   className?: string
   children?: React.ReactNode
@@ -34,16 +33,21 @@ const TextMedia = ({
       </div>
       <div className={styles.image}>
         {!videoSrc && <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} />}
-        {videoSrc && <Video src={videoSrc} loop muted autoPlay playsInline controls={false} width={imageWidth} height={imageHeight} tabIndex={-1} aria-label={imageAlt}>
-					<Image
-						slot="poster"
-						src={imageSrc}
-						placeholder="blur"
-						alt=""
-						width={imageWidth}
-						height={imageHeight}
-					/>
-				</Video>}
+        {videoSrc && (
+          <NativeVideo 
+            src={videoSrc} 
+            poster={typeof imageSrc === 'string' ? imageSrc : imageSrc.src}
+            loop 
+            muted 
+            autoPlay 
+            playsInline 
+            preload="metadata"
+            width={imageWidth} 
+            height={imageHeight} 
+            aria-label={imageAlt}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        )}
       </div>
     </section>
   )
