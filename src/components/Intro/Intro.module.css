@@ -57,11 +57,15 @@
 }
 
 .buttons {
-	--button-color: #F9B359;
+	--button-color: var(--text-reverse);
 	display: flex;
 	font-size: 0.75em;
 	gap: 1em;
 	margin-top: 3em;
+
+	@media screen and ( max-width: 767px ) {
+		--button-color: #F9B359;
+	}
 
 	@media (prefers-contrast: more) {
 		--button-color: var(--text-footer);
