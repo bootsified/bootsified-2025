@@ -75,7 +75,7 @@ function SortableRow({ project }: { project: Project }) {
       <td className={styles.dragHandle} {...attributes} {...listeners}>
         ⋮⋮
       </td>
-      <td className={styles.projectTitle}>{project.title}</td>
+      <td className={styles.projectTitle}><Link href={`/admin/projects/${project.id}`}>{project.title}</Link></td>
       <td>{project.client}</td>
       <td>{project.year}</td>
       <td>{project.projectType.replace('_', ' ')}</td>

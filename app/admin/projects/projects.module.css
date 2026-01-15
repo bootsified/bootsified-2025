@@ -119,6 +119,14 @@
 .projectTitle {
 	color: var(--color-pri);
 	font-weight: 700;
+
+	& a {
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .actions {
