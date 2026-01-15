@@ -23,12 +23,15 @@ type ProjectProps = {
     logo: string
     screenshot?: string
     url: string
+    staticPortfolio?: boolean
     media: string
     mediaType: string
     skills: string[]
     notes: string
   }
 }
+
+import StaticPortfolioInterstitial from '../StaticPortfolioInterstitial'
 
 const ProjectDetails = ({ project }: ProjectProps) => {
   const {
@@ -40,10 +43,12 @@ const ProjectDetails = ({ project }: ProjectProps) => {
     logo,
     screenshot = '',
     url,
+    staticPortfolio = false,
     media,
     skills,
     notes,
   } = project
+  const [showStaticInterstitial, setShowStaticInterstitial] = React.useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [showOverlay, setShowOverlay] = useState(true)
 
@@ -154,9 +159,31 @@ const ProjectDetails = ({ project }: ProjectProps) => {
 
         {url && (
           <div className={styles.cta}>
-						<Button href={url} target="_blank" variant='outline'>
-							Visit {title} {projectType}
-						</Button>
+            {staticPortfolio ? (
+              <Button
+                as="button"
+                type="button"
+                variant="outline"
+                onClick={() => setShowStaticInterstitial(true)}
+              >
+                Visit {title} {projectType}
+              </Button>
+            ) : (
+              <Button href={url} target="_blank" variant='outline'>
+                Visit {title} {projectType}
+              </Button>
+            )}
+            {staticPortfolio && showStaticInterstitial && (
+              <StaticPortfolioInterstitial
+                url={url}
+                projectTitle={title}
+                onContinue={() => {
+                  setShowStaticInterstitial(false)
+                  window.open(url, '_blank', 'noopener')
+                }}
+                onCancel={() => setShowStaticInterstitial(false)}
+              />
+            )}
           </div>
         )}
       </div>

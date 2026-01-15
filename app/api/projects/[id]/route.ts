@@ -69,6 +69,7 @@ export async function PUT(
         screenshotNoir: data.screenshotNoir,
         screenshot: data.screenshot,
         url: data.url || '',
+        staticPortfolio: data.staticPortfolio ?? false,
         media: data.media || '',
         mediaType: data.mediaType as MediaType,
         notes: data.notes,

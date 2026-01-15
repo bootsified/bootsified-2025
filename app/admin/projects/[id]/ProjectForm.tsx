@@ -38,6 +38,7 @@ type Project = {
   screenshotNoir: string
   screenshot: string
   url: string
+  staticPortfolio?: boolean
   media: string
   mediaType: string
   notes: string
@@ -69,6 +70,7 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
     screenshotNoir: '',
     screenshot: '',
     url: '',
+    staticPortfolio: false,
     media: '',
     mediaType: 'NONE',
     notes: '',
@@ -128,6 +130,7 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
         screenshotNoir: project.screenshotNoir,
         screenshot: project.screenshot,
         url: project.url,
+        staticPortfolio: project.staticPortfolio ?? false,
         media: project.media,
         mediaType: project.mediaType,
         notes: project.notes,
@@ -362,6 +365,15 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
               className={styles.input}
               placeholder="https://example.com"
             />
+            <label style={{ display: 'flex', alignItems: 'center', marginTop: '0.5rem', fontWeight: 400 }}>
+              <input
+                type="checkbox"
+                checked={formData.staticPortfolio}
+                onChange={e => setFormData({ ...formData, staticPortfolio: e.target.checked })}
+                style={{ marginRight: '0.5em' }}
+              />
+              Static Portfolio
+            </label>
           </div>
         </div>
 

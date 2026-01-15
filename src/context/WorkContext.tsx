@@ -89,6 +89,7 @@ export function WorkProvider({ children }: { children: React.ReactNode }) {
           screenshotNoir: project.screenshotNoir,
           screenshot: project.screenshot,
           url: project.url,
+          staticPortfolio: project.staticPortfolio ?? false,
           media: getVideoAsset(project.media || ''),
           mediaType: project.mediaType.toLowerCase(),
           skills: project.skills.map((s) => s.name),

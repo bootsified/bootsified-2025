@@ -50,6 +50,7 @@ model Project {
   screenshotNoir  String
   screenshot      String
   url             String      @default("")
+  staticPortfolio Boolean     @default(false)
   media           String      @default("") @db.Text
   mediaType       MediaType   @default(NONE)
   notes           String      @db.Text

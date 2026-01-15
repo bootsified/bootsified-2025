@@ -80,6 +80,7 @@ export async function POST(request: Request) {
         screenshotNoir: data.screenshotNoir,
         screenshot: data.screenshot,
         url: data.url || '',
+        staticPortfolio: data.staticPortfolio ?? false,
         media: data.media || '',
         mediaType: data.mediaType as MediaType,
         notes: data.notes,
