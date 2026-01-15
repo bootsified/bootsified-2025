@@ -60,6 +60,7 @@ type ApiProject = {
   screenshotNoir: string
   screenshot: string
   url: string
+  staticPortfolio?: boolean
   media: string
   mediaType: string
   skills: ApiSkill[]
