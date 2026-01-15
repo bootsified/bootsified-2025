@@ -161,7 +161,6 @@ const ProjectDetails = ({ project }: ProjectProps) => {
           <div className={styles.cta}>
             {staticPortfolio ? (
               <Button
-                as="button"
                 type="button"
                 variant="outline"
                 onClick={() => setShowStaticInterstitial(true)}
