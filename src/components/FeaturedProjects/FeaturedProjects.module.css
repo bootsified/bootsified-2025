@@ -18,25 +18,28 @@
 }
 
 .list {
-	--text-reverse: #000;
+	/* --text-reverse: #000;
 	--text: var(--reversed-text);
-	--text-footer: var(--text);
+	--text-footer: var(--text); */
+	--text-reverse: #000;
+	--text: #FFF;
+	--text-footer: #FFF;
   display: grid;
   grid-gap: 3rem 2rem;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   margin-bottom: 3rem;
 
-	@media screen and ( max-width: 767px ) {
+	/* @media screen and ( max-width: 767px ) {
 		--text: #F9B359;
-	}
+	} */
 
   @nest [data-whatintent="keyboard"] & button:focus {
 		outline-color: #000;
   }
 
-	@media (prefers-contrast: more) {
+	/* @media (prefers-contrast: more) {
 		--text: #FECD61;
-	}
+	} */
 }
 
 .cta {

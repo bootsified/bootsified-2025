@@ -34,9 +34,9 @@ const WorkContext = createContext<WorkContextType>({
 
 export const useWork = () => useContext(WorkContext)
 
-// Helper function to generate a random rotation value (-0.125 to 0.125)
+// Helper function to generate a random rotation value (-1.25 to 1.25)
 function generateRotate() {
-  return (Math.random() - 0.5) * 0.25
+  return (Math.random() - 0.5) * 2.5
 }
 
 type ApiCategory = {

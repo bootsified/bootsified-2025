@@ -52,11 +52,19 @@ body {
 	}
 }
 
-body[data-current-page="home"] {
+/* body[data-current-page="home"] {
   --text: #000;
 	--text-reverse: #F07D4A;
 	--reversed-text: var(--text-reverse);
 	--text-footer: #FFCE61;
+	--splat-hover-color: #FFF;
+} */
+
+body[data-current-page="home"] {
+  --text: #000;
+	--text-reverse: #FFF;
+	--reversed-text: #000;
+	--text-footer: #FFF;
 	--splat-hover-color: #FFF;
 }
 
