@@ -113,7 +113,7 @@
   }
 
   &::before {
-    background-color: var(--background-contrast);
+    background-color: var(--text-reverse);
     border-radius: 50%;
     content: " ";
     display: block;
