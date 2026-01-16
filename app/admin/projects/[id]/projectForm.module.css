@@ -35,6 +35,7 @@
 }
 
 .form {
+	accent-color: var(--color-pri);
   background: white;
   padding: 2em var(--container-side-padding);
   border-radius: 8px;

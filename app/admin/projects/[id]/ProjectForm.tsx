@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import 'easymde/dist/easymde.min.css'
-import styles from './project-form.module.css'
+import styles from './projectForm.module.css'
 import Button from '@/components/Button/Button'
 import clsx from 'clsx'
 import Image from 'next/image'
@@ -251,7 +251,7 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
         <div className={styles.grid}>
           <div className={styles.field}>
             <label htmlFor="slug" className={styles.label}>
-              Slug (URL-friendly ID) *
+              Slug *
             </label>
             <input
               type="text"
@@ -476,7 +476,7 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
                 checked={mediaInputType === 'file'}
                 onChange={(e) => setMediaInputType(e.target.value as 'file' | 'url')}
               />
-              Vercel Blob URL or Legacy Path
+              Vercel Blob URL
             </label>
           </div>
 
@@ -582,7 +582,8 @@ export default function ProjectForm({ projectId }: ProjectFormProps) {
         </div>
 
         <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Project Notes (Markdown) *</h3>
+          <h3 className={styles.sectionTitle} style={{marginBottom: '0.25em'}}>Project Notes *</h3>
+					<p style={{fontSize: '0.75em', marginBottom: '1.5em'}}>(Markdown supported)</p>
           <SimpleMDE
             value={formData.notes}
             onChange={(value) => setFormData({ ...formData, notes: value })}
