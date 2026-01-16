@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { ProjectType, MediaType } from '@prisma/client'
 
+export const dynamic = 'force-dynamic'
+
 // GET all projects
 export async function GET(request: Request) {
   try {

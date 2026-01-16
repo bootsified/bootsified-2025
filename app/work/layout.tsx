@@ -5,6 +5,8 @@ import { prisma } from '@/lib/prisma'
 import { SITE_PUBLIC_URL } from '@/utils/constants'
 import { WorkProvider } from '@/context/WorkContext'
 
+export const revalidate = 3600 // Revalidate every hour
+
 const WorkLayout = async ({ children }: { children: React.ReactNode }) => {
   // Fetch featured projects from database
   const projects = await prisma.project.findMany({

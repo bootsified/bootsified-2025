@@ -9,6 +9,8 @@ const FeaturedProjects = dynamic(() => import('@/components/FeaturedProjects'), 
 	loading: () => <div style={{ minHeight: '400px' }} />,
 })
 
+export const revalidate = 3600 // Revalidate every hour
+
 export const metadata = {
 	title: SEO_DEFAULT_TITLE,
 	description: SEO_DEFAULT_DESCRIPTION,
