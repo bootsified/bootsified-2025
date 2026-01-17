@@ -5,7 +5,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
 
-const Modal = dynamic(() => import('../Modal'), { ssr: false })
+const Modal = dynamic(() => import('../Modal'))
 const ProjectDetails = dynamic(() => import('./ProjectDetails'), { ssr: false })
 
 import styles from './Project.module.css'

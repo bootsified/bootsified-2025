@@ -71,7 +71,7 @@ const Modal = ({
 								<Dialog.Title className="srOnly">Project Details</Dialog.Title>
                 <div className={styles.inner}>{children}</div>
                 <Dialog.Close asChild>
-                  <button className={styles.close} aria-label="Close">
+                  <button className={clsx(styles.close, 'fadeIn')} aria-label="Close">
                     <CloseIcon />
                   </button>
                 </Dialog.Close>
