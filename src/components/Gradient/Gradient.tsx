@@ -12,9 +12,9 @@ const Gradient = () => {
 
   return (
 		<>
+			<div className={clsx(styles.gradient, styles.cloudy, isDefaultGradient && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.sunset, pageHandle === 'home' && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.night, pageHandle === 'about' && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.cloudy, isDefaultGradient && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dramatic, pageHandle.includes('work') && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dawn, pageHandle === 'contact' && styles.active)}></div>
 		</>
