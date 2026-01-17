@@ -63,13 +63,13 @@
 	gap: 1em;
 	margin-top: 3em;
 
-	@media screen and ( max-width: 767px ) {
+	/* @media screen and ( max-width: 767px ) {
 		--button-color: #F9B359;
 	}
 
 	@media (prefers-contrast: more) {
 		--button-color: var(--text-footer);
-	}
+	} */
 }
 
 .button,
