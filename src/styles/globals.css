@@ -62,10 +62,10 @@ body {
 
 body[data-current-page="home"] {
   --text: #000;
-	--text-reverse: #FFF;
-	--reversed-text: #000;
-	--text-footer: #FFF;
-	--splat-hover-color: #FFF;
+	--text-reverse: #FFD2B3;
+	--reversed-text: var(--text);
+	--text-footer: var(--text-reverse);
+	--splat-hover-color: var(--text-reverse);
 }
 
 body[data-current-page="about"] {

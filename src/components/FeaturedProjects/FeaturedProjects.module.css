@@ -21,9 +21,9 @@
 	/* --text-reverse: #000;
 	--text: var(--reversed-text);
 	--text-footer: var(--text); */
-	--text-reverse: #000;
-	--text: #FFF;
-	--text-footer: #FFF;
+	--text-reverse: var(--reversed-text);
+	--text: var(--splat-hover-color);
+	--text-footer: var(--splat-hover-color);
   display: grid;
   grid-gap: 3rem 2rem;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
