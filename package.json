@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "prisma generate && next build",
+		"analyze": "ANALYZE=true npm run build",
 		"start": "next start",
 		"lint": "eslint",
 		"test": "jest",
@@ -45,6 +46,7 @@
 		"vercel": "^50.1.6"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^16.0.10",
 		"@svgr/webpack": "^8.1.0",
 		"@testing-library/dom": "^10.4.1",
 		"@testing-library/jest-dom": "^6.9.1",

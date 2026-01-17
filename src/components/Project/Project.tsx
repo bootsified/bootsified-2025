@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation'
 
-import Modal from '../Modal'
-import ProjectDetails from './ProjectDetails'
+const Modal = dynamic(() => import('../Modal'), { ssr: false })
+const ProjectDetails = dynamic(() => import('./ProjectDetails'), { ssr: false })
 
 import styles from './Project.module.css'
 

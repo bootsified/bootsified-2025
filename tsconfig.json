@@ -43,7 +43,7 @@
         "src/utils/*"
       ]
     },
-    "target": "ES2017"
+    "target": "ES2020"
   },
   "include": [
     "video.d.ts",
