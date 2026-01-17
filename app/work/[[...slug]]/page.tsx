@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: WorkProps): Promise<Metadata>
   const { slug } = await params
   const activeSection = slug ? sections.find(item => item.id === slug[0]) : sections[0]
   
-  const SEO_DEFAULT_IMAGE = `${SITE_PUBLIC_URL}/images/bootsified-seo.jpg`
+  const SEO_DEFAULT_IMAGE = `${SITE_PUBLIC_URL}/images/bootsified-seo-color.jpg`
   
   const pageTitle = activeSection?.seoTitle || 'My Projects'
   const pageDescription = activeSection?.seoDescription || "A curated collection of front-end development, music, and creative projects showcasing craft, curiosity, and attention to detail."
