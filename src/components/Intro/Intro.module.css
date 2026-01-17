@@ -15,18 +15,18 @@
 	max-width: var(--container-width-md);
 	margin: 0 auto;
 
-	@media screen and ( max-width: 767px ) {
+	/* @media screen and ( max-width: 767px ) {
 		--text-reverse: #F9B359;
-	}
+	} */
 
 	@media (min-width: 768px) {
 		flex-direction: row;
 		gap: 2em;
 	}
 
-	@media (prefers-contrast: more) {
+	/* @media (prefers-contrast: more) {
 		--text-reverse: var(--text-footer);
-	}
+	} */
 }
 
 .text {
