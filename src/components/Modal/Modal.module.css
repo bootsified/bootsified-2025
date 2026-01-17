@@ -21,6 +21,10 @@
   top: 50%;
   z-index: 999999;
 
+	@nest body[data-current-page="home"] & {
+		--text-reverse: #F2834C;
+	}
+
   @media screen and (max-width: 699px) {
     margin-left: 1em;
     margin-right: 1em;
