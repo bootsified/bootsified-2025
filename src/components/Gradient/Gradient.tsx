@@ -8,7 +8,7 @@ import styles from './Gradient.module.css'
 const Gradient = () => {
 	const { pageHandle } = useUIContext()
 
-	const isDefaultGradient = pageHandle && pageHandle !== 'home' && pageHandle !== 'about' && !pageHandle.includes('work') && pageHandle !== 'contact'
+	const isDefaultGradient = !!pageHandle && pageHandle !== 'home' && pageHandle !== 'about' && !pageHandle.includes('work') && pageHandle !== 'contact'
 
   return (
 		<>
