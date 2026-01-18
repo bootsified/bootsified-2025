@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma'
 import styles from '../admin.module.css'
 import pageStyles from '@/styles/Page.module.css'
 import Link from 'next/link'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -39,6 +40,7 @@ export default async function ContactPage() {  const authenticated = await isAut
 
   return (
     <div className={styles.container}>
+      <PageHandleSetter handle="other" />
       <div className={styles.header}>
         <h1 className={styles.heading}>Mail Room</h1>
         <Link href="/admin" className={styles.backLink}>← Dashboard</Link>

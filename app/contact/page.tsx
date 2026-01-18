@@ -2,6 +2,7 @@ import TextBlock from '@/components/TextBlock'
 import Schema from '@/components/Schema'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE, SITE_NAME } from '@/utils/constants'
 import Contact from '@/components/Contact'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 const pageTitle = `Contact | ${SITE_NAME}, Front-End Developer`
 const pageDescription = 'Get in touch regarding front-end development roles, collaborations, or thoughtful creative opportunities.'
@@ -35,6 +36,7 @@ export const metadata = {
 const ContactPage = () => {
   return (
 		<div className="fadeIn">
+			<PageHandleSetter handle="contact" />
 			<Schema
 				data={[
 					{

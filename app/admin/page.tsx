@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma'
 import styles from './admin.module.css'
 import Button from '@/components/Button'
 import { clsx } from 'clsx'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -32,6 +33,7 @@ export default async function AdminPage() {
 
   return (
     <div className={clsx(styles.container, 'fadeIn')}>
+      <PageHandleSetter handle="other" />
       <h1 className={styles.heading}>Admin Dashboard</h1>
       
       <div className={styles.cardGrid}>

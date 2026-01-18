@@ -1,8 +1,8 @@
 import { SITE_PUBLIC_URL, SEO_DEFAULT_TITLE, SEO_DEFAULT_DESCRIPTION, SEO_DEFAULT_IMAGE } from '@/utils/constants'
 import dynamic from 'next/dynamic'
-import Schema from '@/components/Schema'
 import Definition from '@/components/Definition'
 import Intro from '@/components/Intro'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 const FeaturedProjects = dynamic(() => import('@/components/FeaturedProjects'), {
 	ssr: true,
@@ -39,6 +39,7 @@ export const metadata = {
 const HomePage = () => {
   return (
 		<article className="fadeIn">
+			<PageHandleSetter handle="home" />
 			<h1 className='srOnly'>John &ldquo;Boots&rdquo; Highland</h1>
 			<Definition />
 			<Intro />

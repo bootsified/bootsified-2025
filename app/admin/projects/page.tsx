@@ -21,6 +21,7 @@ import {
 import { CSS } from '@dnd-kit/utilities'
 import styles from './projects.module.css'
 import Button from '@/components/Button'
+import { useUIContext } from '@/context/UIContext'
 
 type Project = {
   id: string
@@ -96,6 +97,7 @@ export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const { setPageHandle } = useUIContext()
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -105,6 +107,7 @@ export default function ProjectsPage() {
   )
 
   useEffect(() => {
+    setPageHandle('other')
     fetchProjects()
   }, [])
 

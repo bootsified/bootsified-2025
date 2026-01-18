@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { isAuthenticated } from '@/lib/auth'
 import ProjectForm from './ProjectForm'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 type PageProps = {
   params: Promise<{
@@ -16,5 +17,10 @@ export default async function ProjectEditPage({ params }: PageProps) {
 
   const { id } = await params
   
-  return <ProjectForm projectId={id} />
+  return (
+    <>
+      <PageHandleSetter handle="other" />
+      <ProjectForm projectId={id} />
+    </>
+  )
 }

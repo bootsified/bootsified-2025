@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import styles from './not-found.module.css'
 import Button from '@/components/Button'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 export const metadata = {
   title: '404: Page Not Found',
@@ -10,6 +10,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <div className={styles.container}>
+      <PageHandleSetter handle="other" />
       <div className={styles.content}>
         <h1 className={styles.title}>
           <span className={styles.errorCode}>404</span>

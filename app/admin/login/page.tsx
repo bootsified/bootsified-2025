@@ -4,6 +4,7 @@ import { useState, FormEvent, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './login.module.css'
 import Button from '@/components/Button'
+import { useUIContext } from '@/context/UIContext'
 
 export default function LoginPage() {
   const [password, setPassword] = useState('')
@@ -11,8 +12,10 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
+  const { setPageHandle } = useUIContext()
 
   useEffect(() => {
+    setPageHandle('other')
     // Check if already logged in
     fetch('/api/admin/login')
       .then(res => res.json())

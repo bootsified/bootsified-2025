@@ -96,7 +96,7 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: light)" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" media="(prefers-color-scheme: dark)" />
       </head>
-      <body className={styles.body} suppressHydrationWarning>
+      <body className={styles.body}>
 				<style>
 					{`
 						:root {

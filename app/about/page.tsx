@@ -12,6 +12,7 @@ import meRawk from '@public/images/me-comic-rawk2.jpg';
 import meUSPS from '@public/images/me-usps.jpg';
 import FullWidthImage from '@/components/FullWidthImage'
 import Specialize from '@/components/Specialize'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 const pageTitle = `About ${SITE_NAME} | Front-End Developer with a Musician’s Mindset`
 const pageDescription = 'I’m John “Boots” Highland, a front-end developer and working musician focused on clean code, accessibility, and thoughtful composition in both software and sound.'
@@ -47,6 +48,7 @@ const AboutPage = () => {
 	
   return (
 		<article className="fadeIn">
+			<PageHandleSetter handle="about" />
 			<Schema
 				data={[
 					{

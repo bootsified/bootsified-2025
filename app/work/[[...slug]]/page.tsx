@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 
 import Schema from '@/components/Schema'
 import WorkClient from '@/components/Work/WorkClient'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 
 import styles from '@components/Work/Work.module.css'
 
@@ -57,6 +58,11 @@ const WorkPage = async ({ params }: WorkProps) => {
   // Get project ID from second slug segment (e.g., /work/web/mizzen)
   const projectSlug = slug?.[1]
   const categorySlug = activeSection?.id || 'featured'
+  
+  // Build page handle for work pages (e.g., 'work', 'work-web', 'work-web-mizzen')
+  const pageHandle = slug && slug.length > 0 
+    ? `work-${slug.join('-')}` 
+    : 'work'
 
   // Generate schema for category page
   const workURL = slug?.[0] ? `https://boots.dev/work/${slug[0]}` : 'https://boots.dev/work'
@@ -71,6 +77,7 @@ const WorkPage = async ({ params }: WorkProps) => {
 
   return (
     <>
+      <PageHandleSetter handle={pageHandle} />
       <Schema data={categorySchema} />
       <WorkClient 
         categorySlug={categorySlug}
