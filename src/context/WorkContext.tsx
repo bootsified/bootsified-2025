@@ -71,6 +71,11 @@ export function WorkProvider({ children }: { children: React.ReactNode }) {
   const [projects, setProjects] = useState<ProjectData[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+  // Scroll to top immediately when WorkProvider mounts
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   useEffect(() => {
     // Fetch all projects once on mount
     fetch('/api/projects')
