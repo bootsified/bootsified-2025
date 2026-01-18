@@ -25,9 +25,9 @@ const nextConfig = {
 		optimizePackageImports: ['framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-popover'],
 	},
 	compiler: {
-		removeConsole: process.env.NODE_ENV === 'production' ? {
-			exclude: ['error', 'warn'],
-		} : false,
+		// removeConsole: process.env.NODE_ENV === 'production' ? {
+		// 	exclude: ['error', 'warn'],
+		// } : false,
 	},
 	images: {
 		remotePatterns: [

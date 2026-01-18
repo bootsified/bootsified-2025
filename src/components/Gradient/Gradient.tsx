@@ -22,7 +22,7 @@ const Gradient = () => {
 		currentPage = 'other'
 	}
 
-	console.log('Current Page in Gradient:', currentPage)
+	console.warn('Current Page in Gradient:', currentPage)
 
   return (
 		<>
