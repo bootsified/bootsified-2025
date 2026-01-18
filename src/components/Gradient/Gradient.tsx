@@ -22,6 +22,8 @@ const Gradient = () => {
 		currentPage = 'other'
 	}
 
+	console.log('Current Page in Gradient:', currentPage)
+
   return (
 		<>
 			<div className={clsx(styles.gradient, styles.sunset, currentPage === 'home' && styles.active)}></div>
