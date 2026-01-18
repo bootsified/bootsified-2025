@@ -8,15 +8,27 @@ import styles from './Gradient.module.css'
 const Gradient = () => {
 	const { pageHandle } = useUIContext()
 
-	const isDefaultGradient = !!pageHandle && pageHandle !== 'home' && pageHandle !== 'about' && !pageHandle.includes('work') && pageHandle !== 'contact'
+	let currentPage
+
+	if (pageHandle === null || pageHandle === undefined || pageHandle === 'home') {
+		currentPage = 'home'
+	} else if (pageHandle === 'about') {
+		currentPage = 'about'
+	} else if (pageHandle?.includes('work')) {
+		currentPage = 'work'
+	} else if (pageHandle === 'contact') {
+		currentPage = 'contact'
+	} else {
+		currentPage = 'other'
+	}
 
   return (
 		<>
-			<div className={clsx(styles.gradient, styles.cloudy, isDefaultGradient && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.sunset, pageHandle === 'home' && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.night, pageHandle === 'about' && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.dramatic, pageHandle.includes('work') && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.dawn, pageHandle === 'contact' && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.sunset, currentPage === 'home' && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.night, currentPage === 'about' && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.dramatic, currentPage === 'work' && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.dawn, currentPage === 'contact' && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.cloudy, currentPage === 'other' && styles.active)}></div>
 		</>
   )
 }
