@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     // Rate limiting for reorder operations (per IP)
     const { checkRateLimitKey } = await import('@/lib/rateLimit')
     const ip = (request as Request).headers.get('x-forwarded-for') || 'unknown'
-    if (!checkRateLimitKey(`reorder:${ip}`, 5, 60 * 60 * 1000)) {
+    if (!(await checkRateLimitKey(`reorder:${ip}`, 5, 60 * 60 * 1000))) {
       return NextResponse.json({ error: 'Too many reorder requests' }, { status: 429 })
     }
 

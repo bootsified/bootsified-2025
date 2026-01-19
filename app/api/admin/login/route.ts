@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
     // Basic validation and rate limiting per IP for login attempts
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
-    if (!checkRateLimitKey(`login:${ip}`, 6, 60 * 60 * 1000)) {
+    if (!(await checkRateLimitKey(`login:${ip}`, 6, 60 * 60 * 1000))) {
       return NextResponse.json({ error: 'Too many login attempts' }, { status: 429 })
     }
 
