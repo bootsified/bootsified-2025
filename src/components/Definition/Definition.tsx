@@ -1,5 +1,4 @@
 import React from 'react'
-import clsx from 'clsx'
 import ScrollDown from '../ScrollDown/ScrollDown'
 
 import styles from './Definition.module.css'

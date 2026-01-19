@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { ProjectType, MediaType } from '@prisma/client'
+import { validateProjectPayload } from '@/lib/validation'
 
 export const dynamic = 'force-dynamic'
 
@@ -61,6 +62,11 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json()
+    if (!validateProjectPayload(data)) {
+      return NextResponse.json({ error: 'Invalid project payload' }, { status: 400 })
+    }
+
+    const payload = data as Record<string, any>
 
     // Get the highest order value
     const highestOrder = await prisma.project.findFirst({
@@ -72,26 +78,26 @@ export async function POST(request: Request) {
 
     const project = await prisma.project.create({
       data: {
-        slug: data.slug,
-        title: data.title,
-        client: data.client,
-        year: data.year,
-        projectType: data.projectType as ProjectType,
-        agency: data.agency || '',
-        logo: data.logo,
-        screenshotNoir: data.screenshotNoir,
-        screenshot: data.screenshot,
-        url: data.url || '',
-        staticPortfolio: data.staticPortfolio ?? false,
-        media: data.media || '',
-        mediaType: data.mediaType as MediaType,
-        notes: data.notes,
+        slug: payload.slug,
+        title: payload.title,
+        client: payload.client || '',
+        year: payload.year || '',
+        projectType: payload.projectType as ProjectType,
+        agency: payload.agency || '',
+        logo: payload.logo || '',
+        screenshotNoir: payload.screenshotNoir || '',
+        screenshot: payload.screenshot || '',
+        url: payload.url || '',
+        staticPortfolio: payload.staticPortfolio ?? false,
+        media: payload.media || '',
+        mediaType: payload.mediaType as MediaType,
+        notes: payload.notes || '',
         order: newOrder,
         categories: {
-          connect: data.categoryIds?.map((id: string) => ({ id })) || [],
+          connect: payload.categoryIds?.map((id: string) => ({ id })) || [],
         },
         skills: {
-          connect: data.skillIds?.map((id: string) => ({ id })) || [],
+          connect: payload.skillIds?.map((id: string) => ({ id })) || [],
         },
       },
       include: {

@@ -1,33 +1,42 @@
 import { NextResponse } from 'next/server'
 import { login, logout, isAuthenticated } from '@/lib/auth'
+import { checkRateLimitKey } from '@/lib/rateLimit'
+import { isNonEmptyString } from '@/lib/validation'
 
 export async function POST(request: Request) {
   try {
     const contentType = request.headers.get('content-type')
-    let password: string | undefined
-    let action: string | undefined
+    
 
     // Handle both JSON and form data
+    let rawBody: unknown = {}
     if (contentType?.includes('application/json')) {
-      const body = await request.json()
-      password = body.password
-      action = body.action
+      rawBody = await request.json()
     } else {
       const formData = await request.formData()
-      password = formData.get('password') as string
-      action = formData.get('action') as string
+      rawBody = {
+        password: formData.get('password') as string | null,
+        action: formData.get('action') as string | null,
+      }
     }
+
+    const raw = rawBody as Record<string, unknown>
+    const password = typeof raw.password === 'string' ? raw.password : ''
+    const action = typeof raw.action === 'string' ? raw.action : undefined
 
     if (action === 'logout') {
       await logout()
       return NextResponse.redirect(new URL('/admin/login', request.url))
     }
 
-    if (!password) {
-      return NextResponse.json(
-        { error: 'Password is required' },
-        { status: 400 }
-      )
+    // Basic validation and rate limiting per IP for login attempts
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+    if (!(await checkRateLimitKey(`login:${ip}`, 6, 60 * 60 * 1000))) {
+      return NextResponse.json({ error: 'Too many login attempts' }, { status: 429 })
+    }
+
+    if (typeof password !== 'string' || password.length === 0) {
+      return NextResponse.json({ error: 'Invalid password' }, { status: 400 })
     }
 
     const success = await login(password)

@@ -9,7 +9,7 @@ interface StaticPortfolioInterstitialProps {
   onCancel: () => void;
 }
 
-const StaticPortfolioInterstitial: React.FC<StaticPortfolioInterstitialProps> = ({ url, projectTitle, onContinue, onCancel }) => {
+const StaticPortfolioInterstitial: React.FC<StaticPortfolioInterstitialProps> = ({ projectTitle, onContinue, onCancel }) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>

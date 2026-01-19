@@ -3,7 +3,6 @@ import Schema from '@/components/Schema'
 import { SITE_PUBLIC_URL, SEO_DEFAULT_IMAGE, SITE_NAME } from '@/utils/constants'
 import Link from 'next/link'
 import { spanBass, spanWeb } from '@/utils/helpers'
-import Image from 'next/image';
 import TextMedia from '@/components/TextMedia'
 import { getVideoAsset } from '@/utils/videoAssets';
 import kidPoster from '@public/images/me-kid-waving-poster.jpg';

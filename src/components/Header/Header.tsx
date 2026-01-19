@@ -1,8 +1,6 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import Logo from '@/assets/images/bootsified-splat.svg'
-import Hamburger from '../Hamburger'
-// import { CONTACT_PHONE, CONTACT_PHONE_URL, CONTACT_EMAIL } from '@/utils/constants'
 
 import styles from './Header.module.css'
 
