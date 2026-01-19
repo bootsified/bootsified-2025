@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { login, logout, isAuthenticated } from '@/lib/auth'
 import { checkRateLimitKey } from '@/lib/rateLimit'
-import { isNonEmptyString } from '@/lib/validation'
+// validation helpers are available in src/lib/validation when needed
 
 export async function POST(request: Request) {
   try {

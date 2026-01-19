@@ -25,7 +25,7 @@ export default function LoginPage() {
         }
       })
       .catch(() => {})
-  }, [router])
+  }, [router, setPageHandle])
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()

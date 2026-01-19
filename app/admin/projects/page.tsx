@@ -109,7 +109,7 @@ export default function ProjectsPage() {
   useEffect(() => {
     setPageHandle('other')
     fetchProjects()
-  }, [])
+  }, [setPageHandle])
 
   const fetchProjects = async () => {
     try {

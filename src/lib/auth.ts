@@ -46,7 +46,7 @@ export async function verifyPassword(password: string): Promise<boolean> {
     try {
       return await bcrypt.compare(password, adminPassword)
     } catch (error) {
-      console.error('Error comparing bcrypt password')
+      console.error('Error comparing bcrypt password', error)
       return false
     }
   }
