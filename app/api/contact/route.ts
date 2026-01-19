@@ -39,6 +39,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { name, email, phone, message, honeypot } = body as Record<string, unknown>
 
+    // Ensure phone is a string or null for DB/email usage
+    const phoneStr = typeof phone === 'string' && phone.trim().length > 0 ? phone : null
+
     // Check honeypot
     if (honeypot) {
       return NextResponse.json(
@@ -74,7 +77,7 @@ export async function POST(request: NextRequest) {
       data: {
         name,
         email,
-        phone: phone || null,
+        phone: phoneStr,
         message,
       },
     })
@@ -106,8 +109,8 @@ export async function POST(request: NextRequest) {
 							</div>
 							
 							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-								<div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Phone:</div>
-								<div style="color: #444; margin-top: 5px; font-size: 1.25em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;"><a style="color: #B00075; text-decoration: none;" href="tel:${phone}">${phone}</a></div>
+                                <div style="font-weight: 700; color: #333; text-transform: uppercase; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Phone:</div>
+                                <div style="color: #444; margin-top: 5px; font-size: 1.25em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">${phoneStr ? `<a style=\"color: #B00075; text-decoration: none;\" href=\"tel:${phoneStr}\">${phoneStr}</a>` : '—'}</div>
 							</div>
 							
 							<div style="margin-bottom: 1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
