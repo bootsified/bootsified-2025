@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { login, logout, isAuthenticated } from '@/lib/auth'
 import { checkRateLimitKey } from '@/lib/rateLimit'
-import { loginSchema } from '@/lib/schemas'
+import { isNonEmptyString } from '@/lib/validation'
 
 export async function POST(request: Request) {
   try {
@@ -20,12 +20,9 @@ export async function POST(request: Request) {
       }
     }
 
-    const parsed = loginSchema.safeParse(rawBody)
-    if (!parsed.success) {
-      return NextResponse.json({ error: 'Invalid payload', errors: parsed.error.format() }, { status: 400 })
-    }
-
-    const { password, action } = parsed.data
+    const raw = rawBody as Record<string, unknown>
+    const password = typeof raw.password === 'string' ? raw.password : ''
+    const action = typeof raw.action === 'string' ? raw.action : undefined
 
     if (action === 'logout') {
       await logout()
