@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { ProjectType, MediaType } from '@prisma/client'
+import { projectSchema } from '@/lib/schemas'
 
 export const dynamic = 'force-dynamic'
 
@@ -56,30 +57,40 @@ export async function PUT(
     }
 
     const { id } = await context.params
+    if (!id || typeof id !== 'string') {
+      return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
+    }
+
     const data = await request.json()
+    const parsed = projectSchema.safeParse(data)
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Invalid project payload', errors: parsed.error.format() }, { status: 400 })
+    }
+
+    const payload = parsed.data
 
     const project = await prisma.project.update({
       where: { id },
       data: {
-        slug: data.slug,
-        title: data.title,
-        client: data.client,
-        year: data.year,
-        projectType: data.projectType as ProjectType,
-        agency: data.agency || '',
-        logo: data.logo,
-        screenshotNoir: data.screenshotNoir,
-        screenshot: data.screenshot,
-        url: data.url || '',
-        staticPortfolio: data.staticPortfolio ?? false,
-        media: data.media || '',
-        mediaType: data.mediaType as MediaType,
-        notes: data.notes,
+        slug: payload.slug,
+        title: payload.title,
+        client: payload.client || '',
+        year: payload.year || '',
+        projectType: payload.projectType as ProjectType,
+        agency: payload.agency || '',
+        logo: payload.logo || '',
+        screenshotNoir: payload.screenshotNoir || '',
+        screenshot: payload.screenshot || '',
+        url: payload.url || '',
+        staticPortfolio: payload.staticPortfolio ?? false,
+        media: payload.media || '',
+        mediaType: payload.mediaType as MediaType,
+        notes: payload.notes || '',
         categories: {
-          set: data.categoryIds?.map((id: string) => ({ id })) || [],
+          set: payload.categoryIds?.map((id: string) => ({ id })) || [],
         },
         skills: {
-          set: data.skillIds?.map((id: string) => ({ id })) || [],
+          set: payload.skillIds?.map((id: string) => ({ id })) || [],
         },
       },
       include: {
@@ -110,6 +121,9 @@ export async function DELETE(
     }
 
     const { id } = await context.params
+    if (!id || typeof id !== 'string') {
+      return NextResponse.json({ error: 'Invalid id' }, { status: 400 })
+    }
 
     await prisma.project.delete({
       where: { id },

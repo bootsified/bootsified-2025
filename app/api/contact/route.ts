@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { prisma } from '@/lib/prisma'
+import { contactSchema } from '@/lib/schemas'
 
 export const dynamic = 'force-dynamic'
 
@@ -36,7 +37,12 @@ function checkRateLimit(ip: string): boolean {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, message, honeypot } = body
+    const parse = contactSchema.safeParse(body)
+    if (!parse.success) {
+      return NextResponse.json({ message: 'Invalid payload', errors: parse.error.format() }, { status: 400 })
+    }
+
+    const { name, email, phone, message, honeypot } = parse.data
 
     // Check honeypot
     if (honeypot) {
@@ -50,15 +56,6 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { message: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { message: 'Invalid email address' },
         { status: 400 }
       )
     }
