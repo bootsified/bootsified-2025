@@ -2,7 +2,27 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { ProjectType, MediaType } from '@prisma/client'
+
 import { validateProjectPayload } from '@/lib/validation'
+
+type ProjectPayload = {
+  slug: string
+  title: string
+  client?: string
+  year?: string
+  projectType?: string
+  agency?: string
+  logo?: string
+  screenshotNoir?: string
+  screenshot?: string
+  url?: string
+  staticPortfolio?: boolean
+  media?: string
+  mediaType?: string
+  notes?: string
+  categoryIds?: string[]
+  skillIds?: string[]
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -66,7 +86,7 @@ export async function PUT(
       return NextResponse.json({ error: 'Invalid project payload' }, { status: 400 })
     }
 
-    const payload = data as Record<string, any>
+    const payload = data as ProjectPayload
 
     const project = await prisma.project.update({
       where: { id },
