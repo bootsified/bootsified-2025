@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
-import { reorderSchema } from '@/lib/schemas'
+import { validateReorderPayload } from '@/lib/validation'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,17 +13,16 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json()
-    const parsed = reorderSchema.safeParse(body)
-    if (!parsed.success) {
-      return NextResponse.json({ error: 'Invalid payload', errors: parsed.error.format() }, { status: 400 })
+    if (!validateReorderPayload(body)) {
+      return NextResponse.json({ error: 'Invalid payload' }, { status: 400 })
     }
 
-    const { projectIds } = parsed.data
+    const { projectIds } = body as { projectIds: string[] }
 
     // Rate limiting for reorder operations (per IP)
     const { checkRateLimitKey } = await import('@/lib/rateLimit')
     const ip = (request as Request).headers.get('x-forwarded-for') || 'unknown'
-    if (!checkRateLimitKey(`reorder:${ip}`, 5, 60 * 60 * 1000)) {
+    if (!(await checkRateLimitKey(`reorder:${ip}`, 5, 60 * 60 * 1000))) {
       return NextResponse.json({ error: 'Too many reorder requests' }, { status: 429 })
     }
 

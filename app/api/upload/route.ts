@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     // Rate limit uploads per IP to prevent abuse
     const { checkRateLimitKey } = await import('@/lib/rateLimit')
     const ip = (request as Request).headers.get('x-forwarded-for') || 'unknown'
-    if (!checkRateLimitKey(`upload:${ip}`, 20, 60 * 60 * 1000)) {
+    if (!(await checkRateLimitKey(`upload:${ip}`, 20, 60 * 60 * 1000))) {
       return NextResponse.json({ error: 'Too many uploads' }, { status: 429 })
     }
     const contentType = (request as Request).headers.get('content-type') || ''

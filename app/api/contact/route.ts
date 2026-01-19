@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { prisma } from '@/lib/prisma'
-import { contactSchema } from '@/lib/schemas'
+import { isNonEmptyString, isEmail } from '@/lib/validation'
 
 export const dynamic = 'force-dynamic'
 
@@ -37,12 +37,7 @@ function checkRateLimit(ip: string): boolean {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const parse = contactSchema.safeParse(body)
-    if (!parse.success) {
-      return NextResponse.json({ message: 'Invalid payload', errors: parse.error.format() }, { status: 400 })
-    }
-
-    const { name, email, phone, message, honeypot } = parse.data
+    const { name, email, phone, message, honeypot } = body as Record<string, unknown>
 
     // Check honeypot
     if (honeypot) {
@@ -53,11 +48,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!isNonEmptyString(name) || !isNonEmptyString(email) || !isNonEmptyString(message)) {
       return NextResponse.json(
         { message: 'Missing required fields' },
         { status: 400 }
       )
+    }
+
+    // Basic email validation
+    if (!isEmail(email)) {
+      return NextResponse.json({ message: 'Invalid email address' }, { status: 400 })
     }
 
     // Rate limiting
