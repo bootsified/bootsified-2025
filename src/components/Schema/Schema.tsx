@@ -12,7 +12,9 @@ const Schema = ({ data }: SchemaProps) => {
   const [mounted, setMounted] = useState(false)
   
   useEffect(() => {
-    setMounted(true)
+    // Defer state update to next animation frame to avoid synchronous setState in effect
+    const id = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(id)
   }, [])
   
   if (!mounted) {

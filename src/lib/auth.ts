@@ -7,8 +7,10 @@ export interface SessionData {
   username?: string
 }
 
+const sessionPassword = process.env.SESSION_SECRET ?? ''
+
 const sessionOptions = {
-  password: process.env.SESSION_SECRET!,
+  password: sessionPassword,
   cookieName: 'bootsified_admin_session',
   cookieOptions: {
     httpOnly: true,
@@ -18,6 +20,10 @@ const sessionOptions = {
 }
 
 export async function getSession(): Promise<IronSession<SessionData>> {
+  if (!sessionOptions.password) {
+    throw new Error('SESSION_SECRET environment variable is required for sessions')
+  }
+
   const cookieStore = await cookies()
   return getIronSession<SessionData>(cookieStore, sessionOptions)
 }
@@ -29,37 +35,36 @@ export async function isAuthenticated(): Promise<boolean> {
 
 export async function verifyPassword(password: string): Promise<boolean> {
   const adminPassword = process.env.ADMIN_PASSWORD?.trim()
-  
+
   if (!adminPassword) {
     console.error('ADMIN_PASSWORD environment variable is not set')
     return false
   }
 
-  // Check if the stored password is hashed (bcrypt format: $2a$, $2b$, $2y$, etc.)
+  // If password looks like a bcrypt hash, compare securely
   if (adminPassword.startsWith('$2')) {
     try {
-      const isValid = await bcrypt.compare(password, adminPassword)
-      if (!isValid) {
-        console.log('Password comparison failed for hashed password')
-      }
-      return isValid
+      return await bcrypt.compare(password, adminPassword)
     } catch (error) {
-      console.error('Error comparing bcrypt password:', error)
+      console.error('Error comparing bcrypt password')
       return false
     }
   }
-  
-  // For backwards compatibility, support plain text passwords (not recommended)
-  const isValid = password === adminPassword
-  if (!isValid) {
-    console.log('Password comparison failed for plain text password')
+
+  // Plain-text admin passwords are allowed only in non-production environments
+  if (process.env.NODE_ENV === 'production') {
+    console.error('Plain-text ADMIN_PASSWORD is not allowed in production. Use a bcrypt hash.')
+    return false
   }
-  return isValid
+
+  // Development fallback (warn): compare directly
+  console.warn('ADMIN_PASSWORD is stored in plain text; prefer a bcrypt hash in production')
+  return password === adminPassword
 }
 
 export async function login(password: string): Promise<boolean> {
   const isValid = await verifyPassword(password)
-  
+
   if (isValid) {
     const session = await getSession()
     session.isLoggedIn = true
@@ -67,7 +72,7 @@ export async function login(password: string): Promise<boolean> {
     await session.save()
     return true
   }
-  
+
   return false
 }
 
