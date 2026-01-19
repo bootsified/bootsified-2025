@@ -4,7 +4,6 @@ import clsx from 'clsx'
 import { spanBass, spanWeb, thisYear } from '@/utils/helpers'
 import Image from 'next/image'
 import Button from '../Button'
-import Link from 'next/link'
 
 interface IntroProps {
 	className?: string

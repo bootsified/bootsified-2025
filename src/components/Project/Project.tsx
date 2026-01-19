@@ -44,7 +44,6 @@ const Project = ({ rotate = '', project, initialOpen = false }: ProjectProps) =>
     projectType,
     categories,
     logo,
-    screenshot = '',
 		screenshotNoir = '',
     url,
   } = project

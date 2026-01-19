@@ -7,8 +7,6 @@ import Schema from '@/components/Schema'
 import WorkClient from '@/components/Work/WorkClient'
 import { PageHandleSetter } from '@/components/PageHandleSetter'
 
-import styles from '@components/Work/Work.module.css'
-
 type WorkProps = {
   params: Promise<{
     slug?: string[]
