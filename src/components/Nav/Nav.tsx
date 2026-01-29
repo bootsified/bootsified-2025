@@ -61,17 +61,17 @@ const Nav = ({ className, hamburgerRef }: NavProps) => {
 	}, [navOpen, hamburgerRef])
 
   return (
-		<nav 			ref={navRef}			className={clsx(styles.wrapper, navOpen && styles.navOpen, className)} 
+		<nav ref={navRef} className={clsx(styles.wrapper, navOpen && styles.navOpen, className)} 
 			inert={navOpen ? undefined : true} 
 			aria-label="Primary Navigation" 
 			aria-hidden={!navOpen}>
 			<ul className={styles.list} id="primary-navigation">
 				<li className={styles.item}>
-					<Link 
-					href="/" 
-					className={pathname === '/' ? styles.isActive : ''}
-					onClick={toggleNav}
-          tabIndex={navOpen ? 0 : -1}
+					<Link
+						href="/"
+						className={pathname === '/' || !pathname ? styles.isActive : ''}
+						onClick={toggleNav}
+			tabIndex={navOpen ? 0 : -1}
 					>Home</Link>
 				</li>
 				<li className={styles.item}>
