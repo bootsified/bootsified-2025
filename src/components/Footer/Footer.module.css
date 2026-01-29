@@ -41,7 +41,7 @@
 		transition: color 500ms ease;
 	}
 
-	@nest [data-current-page*='admin'] & {
+	@nest [data-current-page*='other'] & {
 		display: none;
 	}
 }
