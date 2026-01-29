@@ -14,7 +14,8 @@ const Gradient = () => {
 	const isAbout = pageHandle === 'about'
 	const isWork = pageHandle.startsWith('work')
 	const isContact = pageHandle === 'contact'
-	const isOther = !isHome && !isAbout && !isWork && !isContact
+	const isBlog = pageHandle === 'blog'
+	const isOther = !isHome && !isAbout && !isWork && !isContact && !isBlog
 
   return (
 		<>
@@ -23,6 +24,7 @@ const Gradient = () => {
 			<div className={clsx(styles.gradient, styles.night, isAbout && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dramatic, isWork && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dawn, isContact && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.morning, isBlog && styles.active)}></div>
 		</>
   )
 }

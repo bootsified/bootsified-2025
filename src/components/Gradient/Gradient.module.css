@@ -69,3 +69,14 @@
 		background-color: #43596F;
 	}
 }
+.morning {
+	background-image: linear-gradient(
+    to bottom,
+    #C6E4EE 0%,    /* Light blue at the top */
+    #C6E4EE 40%,   /* Continues light blue */
+    #FED1AE 60%,   /* Warm peach/orange appears as the "sun" starts to show */
+    #FAA0B9 70%,   /* A hint of pinkish hue */
+    #CB7DCB 80%,   /* Transitioning to a light purple */
+    #757ECB 100%   /* Deeper blue at the very bottom/horizon (if element height is set) */
+  );
+}
