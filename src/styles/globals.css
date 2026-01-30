@@ -116,6 +116,7 @@ h6 {
 h1,
 .h1 {
 	font-size: var(--font-size-h1);
+	text-wrap: balance;
 }
 
 h2,

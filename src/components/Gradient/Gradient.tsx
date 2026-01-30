@@ -14,7 +14,7 @@ const Gradient = () => {
 	const isAbout = pageHandle === 'about'
 	const isWork = pageHandle.startsWith('work')
 	const isContact = pageHandle === 'contact'
-	const isBlog = pageHandle === 'blog'
+	const isBlog = pageHandle.startsWith('blog')
 	const isOther = !isHome && !isAbout && !isWork && !isContact && !isBlog
 
   return (

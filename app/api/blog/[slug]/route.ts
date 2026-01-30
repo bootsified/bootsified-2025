@@ -24,7 +24,7 @@ type RouteContext = {
   }>
 }
 
-// GET single blog post by slug
+// GET single blog post by slug or ID
 export async function GET(
   request: Request,
   context: RouteContext
@@ -32,9 +32,13 @@ export async function GET(
   try {
     const { slug } = await context.params
     const authenticated = await isAuthenticated()
+    
+    // Check if we should lookup by ID instead of slug
+    const { searchParams } = new URL(request.url)
+    const byId = searchParams.get('byId') === 'true'
 
     const post = await prisma.blogPost.findUnique({
-      where: { slug },
+      where: byId ? { id: slug } : { slug },
       include: {
         categories: true,
       },
@@ -81,6 +85,10 @@ export async function PUT(
       return NextResponse.json({ error: 'Invalid slug' }, { status: 400 })
     }
 
+    // Check if we should lookup by ID instead of slug
+    const { searchParams } = new URL(request.url)
+    const byId = searchParams.get('byId') === 'true'
+
     const data = await request.json()
     if (!validateBlogPostPayload(data)) {
       return NextResponse.json({ error: 'Invalid blog post payload' }, { status: 400 })
@@ -89,7 +97,7 @@ export async function PUT(
     const payload = data as BlogPostPayload
 
     const post = await prisma.blogPost.update({
-      where: { slug },
+      where: byId ? { id: slug } : { slug },
       data: {
         slug: payload.slug,
         title: payload.title,
@@ -134,8 +142,12 @@ export async function DELETE(
       return NextResponse.json({ error: 'Invalid slug' }, { status: 400 })
     }
 
+    // Check if we should lookup by ID instead of slug
+    const { searchParams } = new URL(request.url)
+    const byId = searchParams.get('byId') === 'true'
+
     await prisma.blogPost.delete({
-      where: { slug },
+      where: byId ? { id: slug } : { slug },
     })
 
     return NextResponse.json({ success: true })

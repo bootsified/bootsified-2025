@@ -22,6 +22,8 @@ import { CSS } from '@dnd-kit/utilities'
 import styles from './blog.module.css'
 import Button from '@/components/Button'
 import { useUIContext } from '@/context/UIContext'
+import { clsx } from 'clsx'
+import { PageHandleSetter } from '@/components/PageHandleSetter/PageHandleSetter'
 
 type BlogPost = {
   id: string
@@ -87,8 +89,8 @@ function SortableRow({ post }: { post: BlogPost }) {
       </td>
       <td>{post.author}</td>
       <td>{formattedDate}</td>
-      <td>
-        <span className={styles[`status${post.status}`]}>{post.status}</span>
+      <td className={styles.statusCell}>
+        <span className={clsx(styles.status, styles[`status${post.status}`])}>{post.status}</span>
       </td>
       <td>{post.categories.map((c) => c.name).join(', ') || '—'}</td>
       <td className={styles.actions}>
@@ -174,17 +176,15 @@ export default function BlogPage() {
 
   return (
     <div className={styles.container}>
+			<PageHandleSetter handle="other" />
       <div className={styles.header}>
         <h1 className={styles.heading}>Blog Posts</h1>
         <Link href="/admin" className={styles.backLink}>
           ← Dashboard
         </Link>
-        <div className={styles.comingSoon}>
-          <p>✨ Full CRUD form coming soon!</p>
-          <p className={styles.note}>
-            For now, you can manage blog posts via the API or database directly.
-          </p>
-        </div>
+        <Button href="/admin/blog/new" className={styles.createButton}>
+          + New Post
+        </Button>
       </div>
 
       {saving && <div className={styles.savingIndicator}>Saving order...</div>}
@@ -192,9 +192,9 @@ export default function BlogPage() {
       {posts.length === 0 ? (
         <div className={styles.emptyState}>
           <p>No blog posts yet.</p>
-          <p className={styles.note}>
-            Create posts via the API at <code>/api/blog</code>
-          </p>
+          <Button href="/admin/blog/new" className={styles.createButton}>
+            Create your first post
+          </Button>
         </div>
       ) : (
         <div className={styles.tableWrapper}>
@@ -212,7 +212,7 @@ export default function BlogPage() {
                   <th>Published</th>
                   <th>Status</th>
                   <th>Categories</th>
-                  <th>Actions</th>
+                  <th className={styles.actionsHeader}>Actions</th>
                 </tr>
               </thead>
               <SortableContext
