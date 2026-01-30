@@ -32,6 +32,7 @@ body {
 	--text: #000;
 	--text-reverse: #fff;
 	--text-footer: #fff;
+	--bg-footer: #000;
 	--splat-hover-color: var(--text-reverse);
   background-color: #000;
   color: var(--text);
