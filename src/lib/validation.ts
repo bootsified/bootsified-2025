@@ -27,3 +27,19 @@ export function validateReorderPayload(data: unknown) {
   if (projectIds.length > 200) return false
   return projectIds.every((id) => typeof id === 'string')
 }
+
+export function validateBlogPostPayload(data: unknown) {
+  if (!data || typeof data !== 'object') return false
+  const { slug, title, excerpt, content } = data as Record<string, unknown>
+  if (!isNonEmptyString(slug) || !isNonEmptyString(title)) return false
+  if (!isNonEmptyString(excerpt) || !isNonEmptyString(content)) return false
+  return true
+}
+
+export function validateReorderBlogPostsPayload(data: unknown) {
+  if (!data || typeof data !== 'object') return false
+  const { postIds } = data as Record<string, unknown>
+  if (!Array.isArray(postIds)) return false
+  if (postIds.length > 200) return false
+  return postIds.every((id) => typeof id === 'string')
+}

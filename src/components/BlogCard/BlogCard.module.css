@@ -1,0 +1,89 @@
+.container {
+  appearance: none;
+  background: var(--text-reverse);
+  border: none;
+  box-shadow: 4px 4px 0 var(--text);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow var(--hover-duration) ease, transform var(--hover-duration) ease;
+
+  @nest [data-whatintent="mouse"] &:hover {
+    box-shadow: 8px 8px 0 var(--text);
+    transform: translateY(-2px);
+
+    & .image {
+      transform: scale(1.05);
+    }
+  }
+
+  @nest [data-whatintent="keyboard"] &:focus {
+    outline-offset: 6px;
+    outline-width: 4px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--text-footer);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--hover-duration) ease;
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-base);
+  font-size: 1.25em;
+  font-stretch: 80%;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.875em;
+  color: var(--text-footer);
+}
+
+.date {
+  font-weight: 600;
+}
+
+.author {
+  &::before {
+    content: "•";
+    margin-right: 0.5rem;
+  }
+}
+
+.excerpt {
+  font-family: var(--font-sans);
+  font-size: 0.9375em;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text);
+}

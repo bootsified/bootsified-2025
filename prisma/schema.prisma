@@ -80,3 +80,39 @@ model Skill {
   
   @@map("skills")
 }
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model BlogPost {
+  id            String         @id @default(cuid())
+  slug          String         @unique
+  title         String
+  excerpt       String         @db.Text
+  content       String         @db.Text
+  featuredImage String
+  author        String         @default("Boots")
+  publishedAt   DateTime
+  status        PostStatus     @default(DRAFT)
+  order         Int            @default(0)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  categories    BlogCategory[]
+  
+  @@map("blog_posts")
+  @@index([publishedAt])
+  @@index([order])
+  @@index([status])
+}
+
+model BlogCategory {
+  id        String     @id @default(cuid())
+  slug      String     @unique
+  name      String
+  posts     BlogPost[]
+  
+  @@map("blog_categories")
+}

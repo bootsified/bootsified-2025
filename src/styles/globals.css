@@ -65,6 +65,7 @@ body[data-current-page="home"] {
 	--text-reverse: #FFD2B3;
 	--reversed-text: var(--text);
 	--text-footer: var(--text-reverse);
+	--bg-footer: #000;
 	--splat-hover-color: var(--text-reverse);
 }
 
@@ -72,6 +73,7 @@ body[data-current-page="about"] {
   --text: #FFF;
 	--text-reverse: #000;
 	--text-footer: #FFF;
+	--bg-footer: #000;
 	--splat-hover-color: var(--color-pri);
 }
 
@@ -79,6 +81,7 @@ body[data-current-page*="work"] {
   --text: #FFF;
 	--text-reverse: #000;
 	--text-footer: #fff;
+	--bg-footer: #000;
 	--splat-hover-color: var(--color-pri);
 }
 
@@ -86,6 +89,15 @@ body[data-current-page="contact"] {
   --text: #FFF;
 	--text-reverse: #000;
 	--text-footer: #FFF;
+	--bg-footer: #000;
+	--splat-hover-color: var(--color-pri);
+}
+
+body[data-current-page="blog"] {
+  --text: #FFF;
+	--text-reverse: #000;
+	--text-footer: #3F4F5D;
+	--bg-footer: #FFF;
 	--splat-hover-color: var(--color-pri);
 }
 

@@ -3,6 +3,7 @@ import Logo from '@/assets/images/boots-signature.svg'
 import styles from './Footer.module.css'
 import Image from 'next/image'
 import Seaplane from '@/assets/images/seaplane.svg'
+import Trees from '@/assets/images/trees-footer-embed.svg'
 
 interface FooterProps {
   className?: string
@@ -23,7 +24,9 @@ const Footer = ({ className = '' }: FooterProps) => {
 				/>
 				<span>Open for hire!</span>
 			</div>
-      <div className={styles.trees}></div>
+      <div className={styles.trees}>
+				<Trees />
+			</div>
 			<div className={styles.bottom}>
 				<div className={styles.container}>
 					<p className={styles.made}>Made with <span className={styles.heart} title="love">♥</span> in Seattle</p>

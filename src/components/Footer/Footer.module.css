@@ -51,7 +51,7 @@
 	width: 25em;
 
 	& :global(.seaplane_svg__plane) {
-		fill: #000;
+		fill: var(--bg-footer);
 	}
 
 	& :global(.seaplane_svg__windows) {
@@ -60,21 +60,30 @@
 }
 	
 .trees {
-	background-image: url("/images/trees-footer.svg");
+	/* background-image: url("/images/trees-footer.svg");
 	background-repeat: repeat no-repeat;
 	background-position: center top;
-	background-size: cover;
+	background-size: cover; */
 	height: 15vmax;
 	pointer-events: none;
 	transform: translateY(1px);
+
+	& svg {
+		display: block;
+		fill: var(--bg-footer);
+		height: auto;
+		transition: fill var(--page-transition-duration) ease;
+		width: 100%;
+	}
 }
 
 .bottom {
-	background-color: #000;
+	background-color: var(--bg-footer);
 	color: var(--text-footer);
 	padding-bottom: 1em;
 	pointer-events: auto;
 	position: relative;
+	transition: background-color var(--page-transition-duration) ease;
 }
 
 .container {
@@ -120,11 +129,12 @@
 
 .sasquatch {
   align-items: center;
-	background-color: #000;
+	background-color: var(--bg-footer);
   display: flex;
 	height: 50em;
   justify-content: center;
 	padding-top: 41em;
+	transition: background-color var(--page-transition-duration) ease;
 }
 
 .slice {

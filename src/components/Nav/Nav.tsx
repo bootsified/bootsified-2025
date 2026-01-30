@@ -98,6 +98,14 @@ const Nav = ({ className, hamburgerRef }: NavProps) => {
             tabIndex={navOpen ? 0 : -1}
 					>Contact</Link>
 				</li>
+				<li className={styles.item}>
+					<Link
+						href="/blog"
+						className={pathname === '/blog' ? styles.isActive : ''}
+						onClick={toggleNav}
+            tabIndex={navOpen ? 0 : -1}
+					>Blog</Link>
+				</li>
 			</ul>
 		</nav>
   )

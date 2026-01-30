@@ -70,13 +70,15 @@
 	}
 }
 .morning {
-	background-image: linear-gradient(
+	/* background-image: linear-gradient(
     to bottom,
-    #C6E4EE 0%,    /* Light blue at the top */
-    #C6E4EE 40%,   /* Continues light blue */
-    #FED1AE 60%,   /* Warm peach/orange appears as the "sun" starts to show */
-    #FAA0B9 70%,   /* A hint of pinkish hue */
-    #CB7DCB 80%,   /* Transitioning to a light purple */
-    #757ECB 100%   /* Deeper blue at the very bottom/horizon (if element height is set) */
-  );
+    #C6E4EE 0%,    
+    #C6E4EE 40%,   
+    #FED1AE 60%,   
+    #FAA0B9 70%,   
+    #CB7DCB 80%,   
+    #757ECB 100%   
+  ); */
+	/* background-image: linear-gradient(to top, #fdbb2d, #22c1c3); */
+	background-image: linear-gradient(to bottom, #101c3b 0%, #3a4a58 50%, #9fafbf 100%);
 }
