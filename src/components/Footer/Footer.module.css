@@ -66,12 +66,18 @@
 	background-size: cover; */
 	height: 15vmax;
 	pointer-events: none;
+	position: relative;
 	transform: translateY(1px);
 
 	& svg {
 		display: block;
 		fill: var(--bg-footer);
 		height: auto;
+		left: 50%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
 		transition: fill var(--page-transition-duration) ease;
 		width: 100%;
 	}
