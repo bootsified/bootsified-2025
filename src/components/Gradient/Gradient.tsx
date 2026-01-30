@@ -24,7 +24,7 @@ const Gradient = () => {
 			<div className={clsx(styles.gradient, styles.night, isAbout && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dramatic, isWork && styles.active)}></div>
 			<div className={clsx(styles.gradient, styles.dawn, isContact && styles.active)}></div>
-			<div className={clsx(styles.gradient, styles.morning, isBlog && styles.active)}></div>
+			<div className={clsx(styles.gradient, styles.winter, isBlog && styles.active)}></div>
 		</>
   )
 }

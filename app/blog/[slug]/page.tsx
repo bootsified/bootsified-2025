@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import Image from 'next/image'
 import clsx from 'clsx'
+import { PageHandleSetter } from '@/components/PageHandleSetter'
 import styles from './post.module.css'
 import richStyles from '@/styles/rich-text.module.css'
 
@@ -84,6 +85,7 @@ const BlogPostPage = async ({ params }: Props) => {
 
   return (
     <>
+      <PageHandleSetter handle="blog" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
