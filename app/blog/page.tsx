@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma'
 import BlogList from '@/components/BlogList'
 import { PageHandleSetter } from '@/components/PageHandleSetter'
 import styles from './blog.module.css'
+import TextBlock from '@/components/TextBlock/TextBlock'
 
 export const metadata: Metadata = {
   title: 'Blog | Boots',
@@ -35,16 +36,15 @@ const BlogPage = async () => {
   })
 
   return (
-    <main className={styles.main}>
+    <>
       <PageHandleSetter handle="blog" />
-      <div className={styles.header}>
-        <h1 className={styles.title}>Blog</h1>
-        <p className={styles.subtitle}>
-          Thoughts, tutorials, and updates from the workshop
-        </p>
-      </div>
+			<h1 className='srOnly'>Blog</h1>
+			<TextBlock padBottom='4em' padTop='1em' narrow>
+        <h2 className='h1'>Stuffs & Thangs</h2>
+        <p>Thoughts, tutorials, and updates from the workshop</p>
+			</TextBlock>
       <BlogList posts={posts} />
-    </main>
+    </>
   )
 }
 

@@ -96,7 +96,7 @@ body[data-current-page="contact"] {
 body[data-current-page="blog"] {
   --text: #FFF;
 	--text-reverse: #000;
-	--text-footer: #3F4F5D;
+	--text-footer: #647483;
 	--bg-footer: #FFF;
 	--splat-hover-color: var(--color-pri);
 }
