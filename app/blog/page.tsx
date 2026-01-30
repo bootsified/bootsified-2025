@@ -36,7 +36,7 @@ const BlogPage = async () => {
   })
 
   return (
-    <>
+    <div className="fadeIn">
       <PageHandleSetter handle="blog" />
 			<h1 className='srOnly'>Blog</h1>
 			<TextBlock padBottom='4em' padTop='1em' narrow>
@@ -44,7 +44,7 @@ const BlogPage = async () => {
         <p>Thoughts, tutorials, and updates from the workshop</p>
 			</TextBlock>
       <BlogList posts={posts} />
-    </>
+    </div>
   )
 }
 
