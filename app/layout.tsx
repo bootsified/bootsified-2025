@@ -10,6 +10,7 @@ import { PT_Serif } from 'next/font/google'
 import localFont from 'next/font/local'
 import Navigation from '@components/Navigation'
 import Gradient from "@/components/Gradient";
+import SnowEffect from "@/components/SnowEffect/ClientSnowEffect";
 
 const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'))
 const Schema = dynamic(() => import('@/components/Schema'))
@@ -146,6 +147,7 @@ export default async function RootLayout({
             }}
           />
 					<Gradient />
+					<SnowEffect />
 					<div className="vignette"></div>
           <Header />
 					<Navigation navClassName={styles.nav} />
