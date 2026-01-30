@@ -149,5 +149,10 @@
 
 	& img {
 		mix-blend-mode: multiply;
+
+		@nest body[data-current-page*="blog"] & {
+			filter: invert();
+			mix-blend-mode: screen;
+		}
 	}
 }
