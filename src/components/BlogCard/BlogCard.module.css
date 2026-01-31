@@ -37,7 +37,7 @@
 
 .image {
   object-fit: cover;
-  mix-blend-mode: screen;
+  /* mix-blend-mode: screen; */
   transition: transform var(--hover-duration) ease;
 }
 
