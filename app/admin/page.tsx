@@ -12,14 +12,15 @@ export const revalidate = 0
 
 async function getStats() {
   try {
-    const [projectCount, submissionCount] = await Promise.all([
+    const [projectCount, blogPostCount, submissionCount] = await Promise.all([
       prisma.project.count(),
+      prisma.blogPost.count(),
       prisma.contactSubmission.count(),
     ])
-    return { projectCount, submissionCount }
+    return { projectCount, blogPostCount, submissionCount }
   } catch (error) {
     console.error('Failed to fetch stats:', error)
-    return { projectCount: 0, submissionCount: 0 }
+    return { projectCount: 0, blogPostCount: 0, submissionCount: 0 }
   }
 }
 
@@ -29,10 +30,10 @@ export default async function AdminPage() {
     redirect('/admin/login')
   }
 
-  const { projectCount, submissionCount } = await getStats()
+  const { projectCount, blogPostCount, submissionCount } = await getStats()
 
   return (
-    <div className={clsx(styles.container, 'fadeIn')}>
+    <div className={styles.container}>
       <PageHandleSetter handle="other" />
       <h1 className={styles.heading}>Admin Dashboard</h1>
       
@@ -41,6 +42,12 @@ export default async function AdminPage() {
           <h2 className={styles.cardTitle}>Projects</h2>
           <p className={styles.cardCount}>{projectCount} Projects</p>
           <p className={styles.cardDescription}>Manage your portfolio projects</p>
+        </Link>
+
+        <Link href="/admin/blog" className={styles.card}>
+          <h2 className={styles.cardTitle}>Blog</h2>
+          <p className={styles.cardCount}>{blogPostCount} Posts</p>
+          <p className={styles.cardDescription}>Manage your blog posts</p>
         </Link>
         
         <Link href="/admin/contact" className={styles.card}>
