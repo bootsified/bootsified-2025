@@ -41,7 +41,7 @@ const BlogPage = async () => {
 			<h1 className='srOnly'>Blog</h1>
 			<TextBlock padBottom='3em' padTop='1em' narrow>
         <h2 className='h1'>Stuffs & Thangs</h2>
-        <p>Thoughts, tutorials, and updates from the workshop</p>
+        <p>News, thoughts, stories&hellip; It won&rsquo;t be very often, but when I have something to say, you&rsquo;ll find it here.</p>
 			</TextBlock>
       <BlogList posts={posts} />
     </div>
