@@ -1,40 +1,40 @@
 .article {
   max-width: var(--container-width-sm);
   margin: 0 auto;
-  padding: 6rem var(--container-side-padding) 6rem;
+  padding: 1em var(--container-side-padding) 0;
   min-height: 100vh;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
 }
 
 .header {
-  margin-bottom: 3rem;
+  margin-bottom: 2em;
+	padding: 0 4em;
+	position: relative;
   text-align: center;
 }
 
 .title {
-  font-size: 2.5rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-
-  @media screen and (min-width: 768px) {
-    font-size: 3.5rem;
-  }
+	margin-bottom: 0.25em;
 }
 
 .meta {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1em;
   align-items: center;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: var(--text-footer);
+  font-size: 0.875em;
+}
+
+.backBtn {
+	color: inherit;
+	font-size: 0.875em;
+	left: 0;
+	position: absolute;
+	top: 1em;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .date {
@@ -44,14 +44,14 @@
 .author {
   &::before {
     content: "•";
-    margin-right: 1rem;
+    margin-right: 1em;
   }
 }
 
 .featuredImage {
-  margin-bottom: 3rem;
+	border: 0.5em solid;
+  margin-bottom: 3em;
   overflow: hidden;
-  border-radius: 8px;
 }
 
 .image {
@@ -61,12 +61,12 @@
 }
 
 .content {
-  font-family: var(--font-sans);
+  /* font-family: var(--font-sans);
   font-size: 1.125rem;
   line-height: 1.75;
   color: var(--text);
 
   @media screen and (max-width: 767px) {
     font-size: 1rem;
-  }
+  } */
 }

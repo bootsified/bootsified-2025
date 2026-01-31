@@ -10,6 +10,7 @@ import clsx from 'clsx'
 import { PageHandleSetter } from '@/components/PageHandleSetter'
 import styles from './post.module.css'
 import richStyles from '@/styles/rich-text.module.css'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -99,6 +100,7 @@ const BlogPostPage = async ({ params }: Props) => {
             </time>
             <span className={styles.author}>by {post.author}</span>
           </div>
+					<Link href="/blog" className={styles.backBtn}>← Back</Link>
         </header>
 
         {post.featuredImage && (

@@ -39,4 +39,15 @@
       margin-bottom: 0.5em;
     }
   }
+
+	& img,
+	& iframe {
+		border: 0.5em solid;
+		display: block;
+		margin: 3em auto !important;
+	}
+
+	& img {
+		max-height: 24em;
+	}
 }
