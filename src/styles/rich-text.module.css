@@ -50,4 +50,10 @@
 	& img {
 		max-height: 24em;
 	}
+
+	& iframe {
+		aspect-ratio: 16 / 9;
+		height: auto;
+		width: 100%;
+	}
 }

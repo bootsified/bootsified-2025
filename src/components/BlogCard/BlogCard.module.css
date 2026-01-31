@@ -2,7 +2,7 @@
   appearance: none;
   background: var(--text-reverse);
   border: none;
-  box-shadow: 4px 4px 0 var(--text);
+  box-shadow: 4px 4px 0 #263549;
   color: var(--text);
   cursor: pointer;
   display: flex;
@@ -13,7 +13,7 @@
   transition: box-shadow var(--hover-duration) ease, transform var(--hover-duration) ease;
 
   @nest [data-whatintent="mouse"] &:hover {
-    box-shadow: 8px 8px 0 var(--text);
+    box-shadow: 8px 8px 0 #263549;
     transform: translateY(-2px);
 
     & .image {
@@ -66,11 +66,7 @@
   align-items: center;
   font-family: var(--font-sans);
   font-size: 0.875em;
-  color: var(--text-footer);
-}
-
-.date {
-  font-weight: 600;
+	font-stretch: 75%;
 }
 
 .author {
@@ -81,7 +77,6 @@
 }
 
 .excerpt {
-  font-family: var(--font-sans);
   font-size: 0.9375em;
   line-height: 1.6;
   margin: 0;

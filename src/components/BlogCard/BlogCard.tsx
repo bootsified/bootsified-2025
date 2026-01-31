@@ -19,7 +19,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
 
   const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   })
 

@@ -7,9 +7,12 @@
 
 .header {
   margin-bottom: 2em;
-	padding: 0 4em;
 	position: relative;
   text-align: center;
+	
+	@media screen and ( min-width: 680px ) {
+		padding: 0 4em;
+	}
 }
 
 .title {
@@ -25,12 +28,17 @@
 }
 
 .backBtn {
+	bottom: calc(100% + 2em);
 	color: inherit;
 	font-size: 0.875em;
 	left: 0;
 	position: absolute;
-	top: 1em;
 	text-decoration: none;
+
+	@media screen and ( min-width: 680px ) {
+		bottom: 0;
+		top: 1em;
+	}
 
 	&:hover {
 		text-decoration: underline;

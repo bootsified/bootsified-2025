@@ -91,7 +91,7 @@ const BlogPostPage = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className={styles.article}>
+      <article className={clsx(styles.article, 'fadeIn')}>
         <header className={styles.header}>
           <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.meta}>
@@ -100,7 +100,7 @@ const BlogPostPage = async ({ params }: Props) => {
             </time>
             <span className={styles.author}>by {post.author}</span>
           </div>
-					<Link href="/blog" className={styles.backBtn}>← Back</Link>
+					<Link href="/blog" className={styles.backBtn}>← Blog</Link>
         </header>
 
         {post.featuredImage && (
