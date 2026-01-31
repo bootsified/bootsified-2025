@@ -150,6 +150,7 @@
 	height: 50em;
   justify-content: center;
 	padding-top: 41em;
+	transform: translateY(-1px);
 	transition: background-color var(--page-transition-duration) ease;
 }
 
