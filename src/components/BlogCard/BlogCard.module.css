@@ -28,15 +28,16 @@
 }
 
 .imageWrapper {
+  aspect-ratio: 16 / 9;
+  background-color: #28364A;
+  overflow: hidden;
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background-color: var(--text-footer);
 }
 
 .image {
   object-fit: cover;
+  mix-blend-mode: screen;
   transition: transform var(--hover-duration) ease;
 }
 

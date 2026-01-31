@@ -57,15 +57,17 @@
 }
 
 .featuredImage {
+	background-color: #28364A;
 	border: 0.5em solid;
   margin-bottom: 3em;
   overflow: hidden;
 }
 
 .image {
-  width: 100%;
-  height: auto;
   display: block;
+  height: auto;
+	mix-blend-mode: screen;
+  width: 100%;
 }
 
 .content {

@@ -9,18 +9,14 @@
   grid-gap: 1em;
   grid-template-areas: "heading logo" "content content";
   grid-template-columns: 1fr auto;
-  padding: 1.25em 1em;
+  padding: 1.25em 0;
   position: relative;
   text-align: left;
-  transition: box-shadow var(--hover-duration) ease;
+  transition: box-shadow var(--hover-duration) ease, transform var(--hover-duration) ease;
 
   @nest [data-whatintent="mouse"] &:hover {
     box-shadow: 8px 8px 0 var(--text);
-
-		& .screenshot {
-			transform: scale(1.1) rotate(var(--rotation));
-			transition-duration: 150ms;
-		}
+		transform: translateY(-2px);
   }
 
   @nest [data-whatintent="keyboard"] &:focus {
@@ -57,6 +53,7 @@
   letter-spacing: 0.05em;
   line-height: 1.1;
   margin-bottom: 0;
+	padding-left: 1em;
   text-transform: uppercase;
 
   & span {
@@ -73,6 +70,7 @@
 	background-color: var(--text-footer);
 	border-radius: 50%;
 	grid-area: logo;
+	margin-right: 1em;
 	overflow: hidden;
 
   & img {
@@ -94,14 +92,12 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 15%;
-  border: 1px solid var(--text-footer);
-  border-radius: 4px;
   overflow: hidden;
-	transition: transform 300ms var(--ease-out-cubic);
-
+	
   & img {
-    display: block;
+		display: block;
 		mix-blend-mode: multiply;
+		transition: transform 300ms var(--ease-out-cubic);
   }
 }
 
@@ -111,6 +107,7 @@
   font-size: 0.875em;
   justify-content: space-between;
   margin-top: 1rem;
+	padding: 0 1em;
 }
 
 .ctaLive:not(:empty) {

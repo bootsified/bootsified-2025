@@ -101,7 +101,7 @@ const Nav = ({ className, hamburgerRef }: NavProps) => {
 				<li className={styles.item}>
 					<Link
 						href="/blog"
-						className={pathname === '/blog' ? styles.isActive : ''}
+						className={pathname.includes('blog') ? styles.isActive : ''}
 						onClick={toggleNav}
             tabIndex={navOpen ? 0 : -1}
 					>Blog</Link>
