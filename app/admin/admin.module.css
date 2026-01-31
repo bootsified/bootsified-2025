@@ -14,7 +14,7 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   gap: 2em;
   margin-bottom: 3em;
 }
