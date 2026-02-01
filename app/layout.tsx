@@ -77,6 +77,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+	alternates: {
+		types: {
+			'application/rss+xml': [
+				{ url: '/feed.xml', title: 'The Boots Blog' },
+			],
+		},
+	},
 };
 
 export const viewport: Viewport = {
