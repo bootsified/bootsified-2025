@@ -16,7 +16,22 @@ const nextConfig = {
 		root: path.join(__dirname, './'),
 		rules: {
 			"*.svg": {
-				loaders: ["@svgr/webpack"],
+				loaders: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: 'removeDimensions', // This plugin specifically removes width and height attributes
+                    active: true,
+                  },
+                  // Other SVGO plugins can be configured here
+                ],
+              },
+            },
+          },
+        ],
 				as: "*.js",
 			},
 		},
