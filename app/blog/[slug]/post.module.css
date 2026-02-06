@@ -1,6 +1,6 @@
 .article {
   max-width: var(--container-width-sm);
-  margin: 0 auto;
+  margin: 0 auto 4em;
   padding: 1em var(--container-side-padding) 0;
   min-height: 100vh;
 }
