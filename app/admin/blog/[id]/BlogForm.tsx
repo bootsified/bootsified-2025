@@ -195,7 +195,7 @@ export default function BlogForm({ postId }: BlogFormProps) {
 
   // SimpleMDE options with custom image upload
   const editorOptions = useMemo<EasyMDE.Options>(() => ({
-    spellChecker: false,
+    spellChecker: true,
     placeholder: 'Write your blog post content here...',
     uploadImage: true,
     imageUploadFunction: async (file: File, onSuccess: (url: string) => void, onError: (error: string) => void) => {
