@@ -69,7 +69,7 @@
 	background-repeat: repeat no-repeat;
 	background-position: center top;
 	background-size: cover; */
-	height: 15vmax;
+	height: 13vmax;
 	pointer-events: none;
 	position: relative;
 	transform: translateY(1px);
