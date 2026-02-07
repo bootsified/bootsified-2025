@@ -22,9 +22,24 @@
 .meta {
   display: flex;
   justify-content: center;
-  gap: 1em;
+  gap: 0.75rem;
   align-items: center;
   font-size: 0.875em;
+
+	& > span {
+		&::before {
+			content: "•";
+			margin-right: 0.75rem;
+		}
+	}
+}
+
+.category {
+	&:not(:first-child) {
+		&::before {
+			content: ", ";
+		}
+	}
 }
 
 .backBtn {
@@ -45,17 +60,6 @@
 	}
 }
 
-.date {
-  font-weight: 600;
-}
-
-.author {
-  &::before {
-    content: "•";
-    margin-right: 1em;
-  }
-}
-
 .featuredImage {
 	background-color: #28364A;
 	border: 0.5em solid;
@@ -66,17 +70,5 @@
 .image {
   display: block;
   height: auto;
-	/* mix-blend-mode: screen; */
   width: 100%;
-}
-
-.content {
-  /* font-family: var(--font-sans);
-  font-size: 1.125rem;
-  line-height: 1.75;
-  color: var(--text);
-
-  @media screen and (max-width: 767px) {
-    font-size: 1rem;
-  } */
 }

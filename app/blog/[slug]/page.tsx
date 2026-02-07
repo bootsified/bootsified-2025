@@ -104,6 +104,13 @@ const BlogPostPage = async ({ params }: Props) => {
               {formattedDate}
             </time>
             <span className={styles.author}>by {post.author}</span>
+						<span className={styles.categories}>
+              {post.categories?.map(category => (
+                <span key={category.slug} className={styles.category} aria-label={`category ${category.name}`}>
+                  {category.name}
+                </span>
+              ))}
+            </span>
           </div>
 					<Link href="/blog" className={styles.backBtn}>← Blog</Link>
         </header>
