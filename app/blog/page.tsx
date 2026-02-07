@@ -33,6 +33,12 @@ const BlogPage = async () => {
       featuredImage: true,
       publishedAt: true,
       author: true,
+      categories: {
+        select: {
+          name: true,
+          slug: true,
+        },
+      },
     },
     orderBy: {
       publishedAt: 'desc',

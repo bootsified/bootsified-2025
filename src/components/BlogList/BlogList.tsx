@@ -6,9 +6,10 @@ interface BlogPost {
   slug: string
   title: string
   excerpt: string
-  featuredImage: string
+  featuredImage?: string
   publishedAt: Date | string
   author: string
+  categories?: { slug: string; name: string }[]
 }
 
 interface BlogListProps {

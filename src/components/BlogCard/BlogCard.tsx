@@ -3,25 +3,39 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './BlogCard.module.css'
 
+interface Category {
+  slug: string
+  name: string
+}
+
 interface BlogCardProps {
   post: {
     slug: string
     title: string
     excerpt: string
-    featuredImage: string
+    featuredImage?: string
     publishedAt: Date | string
-    author: string
+    author?: string
+    categories?: Category[]
   }
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
-  const { slug, title, excerpt, featuredImage, publishedAt, author } = post
+  const { slug, title, excerpt, featuredImage, publishedAt, author, categories } = post
 
   const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   })
+
+  const categoryBadges = categories?.length
+    ? categories.map(c => (
+        <span key={c.slug} className={styles.category} aria-label={`category ${c.name}`}>
+          {c.name}
+        </span>
+      ))
+    : null
 
   return (
     <Link href={`/blog/${slug}`} className={styles.container}>
@@ -43,6 +57,9 @@ const BlogCard = ({ post }: BlogCardProps) => {
             {formattedDate}
           </time>
           <span className={styles.author}>by {author}</span>
+          <span className={styles.categories}>
+            {categoryBadges}
+          </span>
         </div>
         <p className={styles.excerpt}>{excerpt}</p>
       </div>

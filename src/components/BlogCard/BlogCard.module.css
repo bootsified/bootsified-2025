@@ -68,13 +68,13 @@
   font-family: var(--font-sans);
   font-size: 0.875em;
 	font-stretch: 75%;
-}
 
-.author {
-  &::before {
-    content: "•";
-    margin-right: 0.5rem;
-  }
+	& > span {
+		&::before {
+			content: "•";
+			margin-right: 0.5rem;
+		}
+	}
 }
 
 .excerpt {
@@ -83,3 +83,29 @@
   margin: 0;
   color: var(--text);
 }
+
+.category {
+
+	&:not(:first-child) {
+		&::before {
+			content: ", ";
+		}
+	}
+}
+
+/* Category badges */
+/* .categories {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.category {
+  background: var(--accent, #2b7a78);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+} */
