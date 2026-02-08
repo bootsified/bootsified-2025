@@ -32,6 +32,16 @@
 	& p:last-child {
 		margin-bottom: 0;
 	}
+
+	& a {
+		color: inherit;
+
+    @nest [data-whatintent="mouse"] &:hover {
+      background-color: var(--text);
+      color: var(--text-reverse);
+			text-decoration: none;
+    }
+  }
 }
 
 .image {

@@ -81,7 +81,7 @@ const AboutPage = () => {
 				videoSrc={kidVideoUrl} 
 				imageWidth={280}
 				imageHeight={372}>
-				<p>My name is <strong>John Highland</strong>, but most people call me <strong>“Boots”</strong> - <Link href="/blog/the-boots-story">long story</Link>. I&rsquo;m a web developer, musician, husband, and father of two awesome boys, currently living in the Seattle area. I was born in Cincinnati, OH, but my family moved to Dallas, TX, when I was two. In Dallas, I grew up, went to school, played in multiple bands, started a web developer career, found a wife, and birthed a couple sons. In 2023, we finally said goodbye to the brutal Texas Summers, and said hello to the Pacific Northwest. The new chapter begins&hellip;</p>
+				<p>My name is <strong>John Highland</strong>, but most people call me <strong>“Boots”</strong> &mdash; <Link href="/blog/the-boots-story">long story</Link>. I&rsquo;m a web developer, musician, husband, and father of two awesome boys, currently living in the Seattle area. I was born in Cincinnati, OH, but my family moved to Dallas, TX, when I was two. In Dallas, I grew up, went to school, played in multiple bands, started a web developer career, found a wife, and birthed a couple sons. In 2023, we finally said goodbye to the brutal Texas Summers, and said hello to the Pacific Northwest. The new chapter begins&hellip;</p>
 			</TextMedia>
 
 			<TextBlock padBottom='3em' padTop='3em' narrow>

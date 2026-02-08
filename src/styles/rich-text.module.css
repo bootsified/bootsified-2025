@@ -20,12 +20,11 @@
 
   & a:not(:has(span)) {
 		color: inherit;
-    outline: 2px solid transparent;
 
     @nest [data-whatintent="mouse"] &:hover {
       background-color: var(--text);
       color: var(--text-reverse);
-      /* outline-color: var(--color-pri); */
+			text-decoration: none;
     }
   }
 
