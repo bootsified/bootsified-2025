@@ -42,7 +42,8 @@
 		transition: color 500ms ease;
 	}
 
-	@nest [data-current-page*='other'] & {
+	@nest [data-current-page*='other'] &,
+	[data-current-page*='blog'] & {
 		display: none;
 	}
 }
