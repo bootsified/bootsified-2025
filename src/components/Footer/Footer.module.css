@@ -20,11 +20,12 @@
 }
 
 .seaplane {
+	animation: seaplanefly 20s linear infinite;
 	font-size: 0.5em;
 	pointer-events: none;
 	position: absolute;
 	top: 2em;
-	animation: seaplanefly 20s linear infinite;
+	z-index: -1;
 
 	@media screen and ( min-width: 768px ) {
 		font-size: 0.6em;
@@ -50,31 +51,55 @@
 	height: 4.0625em;
 	width: 25em;
 
-	& :global(.seaplane_svg__plane) {
-		fill: #000;
+	@nest [data-current-page*="blog"] & {
+		filter: drop-shadow(0px 5px 5px #59697866);
 	}
 
-	& :global(.seaplane_svg__windows) {
+	& :global(.seaplane__plane) {
+		fill: var(--bg-footer);
+	}
+
+	& :global(.seaplane__windows) {
 		fill: var(--text-footer);
 	}
 }
 	
 .trees {
-	background-image: url("/images/trees-footer.svg");
+	/* background-image: url("/images/trees-footer.svg");
 	background-repeat: repeat no-repeat;
 	background-position: center top;
-	background-size: cover;
-	height: 15vmax;
+	background-size: cover; */
+	height: 13vmax;
 	pointer-events: none;
+	position: relative;
 	transform: translateY(1px);
+	z-index: -1;
+
+	& svg {
+		display: block;
+		fill: var(--bg-footer);
+		height: auto;
+		left: 50%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		transition: fill var(--page-transition-duration) ease;
+		width: 100%;
+
+		@nest [data-current-page*="blog"] & {
+			filter: drop-shadow(0px -5px 5px #59697866);
+		}
+	}
 }
 
 .bottom {
-	background-color: #000;
+	background-color: var(--bg-footer);
 	color: var(--text-footer);
 	padding-bottom: 1em;
 	pointer-events: auto;
 	position: relative;
+	transition: background-color var(--page-transition-duration) ease;
 }
 
 .container {
@@ -120,11 +145,13 @@
 
 .sasquatch {
   align-items: center;
-	background-color: #000;
+	background-color: var(--bg-footer);
   display: flex;
 	height: 50em;
   justify-content: center;
 	padding-top: 41em;
+	transform: translateY(-1px);
+	transition: background-color var(--page-transition-duration) ease;
 }
 
 .slice {
@@ -133,5 +160,10 @@
 
 	& img {
 		mix-blend-mode: multiply;
+
+		@nest body[data-current-page*="blog"] & {
+			filter: invert();
+			mix-blend-mode: screen;
+		}
 	}
 }

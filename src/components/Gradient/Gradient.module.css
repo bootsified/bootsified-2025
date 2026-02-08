@@ -69,3 +69,6 @@
 		background-color: #43596F;
 	}
 }
+.winter {
+	background-image: linear-gradient(to bottom, #101c3b 0%, #3a4a58 50%, #9fafbf 100%);
+}

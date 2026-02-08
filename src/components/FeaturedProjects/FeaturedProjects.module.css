@@ -11,7 +11,7 @@
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: var(--font-size-h2);
   line-height: 1.1;
   margin-bottom: 2em;
   text-align: center;

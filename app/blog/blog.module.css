@@ -1,0 +1,38 @@
+.main {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.header {
+  max-width: var(--container-width-md);
+  margin: 0 auto 4rem;
+  padding-left: var(--container-side-padding);
+  padding-right: var(--container-side-padding);
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  @media screen and (max-width: 767px) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-footer);
+  margin: 0;
+}

@@ -67,8 +67,8 @@
 	--page-transition-duration: 1000ms;
 
 	/* font sizes */
-	--font-size-h1: clamp(2em, 13vw, 2.5em);
-	--font-size-h2: 1.75em;
+	--font-size-h1: clamp(2em, 7vw, 2.5em);
+	--font-size-h2: clamp(1.4em, 5vw, 1.75em);
 	--font-size-h3: 1.25em;
 
 	/* header/footer height */

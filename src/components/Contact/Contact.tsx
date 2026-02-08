@@ -3,6 +3,7 @@ import GithubIcon from '@assets/icons/contact-icon-github.svg'
 import LinkedInIcon from '@assets/icons/contact-icon-linkedin.svg'
 import PDFIcon from '@assets/icons/contact-icon-pdf.svg'
 import BlueskyIcon from '@assets/icons/contact-icon-bluesky.svg'
+import RssIcon from '@assets/icons/contact-icon-rss.svg'
 import Link from 'next/link'
 import { BLUESKY_HANDLE, BLUESKY_URL, GITHUB_HANDLE, GITHUB_URL, LINKEDIN_HANDLE, LINKEDIN_URL } from '@utils/constants'
 
@@ -55,6 +56,17 @@ const Contact = () => {
               >
                 <PDFIcon aria-hidden="true" />
                 <span>John &ldquo;Boots&rdquo; Highland Resume</span>
+              </a>
+            </li>
+            <li>
+              <a
+                className={styles.link}
+                href="/feed.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RssIcon aria-hidden="true" />
+                <span>Blog Feed</span>
               </a>
             </li>
           </ul>

@@ -48,7 +48,7 @@ export default async function ContactPage() {  const authenticated = await isAut
       <p className={styles.totalSubmissions}>Total submissions: {submissions.length}</p>
       
       <div className={pageStyles.tableWrapper}>
-        <table className={pageStyles.table}>
+        <table className={pageStyles.table} style={{backgroundColor: '#FFF'}}>
           <thead>
             <tr>
               <th>Date</th>

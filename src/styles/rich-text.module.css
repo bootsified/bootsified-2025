@@ -19,6 +19,7 @@
 	}
 
   & a:not(:has(span)) {
+		color: inherit;
     outline: 2px solid transparent;
 
     @nest [data-whatintent="mouse"] &:hover {
@@ -39,4 +40,79 @@
       margin-bottom: 0.5em;
     }
   }
+
+	& iframe {
+		border: 0.5em solid;
+		display: block;
+		margin: 3em auto 2.5em !important;
+
+		@nest h2 + & {
+			margin-top: 2em !important;
+		}
+	}
+
+	& figure {
+		display: block;
+		margin: 3em auto 2em !important;
+		max-width: 100%;
+		width: max-content;
+
+		&:has(iframe) {
+			width: 100%;
+		}
+
+		@nest h2 + & {
+			margin-top: 2em !important;
+		}
+
+		& iframe {
+			margin: 0 auto !important;
+		}
+	}
+
+	& figcaption {
+		opacity: .75;
+		text-align: center;
+		margin: .5em auto 0;
+		font-size: .875em;
+		font-style: oblique;
+		max-width: 34em;
+	}
+
+	& img {
+		border: 0.5em solid;
+		margin: 0 auto;
+		max-height: 24em;
+	}
+
+	& iframe {
+		aspect-ratio: 16 / 9;
+		height: auto;
+		width: 100%;
+	}
+
+	& blockquote {
+		font-size: 1.5em;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 20em;
+		padding: 0 0 0.5em 1em;
+		position: relative;
+
+		&::before {
+			content: '\201C';
+			opacity: 0.25;
+			font-size: 4em;
+			line-height: 0.5;
+			display: block;
+			position: absolute;
+			top: 0.15em;
+			left: -0.2em;
+		}
+
+		& p {
+			font-style: oblique;
+			margin-bottom: 0;
+		}
+	}
 }
