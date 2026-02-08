@@ -103,7 +103,7 @@
   & img {
 		display: block;
 		mix-blend-mode: multiply;
-		transition: transform 300ms var(--ease-out-cubic);
+		transition: transform 300ms ease;
   }
 }
 
