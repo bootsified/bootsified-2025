@@ -12,6 +12,11 @@
   text-decoration: none;
   transition: box-shadow var(--hover-duration) ease, transform var(--hover-duration) ease;
 
+	@media screen and ( min-width: 768px ) {
+		align-items: center;
+		flex-direction: row;
+	}
+
   @nest [data-whatintent="mouse"] &:hover {
     box-shadow: 8px 8px 0 #263549;
     transform: translateY(-2px);
@@ -33,6 +38,10 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+
+	@media screen and ( min-width: 768px ) {
+		flex: 1 1 55%;
+	}
 }
 
 .image {
@@ -47,6 +56,11 @@
   flex-direction: column;
   gap: 0.75rem;
   flex: 1;
+
+	@media screen and ( min-width: 768px ) {
+		flex: 1 1 45%;
+		padding-bottom: 2.5em;
+	}
 }
 
 .title {

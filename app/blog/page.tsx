@@ -49,7 +49,7 @@ const BlogPage = async () => {
     <div className="fadeIn">
       <PageHandleSetter handle="blog" />
 			<h1 className='srOnly'>Blog</h1>
-			<TextBlock padBottom='3em' padTop='1em' narrow>
+			<TextBlock padBottom='3em' padTop='1em'>
         <h2 className='h1'>Stuffs & Thangs</h2>
         <p>News, stories, thoughts, silliness, <s>recipes</s>&hellip; It probably won&rsquo;t be very often, but when I finally do have something to say, this is where you&rsquo;ll find it.</p>
 			</TextBlock>

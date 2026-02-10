@@ -6,7 +6,7 @@
 }
 
 .header {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 	position: relative;
   text-align: center;
 	
@@ -63,7 +63,7 @@
 .featuredImage {
 	background-color: #28364A;
 	border: 0.5em solid;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
   overflow: hidden;
 }
 

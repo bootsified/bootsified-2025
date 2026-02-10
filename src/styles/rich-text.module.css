@@ -43,7 +43,7 @@
 	& iframe {
 		border: 0.5em solid;
 		display: block;
-		margin: 3em auto 2.5em !important;
+		margin: 2.5em auto !important;
 
 		@nest h2 + & {
 			margin-top: 2em !important;
@@ -52,7 +52,7 @@
 
 	& figure {
 		display: block;
-		margin: 3em auto 2em !important;
+		margin: 2.5em auto 2em !important;
 		max-width: 100%;
 		width: max-content;
 

@@ -1,5 +1,5 @@
 .container {
-  max-width: var(--container-width-sm);
+  max-width: var(--container-width-md);
   margin: 0 auto;
 	padding-bottom: 4em;
   padding-left: var(--container-side-padding);
@@ -14,12 +14,20 @@
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); */
+		grid-template-columns: 1fr;
   }
 
   @nest [data-whatintent="keyboard"] & a:focus {
     outline-color: var(--text-reverse);
   }
+}
+
+.card:nth-child(odd) {
+
+	@media screen and ( min-width: 768px ) {
+		flex-direction: row-reverse;
+	}
 }
 
 .empty {

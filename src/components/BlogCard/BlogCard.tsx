@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './BlogCard.module.css'
+import { clsx } from 'clsx'
 
 interface Category {
   slug: string
@@ -17,10 +18,11 @@ interface BlogCardProps {
     publishedAt: Date | string
     author?: string
     categories?: Category[]
-  }
+  },
+	className?: string
 }
 
-const BlogCard = ({ post }: BlogCardProps) => {
+const BlogCard = ({ post, className }: BlogCardProps) => {
   const { slug, title, excerpt, featuredImage, publishedAt, author, categories } = post
 
   const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
@@ -38,7 +40,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
     : null
 
   return (
-    <Link href={`/blog/${slug}`} className={styles.container}>
+    <Link href={`/blog/${slug}`} className={clsx(styles.container, className)}>
       {featuredImage && (
         <div className={styles.imageWrapper}>
           <Image

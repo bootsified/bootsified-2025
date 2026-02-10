@@ -29,7 +29,7 @@ const BlogList = ({ posts }: BlogListProps) => {
     <div className={styles.container}>
       <div className={styles.grid}>
         {posts.map(post => (
-          <BlogCard key={post.slug} post={post} />
+          <BlogCard key={post.slug} post={post} className={styles.card} />
         ))}
       </div>
     </div>
