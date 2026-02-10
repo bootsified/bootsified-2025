@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { PostStatus } from '@prisma/client'
@@ -112,6 +113,9 @@ export async function POST(request: Request) {
         categories: true,
       },
     })
+
+    // Revalidate sitemap when a blog post is created
+    revalidatePath('/sitemap.xml')
 
     return NextResponse.json(post, { status: 201 })
   } catch (error) {

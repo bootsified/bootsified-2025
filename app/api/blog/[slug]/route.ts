@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { prisma } from '@/lib/prisma'
 import { isAuthenticated } from '@/lib/auth'
 import { PostStatus } from '@prisma/client'
@@ -116,6 +117,9 @@ export async function PUT(
       },
     })
 
+    // Revalidate sitemap when a blog post is updated (especially status changes)
+    revalidatePath('/sitemap.xml')
+
     return NextResponse.json(post)
   } catch (error) {
     console.error('Error updating blog post:', error)
@@ -149,6 +153,9 @@ export async function DELETE(
     await prisma.blogPost.delete({
       where: byId ? { id: slug } : { slug },
     })
+
+    // Revalidate sitemap when a blog post is deleted
+    revalidatePath('/sitemap.xml')
 
     return NextResponse.json({ success: true })
   } catch (error) {
