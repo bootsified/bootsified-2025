@@ -47,7 +47,7 @@
 }
 
 .backBtn {
-	bottom: calc(100% + 2em);
+	bottom: calc(100% + 6em);
 	color: inherit;
 	font-size: 0.875em;
 	left: 0;
@@ -94,11 +94,11 @@
 	gap: 3rem;
 	align-items: center;
 
-	@media screen and (max-width: 767px) {
+	/* @media screen and (max-width: 767px) {
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-	}
+	} */
 }
 
 .prevLink,
@@ -128,6 +128,10 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	min-width: 0;
+
+	@media screen and ( max-width: 767px ) {
+		display: none;
+	}
 }
 
 .prevLink {
@@ -137,6 +141,14 @@
 		content: "←";
 		flex-shrink: 0;
 		text-decoration: none !important;
+	}
+
+	@media screen and ( max-width: 767px ) {
+		&::after {
+			content: "Prev Post";
+			text-decoration: underline;
+			white-space: nowrap;
+		}
 	}
 }
 
@@ -150,6 +162,14 @@
 		flex-shrink: 0;
 		text-decoration: none !important;
 	}
+
+	@media screen and ( max-width: 767px ) {
+		&::before {
+			content: "Next Post";
+			text-decoration: underline;
+			white-space: nowrap;
+		}
+	}
 }
 
 .backToTop {
@@ -158,9 +178,5 @@
 
 	@nest [data-whatintent="mouse"] &:hover {
 		text-decoration: none;
-	}
-
-	@media screen and (max-width: 767px) {
-		order: 999;
 	}
 }
