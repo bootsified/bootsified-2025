@@ -1,6 +1,6 @@
 .article {
   max-width: var(--container-width-sm);
-  margin: 0 auto 4em;
+  margin: 0 auto;
   padding: 1em var(--container-side-padding) 0;
   min-height: 100vh;
 
@@ -79,4 +79,88 @@
   display: block;
   height: auto;
   width: 100%;
+}
+
+.postFooter {
+	border-top: 1px solid var(--text);
+	font-size: 1rem;
+	margin-top: 3em;
+	padding-top: 2em;
+}
+
+.postNav {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	gap: 3rem;
+	align-items: center;
+
+	@media screen and (max-width: 767px) {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+}
+
+.prevLink,
+.nextLink {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	color: inherit;
+	max-width: 100%;
+	min-width: 0;
+	text-decoration: none;
+
+	& span {
+		text-decoration: underline;
+	}
+
+	@nest [data-whatintent="mouse"] &:hover {
+		& span {
+			text-decoration: none;
+		}
+	}
+}
+
+.navTitle {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.prevLink {
+	justify-self: start;
+
+	&::before {
+		content: "←";
+		flex-shrink: 0;
+		text-decoration: none !important;
+	}
+}
+
+.nextLink {
+	justify-self: end;
+	text-align: right;
+	/* flex-direction: row-reverse; */
+
+	&::after {
+		content: "→";
+		flex-shrink: 0;
+		text-decoration: none !important;
+	}
+}
+
+.backToTop {
+	text-align: center;
+	color: inherit;
+
+	@nest [data-whatintent="mouse"] &:hover {
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 767px) {
+		order: 999;
+	}
 }

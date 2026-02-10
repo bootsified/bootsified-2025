@@ -69,6 +69,26 @@ const BlogPostPage = async ({ params }: Props) => {
     notFound()
   }
 
+  // Get previous post (older, earlier publishedAt)
+  const previousPost = await prisma.blogPost.findFirst({
+    where: {
+      status: 'PUBLISHED',
+      publishedAt: { lt: post.publishedAt },
+    },
+    orderBy: { publishedAt: 'desc' },
+    select: { slug: true, title: true },
+  })
+
+  // Get next post (newer, later publishedAt)
+  const nextPost = await prisma.blogPost.findFirst({
+    where: {
+      status: 'PUBLISHED',
+      publishedAt: { gt: post.publishedAt },
+    },
+    orderBy: { publishedAt: 'asc' },
+    select: { slug: true, title: true },
+  })
+
   const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -96,7 +116,7 @@ const BlogPostPage = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className={clsx(styles.article, 'fadeIn')}>
+      <article id="top" className={clsx(styles.article, 'fadeIn')}>
         <header className={styles.header}>
           <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.meta}>
@@ -137,6 +157,28 @@ const BlogPostPage = async ({ params }: Props) => {
             {post.content}
           </ReactMarkdown>
         </div>
+
+        <footer className={styles.postFooter}>
+          <nav className={styles.postNav} aria-label="Post navigation">
+            {previousPost ? (
+              <Link href={`/blog/${previousPost.slug}`} className={styles.prevLink}>
+                <span className={styles.navTitle}>{previousPost.title}</span>
+              </Link>
+            ) : (
+							<span></span>
+						)}
+            <a href="#top" className={styles.backToTop}>
+              Back to Top
+            </a>
+            {nextPost ? (
+              <Link href={`/blog/${nextPost.slug}`} className={styles.nextLink}>
+                <span className={styles.navTitle}>{nextPost.title}</span>
+              </Link>
+            ) : (
+							<span></span>
+						)}
+          </nav>
+        </footer>
       </article>
     </>
   )
