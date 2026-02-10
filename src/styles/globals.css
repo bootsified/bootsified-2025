@@ -280,6 +280,12 @@ main {
 	z-index: -1;
 }
 
+@media screen and (max-width: 759px) {
+	.aboutArticle {
+		font-size: 1.125em;
+	}
+}
+
 .fadeIn {
 	animation: fadeInAnimation 500ms ease-in;
 	animation-delay: 500ms;

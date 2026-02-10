@@ -3,6 +3,10 @@
   margin: 0 auto 4em;
   padding: 1em var(--container-side-padding) 0;
   min-height: 100vh;
+
+	@media screen and ( max-width: 767px ) {
+		font-size: 1.125em;
+	}
 }
 
 .header {
@@ -63,8 +67,12 @@
 .featuredImage {
 	background-color: #28364A;
 	border: 0.5em solid;
-  margin-bottom: 4em;
+  margin-bottom: 3em;
   overflow: hidden;
+
+	@media screen and ( min-width: 768px ) {
+		margin-bottom: 4em;
+	}
 }
 
 .image {
