@@ -124,6 +124,7 @@
 .postTitle {
   color: var(--color-pri);
 	font-weight: 700;
+	min-width: 14em;
 
 	& a {
 		color: inherit;
