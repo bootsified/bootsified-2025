@@ -18,6 +18,11 @@
 		margin-bottom: 0.55em !important;
 	}
 
+	& h2,
+	& .h2 {
+		line-height: 1.5em;
+	}
+
   & a:not(:has(span)) {
 		color: inherit;
 
