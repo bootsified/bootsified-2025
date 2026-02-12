@@ -179,12 +179,14 @@ export default function BlogPage() {
 			<PageHandleSetter handle="other" />
       <div className={styles.header}>
         <h1 className={styles.heading}>Blog Posts</h1>
-        <Link href="/admin" className={styles.backLink}>
-          ← Dashboard
-        </Link>
-        <Button href="/admin/blog/new" className={styles.createButton}>
-          + New Post
-        </Button>
+        <div className={styles.headerActions}>
+					<Link href="/admin" className={styles.backLink}>
+						← Dashboard
+					</Link>
+					<Button href="/admin/blog/new" className={styles.createButton}>
+						+ New Post
+					</Button>
+				</div>
       </div>
 
       {saving && <div className={styles.savingIndicator}>Saving order...</div>}

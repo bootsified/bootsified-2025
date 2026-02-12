@@ -166,12 +166,14 @@ export default function ProjectsPage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.heading}>Projects</h1>
-        <Link href="/admin" className={styles.backLink}>
-          ← Dashboard
-        </Link>
-        <Button href="/admin/projects/new" className={styles.createButton}>
-          + New Project
-        </Button>
+        <div className={styles.headerActions}>
+					<Link href="/admin" className={styles.backLink}>
+						← Dashboard
+					</Link>
+					<Button href="/admin/projects/new" className={styles.createButton}>
+						+ New Project
+					</Button>
+				</div>
       </div>
 
       {saving && <div className={styles.savingIndicator}>Saving order...</div>}
