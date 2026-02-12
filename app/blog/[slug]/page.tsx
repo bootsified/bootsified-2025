@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
+import { isAuthenticated } from '@/lib/auth'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -57,6 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const BlogPostPage = async ({ params }: Props) => {
   const { slug } = await params
+  const isAdmin = await isAuthenticated()
 
   const post = await prisma.blogPost.findUnique({
     where: { slug },
@@ -65,7 +67,7 @@ const BlogPostPage = async ({ params }: Props) => {
     },
   })
 
-  if (!post || post.status !== 'PUBLISHED') {
+  if (!post || (post.status !== 'PUBLISHED' && !isAdmin)) {
     notFound()
   }
 
@@ -95,6 +97,8 @@ const BlogPostPage = async ({ params }: Props) => {
     day: 'numeric',
   })
 
+  const isDraft = post.status === 'DRAFT'
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -116,6 +120,12 @@ const BlogPostPage = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {isAdmin && isDraft && (
+        <div className={styles.draftBanner}>
+          <span className={styles.draftBadge}>DRAFT</span>
+          <span>This post is not published and only visible to you.</span>
+        </div>
+      )}
       <article id="top" className={clsx(styles.article, 'fadeIn')}>
         <header className={styles.header}>
           <h1 className={styles.title}>{post.title}</h1>

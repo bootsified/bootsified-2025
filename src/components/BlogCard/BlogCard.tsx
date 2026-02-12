@@ -17,13 +17,15 @@ interface BlogCardProps {
     featuredImage?: string
     publishedAt: Date | string
     author?: string
+    status?: string
     categories?: Category[]
   },
 	className?: string
+  isAdmin?: boolean
 }
 
-const BlogCard = ({ post, className }: BlogCardProps) => {
-  const { slug, title, excerpt, featuredImage, publishedAt, author, categories } = post
+const BlogCard = ({ post, className, isAdmin = false }: BlogCardProps) => {
+  const { slug, title, excerpt, featuredImage, publishedAt, author, status, categories } = post
 
   const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -39,6 +41,8 @@ const BlogCard = ({ post, className }: BlogCardProps) => {
       ))
     : null
 
+  const isDraft = status === 'DRAFT'
+
   return (
     <Link href={`/blog/${slug}`} className={clsx(styles.container, className)}>
       {featuredImage && (
@@ -53,7 +57,10 @@ const BlogCard = ({ post, className }: BlogCardProps) => {
         </div>
       )}
       <div className={styles.content}>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>
+          {title}
+          {isAdmin && isDraft && <span className={styles.draftBadge}>DRAFT</span>}
+        </h2>
         <div className={styles.meta}>
           <time dateTime={new Date(publishedAt).toISOString()} className={styles.date}>
             {formattedDate}

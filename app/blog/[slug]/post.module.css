@@ -9,6 +9,34 @@
 	}
 }
 
+.draftBanner {
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 165, 0, 0.2) 100%);
+  border: 2px solid #ffa500;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 0 auto 2rem;
+  max-width: var(--container-width-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+.draftBadge {
+  background: #ffa500;
+  color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
 .header {
   margin-bottom: 3em;
 	position: relative;

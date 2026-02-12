@@ -5,6 +5,7 @@ import BlogList from '@/components/BlogList'
 import { PageHandleSetter } from '@/components/PageHandleSetter'
 import styles from './blog.module.css'
 import TextBlock from '@/components/TextBlock/TextBlock'
+import { isAuthenticated } from '@/lib/auth'
 
 export const metadata: Metadata = {
   title: 'The Boots Blog | John "Boots" Highland',
@@ -22,8 +23,10 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic'
 
 const BlogPage = async () => {
+  const isAdmin = await isAuthenticated()
+  
   const posts = await prisma.blogPost.findMany({
-    where: {
+    where: isAdmin ? undefined : {
       status: 'PUBLISHED',
     },
     select: {
@@ -33,6 +36,7 @@ const BlogPage = async () => {
       featuredImage: true,
       publishedAt: true,
       author: true,
+      status: true,
       categories: {
         select: {
           name: true,
@@ -53,7 +57,7 @@ const BlogPage = async () => {
         <h2 className='h1'>Stuffs & Thangs</h2>
         <p>News, stories, thoughts, silliness, <s>recipes</s>&hellip; It probably won&rsquo;t be very often, but when I finally do have something to say, this is where you&rsquo;ll find it.</p>
 			</TextBlock>
-      <BlogList posts={posts} />
+      <BlogList posts={posts} isAdmin={isAdmin} />
     </div>
   )
 }

@@ -45,13 +45,34 @@
     }
   }
 
-	& iframe {
+	& iframe,
+	& video {
 		border: 0.5em solid;
 		display: block;
 		margin: 2.5em auto !important;
+		aspect-ratio: 16 / 9;
+		height: auto;
+		width: 100%;
 
 		@nest h2 + & {
 			margin-top: 2em !important;
+		}
+	}
+
+	& video {
+		object-fit: cover;
+	}
+
+	& :global(.audioWrapper) {
+		position: relative;
+
+		& audio {
+			background-color: #000;
+			bottom: 0.5em;
+			display: block;
+			left: 0.5em;
+			position: absolute;
+			width: calc(100% - 1em);
 		}
 	}
 
@@ -69,7 +90,8 @@
 			margin-top: 2em !important;
 		}
 
-		& iframe {
+		& iframe,
+		& video {
 			margin: 0 auto !important;
 		}
 	}
@@ -87,12 +109,6 @@
 		border: 0.5em solid;
 		margin: 0 auto;
 		max-height: 24em;
-	}
-
-	& iframe {
-		aspect-ratio: 16 / 9;
-		height: auto;
-		width: 100%;
 	}
 
 	& blockquote {

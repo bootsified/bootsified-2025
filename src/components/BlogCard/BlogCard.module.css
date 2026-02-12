@@ -72,6 +72,22 @@
   line-height: 1.2;
   margin: 0;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.draftBadge {
+  background: #ffa500;
+  color: #000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .meta {

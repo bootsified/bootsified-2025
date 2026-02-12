@@ -9,14 +9,16 @@ interface BlogPost {
   featuredImage?: string
   publishedAt: Date | string
   author: string
+  status?: string
   categories?: { slug: string; name: string }[]
 }
 
 interface BlogListProps {
   posts: BlogPost[]
+  isAdmin?: boolean
 }
 
-const BlogList = ({ posts }: BlogListProps) => {
+const BlogList = ({ posts, isAdmin = false }: BlogListProps) => {
   if (!posts || posts.length === 0) {
     return (
       <div className={styles.empty}>
@@ -29,7 +31,7 @@ const BlogList = ({ posts }: BlogListProps) => {
     <div className={styles.container}>
       <div className={styles.grid}>
         {posts.map(post => (
-          <BlogCard key={post.slug} post={post} className={styles.card} />
+          <BlogCard key={post.slug} post={post} className={styles.card} isAdmin={isAdmin} />
         ))}
       </div>
     </div>
